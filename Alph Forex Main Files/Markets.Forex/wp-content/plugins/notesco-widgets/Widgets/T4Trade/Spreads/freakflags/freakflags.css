@@ -1,0 +1,158 @@
+/*!*****************************************************
+
+Freak Flags, Copyright Â©2021 Michael P. Cohen. Freak flags is licenced under the MIT licence.  
+
+For complete information visit: www.freakflagsprite.com 
+
+******************************************************/
+
+.fflag {
+    background-image: url(flagSprite42.png);
+    background-repeat: no-repeat;
+    background-size: 100% 49494%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    box-sizing: content-box;
+}
+
+.fflag-CH {
+    box-shadow: none !important
+}
+
+.fflag-ZA {
+    background-position: left 0.2287%
+}
+
+.fflag-BR {
+    background-position: center 0.4524%
+}
+
+.fflag-CA {
+    background-position: center 0.6721%
+}
+
+.fflag-MX {
+    background-position: center 0.8958%
+}
+
+.fflag-US {
+    background-position: center 1.1162%
+}
+
+.fflag-CN {
+    background-position: left 1.3379%
+}
+
+.fflag-HK {
+    background-position: center 1.5589%
+}
+
+.fflag-JP {
+    background-position: center 1.7805%
+}
+
+.fflag-SG {
+    background-position: left 2.0047%
+}
+
+.fflag-CZ {
+    background-position: left 2.2247%
+}
+
+.fflag-DK {
+    background-position: center 2.4467%
+}
+
+.fflag-HU {
+    background-position: center 2.6674%
+}
+
+.fflag-NO {
+    background-position: center 2.8931%
+}
+
+.fflag-PL {
+    background-position: center 3.1125%
+}
+
+.fflag-RU {
+    background-position: center 3.3325%
+}
+
+.fflag-SE {
+    background-position: center 3.5542%
+}
+
+.fflag-CH {
+    background-position: center 3.7759%
+}
+
+.fflag-TR {
+    background-position: center 4.0015%
+}
+
+.fflag-GB {
+    background-position: center 4.2229%
+}
+
+.fflag-AU {
+    background-position: center 4.441%
+}
+
+.fflag-NZ {
+    background-position: center 4.66663%
+}
+
+.fflag-EU {
+    background-position: center 4.8844%
+}
+
+.fflag.ff-sm {
+    width: 18px;
+    height: 11px
+}
+
+.fflag.ff-md {
+    width: 27px;
+    height: 17px
+}
+
+.fflag.ff-lg {
+    width: 42px;
+    height: 27px
+}
+
+.fflag.ff-xl {
+    width: 60px;
+    height: 37px
+}
+
+/* ff-round = circular icons */
+
+.ff-round {
+    background-size: 160%;
+    background-clip: content-box;
+    border-radius: 50%;
+}
+
+.ff-round.ff-sm {
+    width: 12px;
+    height: 12px
+}
+
+.ff-round.ff-md {
+    width: 18px;
+    height: 18px
+}
+
+.ff-round.ff-lg {
+    width: 24px;
+    height: 24px
+}
+
+.ff-round.ff-xl {
+    width: 32px;
+    height: 32px
+}
