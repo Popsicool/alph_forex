@@ -939,6 +939,7 @@ html[lang="pt-PT"] .page-id-6988 h1 {
               </li>
               <!-- <li class="nav_name" style="color: aliceblue;"><img src="/Home page/wp-content/uploads/2021/10/Alphforex logo.png" class="lo" alt=""></li>  -->
                     {% if user.is_authenticated %}
+		<li class="main_nav"><a href="{% url 'dashboard:dash' %}" >My Dashboard</a></li>
         <li class="main_nav"><a href="{% url 'authz:logout' %}" >Logout</a></li>
         {% else %}
         
