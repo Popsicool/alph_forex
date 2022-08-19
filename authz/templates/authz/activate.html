@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Hi {{user.first_name}}
+Please use the link below to verify your account.
+
+http://{{domain}}{% url 'authz:activate' uidb64=uid token=token %}
+
+
+{% endautoescape %}

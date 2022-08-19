@@ -1,0 +1,11 @@
+{% for message in messages %}
+{{ message }}
+
+{% endfor %}
+<ul>
+    <li><a href="{% url 'dashboard:deposit' %}">Deposit</a></li>
+    <li><a href="{% url 'dashboard:withdraw' %}">Withdraw</a></li>
+    <li><a href="{% url 'dashboard:transfer' %}">Internal transfer</a></li>
+    <li><a href="{% url 'dashboard:history' %}">History</a></li>
+</ul>
+<h3>Balance : =N= {{balance}}</h3>
