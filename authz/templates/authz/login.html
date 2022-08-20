@@ -105,7 +105,7 @@
 		<!-- Body of Form starts -->
 		<div class="container">
 			{% for message in messages %}
-<h4 class="fl fontLabel">  {{message}}</h4>
+<p style='color:white';>  {{message}}</p>
 {% endfor %}
 			<form method="post" autocomplete="on" action="{% url 'authz:login' %}">
 				{% csrf_token %}

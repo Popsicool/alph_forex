@@ -1,1 +1,9 @@
-fail
+<h1>Token not valid!</h1>
+<h3>Its either you've used the token and your account has been verified or it has expired</h3>
+<form method="post" autocomplete="on" action="{% url 'authz:resend_email' %}">
+				{% csrf_token %}
+                <label for="email">Enter your Email:</label><br>
+                <input type="email"><br>
+                <input type="submit" value="Resend verification Email">
+            
+            </form>

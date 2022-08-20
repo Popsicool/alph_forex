@@ -108,8 +108,8 @@ background-color: black;
     </style>
     <!-- Body of Form starts -->
   	<div class="container">
-		{% for message in messages %}
-{{message}}
+	{% for message in messages %}
+<p style='color:white';>  {{message}}</p>
 {% endfor %}
       <form method="post" autocomplete="on">
 				{% csrf_token %}

@@ -47,12 +47,12 @@ def login(request):
 
 
                 auth.login(request, user)
-                return redirect('dashboard:dash')
+                return redirect('alph:index')
             else:
-                messages.info(request, 'Invalid credeeeeentials')
+                messages.info(request, 'Invalid credentials')
                 return redirect('authz:login')
         else:
-            messages.info(request, 'Invalid credaaaantials')
+            messages.info(request, 'Invalid credentials')
             return redirect('authz:login')
     return render(request, "authz/login.html")
 
@@ -118,3 +118,12 @@ def activate_user(request,uidb64,token):
         return redirect('authz:login')
 
     return render(request, 'authz/activation_fail.html', {'user':user})
+
+
+def resend_email(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        user= User.objects.get(email=email)
+        send_activation_email(user,request)
+        messages.info(request, "email resent")
+        return redirect('authz:login')
