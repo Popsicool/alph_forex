@@ -55,7 +55,7 @@ class transfer(LoginRequiredMixin, View):
         id = owner.id
         if int(owner.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
-            return render(request, "dashboard/transfer.html")
+            return render(request, "dashboard/banktransfer.html")
         else:
             if User.objects.filter(email=recepient).exists():
                 balance = int(owner.balance) - int(amount)
@@ -70,9 +70,9 @@ class transfer(LoginRequiredMixin, View):
                 messages.info(request, 'user does not exit')
 
 
-        return render(request, "dashboard/transfer.html")
+        return render(request, "dashboard/banktransfer.html")
     def get(self, request):
-        return render(request, "dashboard/transfer.html")
+        return render(request, "dashboard/banktransfer.html")
 
 class history(LoginRequiredMixin, View):
     def post(self, request):

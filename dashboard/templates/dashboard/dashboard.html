@@ -1,11 +1,1197 @@
-{% for message in messages %}
-{{ message }}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<meta name="language" content="en" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static '/lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static '/lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static '/lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static '/lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static '/lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static '/lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static '/lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static '/lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/lte/js/popper.min.js?v=' %}"></script>
+	<script type="text/javascript" src="{% static '/lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static '/lte/js/widget-providers-list.js?v=' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static '/lte/css/page-account-home.css' %}" />
+							<!-- <link rel="icon" type="image/png" href="/lte/img/favicon.png" /> -->
+		  <script>
+    function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+      }
 
-{% endfor %}
-<ul>
-    <li><a href="{% url 'dashboard:deposit' %}">Deposit</a></li>
-    <li><a href="{% url 'dashboard:withdraw' %}">Withdraw</a></li>
-    <li><a href="{% url 'dashboard:transfer' %}">Internal transfer</a></li>
-    <li><a href="{% url 'dashboard:history' %}">History</a></li>
-</ul>
-<h3>Balance : =N= {{balance}}</h3>
+      return vars;
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function isEmpty(obj) {
+      for(var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+
+      return JSON.stringify(obj) === JSON.stringify(new Object());
+    }
+
+    var vars = getUrlVars();
+    var cookieValues = new Object();
+
+    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
+    for(var entry in vars) {
+      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
+        cookieValues[entry] = vars[entry];
+      }
+    }
+
+    if (!isEmpty(cookieValues)) {
+      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
+    
+
+
+  </script>
+
+	<!-- livechat preview: 0. -->
+	<script type="text/javascript">
+	  var __lc = { };
+	  var currentTime = '2022-08-19 11:01:17';
+	  	  __lc.params = [
+		 { name: 'Name', value: 'test user' },
+		 { name: 'SalesCode', value: '4387' }
+	  ];
+	  	  (function() {
+		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	  })();
+	</script>
+
+	
+
+	
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
+
+
+	<!-- PushWoosh goes here -->
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static '/lte/js/pushwoosh-service-worker-init.js?v=' %}"></script>
+</head>	<body class="sidebar-mini client-portal lang-en cont-ea">
+		
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+
+
+		
+			<div class="wrapper">
+				
+				<nav class="main-header navbar navbar-expand   ">
+    
+                        <a href="#" class="brand-link d-block d-lg-none">
+                <div class="logo"></div>
+            </a>
+                <ul class="navbar-nav left">
+                    <li class="nav-item hamburger">
+                <a href="#" class="nav-link" data-widget="pushmenu" role="button" ><span class="icon icon-hamburger"></span></a>
+            </li>
+            </ul>
+        <ul class=" navbar-nav right ml-auto">
+                    
+	<li class="nav-item dropdown language">
+																			<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+					en
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+			    </a>
+																																																				<div class="dropdown-menu dropdown-menu-right">
+							
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-ar"></span>
+						العربية
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-de"></span>
+						Deutsch
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-en"></span>
+						English
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-es"></span>
+						Español
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-fr"></span>
+						Français
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-nl"></span>
+						Dutch
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-id"></span>
+						Bahasa Indonesia
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-it"></span>
+						Italiano
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-ms"></span>
+						Bahasa Melayu
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-pt"></span>
+						Português
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-vi"></span>
+						Tiếng Việt
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-zh"></span>
+						中文
+					</a>
+									</div>
+	</li>
+
+            <li class="nav-item user d-flex">
+                                                
+    
+    
+
+                                                <a href="#"
+           class="popover_inline icon-center popover-username"
+           data-toggle="popover"
+           data-trigger="hover"
+           data-placement="bottom"
+           data-html="true"
+           data-content="Please proceed with step <span class='yellow'>2</span> and verify your identity"
+        >
+            <span class="icon icon-note kyc-status red"></span>
+        </a>
+        <script>
+        $(document).ready(function() {
+            $('.popover-username').popover().on("inserted.bs.popover", function(){
+                $(".popover").addClass('width-10');
+            })
+        });
+        var poi_not_uploaded = "Please proceed with step <span class='yellow'>2</span> and verify your identity",
+            poa_not_uploaded = "Your profile is almost verified, please upload your proof of address",
+            documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
+    </script>
+
+                                <a href=" #" class="nav-link pl-1">
+                    <span>test user</span>
+                </a>
+            </li>
+            <li class="nav-item user">
+                <a href=" # " class="nav-link">test@gmail.com</a>
+            </li>
+            <li class="nav-item logout">
+                <a href="#" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
+            </li>
+            </ul>
+</nav>				
+<aside class="main-sidebar sidebar-no-expand">
+	<a href="#" class="brand-link logo-switch ">
+		<div class="logo-xs"></div>
+		<div class="logo-xl"></div>
+	</a>
+	<div class="sidebar">
+		<nav>
+			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
+															<li class="nav-item register">
+							<a href="#" data-action='new-account'
+							   class="nav-link button-click-action">
+								<span class="nav-icon icon icon-open-new-account"></span>
+								<p>Open New Account</p>
+							</a>
+						</li>
+													
+	<li class="nav-item"><a href="#" class="nav-link active" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	
+    </li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>					</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+									<li class="nav-item has-treeview language d-block d-lg-none">
+												<a href="#" class="nav-link">
+				<span class="nav-icon flag flag-en"></span>
+				<p>
+					English
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+				</p>
+			</a>
+																															<ul class="nav nav-treeview">
+					
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-ar"></span>
+						<p>
+							العربية
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-de"></span>
+						<p>
+							Deutsch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-en"></span>
+						<p>
+							English
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-es"></span>
+						<p>
+							Español
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-fr"></span>
+						<p>
+							Français
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-nl"></span>
+						<p>
+							Dutch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-id"></span>
+						<p>
+							Bahasa Indonesia
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-it"></span>
+						<p>
+							Italiano
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-ms"></span>
+						<p>
+							Bahasa Melayu
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-pt"></span>
+						<p>
+							Português
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-vi"></span>
+						<p>
+							Tiếng Việt
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-zh"></span>
+						<p>
+							中文
+						</p>
+					</a>
+				</li>
+						</ul>
+</li>
+													<li class="nav-item d-block d-lg-none">
+						<a href="#" class="nav-link">
+															<span class="nav-icon icon icon-logout"></span>
+														<p >Logout</p>
+						</a>
+					</li>
+											</ul>
+
+					</nav>
+	</div>
+</aside>
+				
+
+
+<div class="main-content content-wrapper" style="position: relative">
+	<div class="row main-row">
+		
+		
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="affiliatePopup" tabindex="-1" role="dialog" aria-labelledby="affiliatePopup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body row justify-content-center text-center">
+                <div class="col-sm-8">
+                    <img src="{% static '/lte/img/approve.svg' %}" class="approve">
+                </div>
+                <div class="col-sm-8">
+                    <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
+                </div>
+                <div class="col-sm-8 success-block-margin">Thank you for registering with the affiliate program.<br>Your commissions account has been successfully created.</div>
+                <div class="col-sm-8 success-block-margin"><p>Please note, your affiliate account requires further approval. We will notify you by email as soon as it is approved.</p></div>
+                <div class="col-sm-8 success-block-margin">
+                    <button class="btn btn-primary" data-dismiss="modal">GET STARTED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #affiliatePopup .modal-content {
+        border-radius: 0;
+        border: solid 1px #d0d4df;
+        width: 780px;
+        height: 760px;
+        flex-grow: 0;
+    }
+
+    .success-block-margin {
+        margin-top: 15px;
+    }
+    #affiliatePopup .btn-primary {
+        background-color: #0076fe;
+    }
+
+    #affiliatePopup .modal-body {
+        margin-top: 138px;
+        margin-bottom: 175px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script type="application/javascript">
+    $(function (){
+        if (Cookies.get('showAffiliatePopup')) {
+            $('#affiliatePopup').modal('toggle');
+            Cookies.remove('showAffiliatePopup');
+        }
+    });
+</script>		
+
+
+		<div class="col-sm-12">
+			<div class="top-notifications">
+				
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-11 col-lg-8 main-content-container">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="carousel-desktop" class="carousel slide d-none d-lg-block d-xl-block" data-ride="carousel">
+        <div class="carousel-inner">
+                            <div class="carousel-item" order="1">
+                    <!-- <a href="#"><img class="d-block w-100" src="https://shared.gighl.com/t4t-banners-carusel/T4T-Top%20Traders-CP-EN%20(1).jpg" alt="slider" /></a> -->
+                </div>
+                                                                    </div>
+        
+        <div class="carousel-custom-arrows-wrapper">
+            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselDesktop.carousel('prev')" alt="previous" />
+            <div class="carousel-indicators">
+                                    <li data-target="#carousel-desktop"></li>
+                                                                                            </div>
+            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselDesktop.carousel('next')" alt="next" />
+        </div>
+    </div>
+    <div id="carousel-mobile" class="carousel slide d-lg-none d-xl-none" data-ride="carousel">
+        <div class="carousel-inner">
+                            <div class="carousel-item" order="1">
+                    <a href="{% static '/en/client-portal/top-traders-league' %}">
+                        <img class="d-block w-100" src="https://shared.gighl.com/t4t-banners-carusel/T4T-Top%20Traders-CP-EN-Mob%20(1).jpg" alt="slider" />
+                    </a>
+                </div>
+                                                                    </div>
+        
+        <div class="carousel-custom-arrows-wrapper">
+            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselMobile.carousel('prev')" alt="previous" />
+            <div class="carousel-indicators">
+                                    <li data-target="#carousel-mobile"></li>
+                                                                                            </div>
+            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselMobile.carousel('next')" alt="next" />
+        </div>
+    </div>
+    <script>
+        const carouselDesktop = $('#carousel-desktop');
+        const carouselMobile = $('#carousel-mobile');
+        const bootstrap4Configurations = JSON.parse('{"interval":6000,"pause":"hover","ride":false,"wrap":true,"keyboard":true}');
+
+        //ordering of sliders
+        carouselDesktop.find('.carousel-item').each(function() {
+            let order_num = $(this).attr('order');
+            $(this).insertBefore(carouselDesktop.find(".carousel-inner > .carousel-item:nth-child("+order_num+")"));
+        });
+
+        carouselMobile.find('.carousel-item').each(function() {
+            let order_num = $(this).attr('order');
+            $(this).insertBefore(carouselMobile.find(".carousel-inner > .carousel-item:nth-child("+order_num+")"));
+        });
+
+        $(document).ready(function() {
+            carouselDesktop.find('div.carousel-item').first().addClass('active');
+            carouselDesktop.find('.carousel-indicators li').first().addClass('active');
+            carouselDesktop.carousel(bootstrap4Configurations);
+
+            carouselMobile.find('div.carousel-item').first().addClass('active');
+            carouselMobile.find('.carousel-indicators li').first().addClass('active');
+            carouselMobile.carousel(bootstrap4Configurations);
+
+            //remove arrow indicators in case of slides < 2
+            if (carouselDesktop.find('.carousel-indicators > li').length < 2) {
+                carouselDesktop.find('.carousel-custom-arrows-wrapper').remove();
+            }
+            if (carouselMobile.find('.carousel-indicators > li').length < 2) {
+                carouselMobile.find('.carousel-custom-arrows-wrapper').remove();
+            }
+        });
+
+        //swap left / right events on the carousel only on smaller devices.
+        carouselMobile.on('touchstart', function(event) {
+            const xClick = event.originalEvent.touches[0].pageX;
+            $(this).one('touchmove', function(event) {
+                const xMove = event.originalEvent.touches[0].pageX;
+                const sensitivityInPx = 5;
+
+                if(Math.floor(xClick - xMove) > sensitivityInPx) {
+                    $(this).carousel('next');
+                }
+                else if(Math.floor(xClick - xMove) < -sensitivityInPx) {
+                    $(this).carousel('prev');
+                }
+            });
+            $(this).on('touchend', function() {
+                $(this).off('touchmove');
+            });
+        });
+    </script>
+
+							<div class="content-header">
+										<h1 >Dashboard</h1>
+				</div>
+						<section class="content">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+												
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="clear: both;"></div>
+<div class="row ea">
+	<div class="col-sm-12 col-md-3 col-lg-3 d-none d-lg-block">
+		<a href="{% url 'dashboard:deposit' %}" data-action='deposit' class="btn btn-default btn-block btn-green button-click-action">Deposit</a>
+	</div>
+	<div class="col-sm-12 col-md-3 col-lg-3 d-none d-lg-block">
+		<a href="{% url 'dashboard:withdraw' %}"  data-action='withdraw'  class="btn btn-default btn-block  btn-green-outline  wd_button button-click-action">Withdrawal</a>
+	</div>
+		<div class="col-6 col-sm-6 col-md-6 col-lg-3 filter-results">
+		<a href="#" class="btn btn-default btn-block btn-blue-outline collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="filter-results"><span class="icon icon-filter-results"></span>Filter Results</a>
+	</div>
+	<div class="col-6 col-sm-6 col-md-6 col-lg-3 d-lg-none open-account">
+		<a href="#" data-action="new-account" class="btn btn-default btn-block btn-blue-no-outline button-click-action"><span class="icon icon-open-new-account"></span>Open New Account</a>
+	</div>
+</div>
+<hr>
+<div class="collapse" id="filter-results">
+	<form method="post" action="" class="">
+		<div class="card">
+			<div class="card-body">
+				<div class="form-row">
+					<div class="col-auto select">
+						<label for="currency">Currency</label>
+						<select class="selectpicker" id="filter_currency" title="Select" multiple>
+															<option value="USC">USC</option>
+													</select>
+					</div>
+					<div class="col-auto select">
+						<label for="status">Status</label>
+						<select class="selectpicker" id="filter_status" title="Select" multiple>
+															<option value="readOnly">readOnly</option>
+													</select>
+					</div>
+					<div class="col-auto select">
+						<label for="account-type">Account Type</label>
+
+						<select class="selectpicker" id="filter_account-type" title="Select" multiple>
+															<option value="57">Cent</option>
+													</select>
+					</div>
+					<div class="col-auto action">
+						<button id="filter_submit" class="btn btn-default btn-blue" type="submit">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>            <div class="card account-card" data-account-type="57" data-account-currency="USC" data-account-status="readOnly">
+    <div class="card-header">
+        <a class="card-action" data-card-widget="collapse" data-toggle="tooltip">
+            <h5>
+                <span class="icon icon-account "></span>
+                <p>
+                    <b>Cent
+                                                                    </b> | 11174679 |
+                    Balance <b>USC0</b>
+                </p>
+                <span class="margin-left-auto">
+                                </span>
+                
+
+                <span class="status light-blue">Read Only</span>
+            </h5>
+        </a>
+        <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"><span class="icon icon-dropdown-open"></span></button>
+        </div>
+    </div>
+    <div class="card-header pt-0 pb-0">
+            </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="info-box">
+                    <div class="info-box-content">
+                                                            <div class="ribbon-wrapper ">
+            <a href="#"
+               class="popover"
+               data-toggle="popover"
+               data-trigger="hover"
+               data-placement="left"
+               data-html="true"
+               data-content="<h5>Equity</h5><p>The sum of your trading account balance including any bonuses and all unrealized profits or losses associated with open positions</p><hr><h5>Balance</h5><p>Amount of cash in your trading account not taking into account any open positions and or unrealized profit</p><hr><h5>Credit</h5><p>Credit Bonus. This amount non-withdrawable</p><hr><h5>Free Margin</h5><p>Available money for trading</p>"
+            >
+                <span class="icon icon-info yellow"></span>
+            </a>
+        </div>
+                            <p>Equity:</p>
+                        <h3><b>USC0</b></h3>
+                        <p>Balance: <b>{{balance}}</b></p>
+                        <p>Credit: <b>USC0</b></p>
+                        <p>Free Margin: <b>USC0</b></p>
+                                                    <a href="{% url 'dashboard:deposit' %}" data-action='deposit' class="btn btn-default btn-green btn-open-account button-click-action">Deposit</a>
+                                            </div>
+                </div>
+            </div>
+            <div id="N1" class="col-sm-12 col-md-12 col-lg-4 collapse hide">
+                <div class="info-box">
+                    <div class="info-box-content">
+                                                            <div class="ribbon-wrapper ">
+            <a href="#"
+               class="popover"
+               data-toggle="popover"
+               data-trigger="hover"
+               data-placement="left"
+               data-html="true"
+               data-content="<h5>Reset MT Password</h5><p>Please note that once you click on 'Reset Password' you will automatically receive an email with a new password.<br />You may need to check your spam folder if the message is not delivered to your inbox</p>"
+            >
+                <span class="icon icon-info yellow"></span>
+            </a>
+        </div>
+                            <table class="table">
+                            <tr>
+                                <td>MT4 Password</td>
+                                <td>
+                                                                            <a href="#" class="reset_mt4_password" data-toggle="modal" data-target="#modal_mt_reset_password" data-mt4_login="11174679">
+                                            Reset
+                                        </a>
+                                                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Account Status</td>
+                                <td><b>ReadOnly</b></td>
+                            </tr>
+                            <tr>
+                                <td>Bonus Scheme</td>
+                                <td><b>Not Applicable</b></td>
+                            </tr>
+                            <tr>
+                                <td>Trading Platform</td>
+                                <td>
+                                    <a class="" data-toggle="dropdown">Metatrader 4 <span class="icon icon-dropdown-open text-right"></span></a>
+                                    <div class="dropdown-menu">
+                                                                                    <a href="#" class="dropdown-item" target="_blank">
+                                                Download
+                                            </a>
+                                                                                                                            <a href="#" class="dropdown-item" target="_blank">
+                                                Launch Webtrader
+                                            </a>
+                                                                                
+                                                                            </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Server</td>
+                                <td>
+                                    <b>
+                                                                                    T4Trade-Real1
+                                                                            </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Leverage</td>
+                                <td>
+                                                                                                                        <b>1:500</b>
+                                                                                                            </td>
+                            </tr>
+                                                                                                            </table>
+                    </div>
+                </div>
+            </div>
+            <div id="N1" class="col-sm-12 col-md-12 col-lg-4 collapse hide">
+                <div class="info-box">
+                    <div class="info-box-content">
+                                                                        <table class="table">
+                            <tr>
+                                <td>Transaction history</td>
+                                <td>
+                                    <a href="{% url 'dashboard:history' %}">
+                                        View history
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr>
+                        <form action="post">
+                            <div id="datepicker" class="form-group">
+                                <label for="datepicker_from_1">Trading report</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" name="datepicker_from_1" id="datepicker_from_1" value="">
+                                    <div class="input-group-prepend calendar"><span class="input-group-text"><span class="nav-icon icon icon-calendar"></span></span></div>
+                                </div>
+                            </div>
+                            <div id="datepicker" class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" name="datepicker_to_1" id="datepicker_to_1" value="">
+                                    <div class="input-group-prepend calendar"><span class="input-group-text"><span class="nav-icon icon icon-calendar"></span></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default btn-blue trading_report_submit" data-order="1" data-account="11174679" type="submit">SUBMIT</button>
+                                                                    <a href="#"
+           class="popover_inline "
+           data-toggle="popover"
+           data-trigger="hover"
+           data-placement="left"
+           data-html="true"
+           data-content="Click on the Submit button to receive your Trading report via email"
+        >
+            <span class="icon icon-info yellow"></span>
+        </a>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-block d-lg-none collapse-action">
+            <a href="#" class="collapsed" data-toggle="collapse">
+                <p class="more">Show more details</p>
+                <p class="less">Show less details</p>
+                <span class="icon icon-dropdown-close"></span>
+            </a>
+        </div>
+    </div>
+</div>
+    
+
+
+    
+
+<div class="modal fade" id="modal_mt_reset_password" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="blue"><b>Reset MT4 Password</b></h5>
+				<button type="button" class="close" data-dismiss="modal">
+					<span class="icon icon-close"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Please note that once you click on 'Reset Password' you will automatically receive an email with a new password. You may need to check your spam folder if the message is not delivered to your inbox.</p>
+				<a href='#' id='btn-reset-ok' class='btn btn-default btn-green'>RESET PASSWORD</a>
+			</div>
+		</div>
+	</div>
+</div><div class="modal modal-info fade" id="modal_trading_report" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon icon-close"></span>
+                </button>
+            </div>
+            <div class="modal-body center">
+                                <span class="icon icon-tax blue"></span><h5 class="blue"><strong>Congratulations</strong></h5><p>Your Trading Report will be generated and sent to you via email soon.</p>
+                <button type='button' class='btn btn-default btn-blue' data-dismiss='modal'>BACK TO DASHBOARD</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    var context = 'ea';
+    var accounts = {
+    "11174679": {
+        "id": "11174679",
+        "login": "11174679",
+        "tableId": 3234628,
+        "currencySymbol": "USC",
+        "currency": "USC",
+        "flag": "us",
+        "type": 57,
+        "typeTitle": "Cent",
+        "leverage": 500,
+        "hidden": 0,
+        "productType": "Not Applicable",
+        "changeLeverage": false,
+        "reset": true,
+        "subscribeOnStatement": true,
+        "serverName": "T4Trade-Real1",
+        "created": "2022-08-18 19:25:37.159632",
+        "managed_master": null,
+        "managed_promo_code": "",
+        "managed_type": null,
+        "ibFunded": 0,
+        "accountType": "personal",
+        "status": "readOnly",
+        "balance": "0",
+        "equity": "0",
+        "credit": "0",
+        "margin_free": "0",
+        "server": "1",
+        "webTrader": true,
+        "downloadPlatform": true,
+        "unarchive": true,
+        "suspended": false,
+        "platformTitle": "Metatrader 4",
+        "social_type": ""
+    }
+};
+    var wallets = null;
+    var account_types = {
+    "2": {
+        "title": "Live Floating Spread Account"
+    },
+    "5": {
+        "title": "Live Fixed Spread Account"
+    },
+    "7": {
+        "title": "Live Zero Fixed Spread Account"
+    },
+    "3": {
+        "title": "STP\/ECN Account NO Commission"
+    },
+    "6": {
+        "title": "STP\/ECN Account Zero Spread"
+    },
+    "4": {
+        "title": "Binary Options Account"
+    },
+    "8": {
+        "title": "Spread Betting"
+    },
+    "9": {
+        "title": "IB"
+    },
+    "10": {
+        "title": "MultiAsset"
+    },
+    "11": {
+        "title": "IB Spread Betting"
+    },
+    "13": {
+        "title": "IB MultiAsset"
+    },
+    "14": {
+        "title": "Mirror \u2013 Live Floating Spread"
+    },
+    "15": {
+        "title": "Mirror \u2013 STP\/ECN No Commission"
+    },
+    "16": {
+        "title": "Mirror \u2013 Live Floating Spread \u2013 New"
+    },
+    "17": {
+        "title": "Mirror \u2013 STP\/ECN No Commission \u2013 New"
+    },
+    "18": {
+        "title": "Mirror \u2013 Live Floating Spread \u2013 Old"
+    },
+    "19": {
+        "title": "Mirror \u2013 STP\/ECN No Commission \u2013 Old"
+    },
+    "20": {
+        "title": "PM \u2013 Live Floating Spread"
+    },
+    "21": {
+        "title": "PM \u2013 STP\/ECN No Commission"
+    },
+    "22": {
+        "title": "PM \u2013 Live Floating Spread \u2013 New"
+    },
+    "23": {
+        "title": "PM \u2013 STP\/ECN No Commission \u2013 New"
+    },
+    "24": {
+        "title": "PM \u2013 Live Floating Spread \u2013 Old"
+    },
+    "25": {
+        "title": "PM \u2013 STP\/ECN No Commission \u2013 Old"
+    },
+    "26": {
+        "title": "PM \u2013 Live Floating Spread \u2013 New"
+    },
+    "27": {
+        "title": "PM \u2013 STP\/ECN No Commission \u2013 New"
+    },
+    "28": {
+        "title": "PM \u2013 Live Floating Spread \u2013 Old"
+    },
+    "29": {
+        "title": "PM \u2013 STP\/ECN No Commission \u2013 Old"
+    },
+    "30": {
+        "title": "PM - Live Floating Spread"
+    },
+    "31": {
+        "title": "PM - STP\/ECN No Commission"
+    },
+    "32": {
+        "title": "Referral"
+    },
+    "33": {
+        "title": "E-Wallet"
+    },
+    "34": {
+        "title": "STP\/ECN Absolute Zero"
+    },
+    "35": {
+        "title": "Local payment system"
+    },
+    "36": {
+        "title": "STP\/ECN Floating Account"
+    },
+    "37": {
+        "title": "Pro STP Account"
+    },
+    "38": {
+        "title": "Standard STP Account"
+    },
+    "41": {
+        "title": "Value Account"
+    },
+    "39": {
+        "title": "Sabre"
+    },
+    "40": {
+        "title": "Rapier"
+    },
+    "42": {
+        "title": "Classic"
+    },
+    "43": {
+        "title": "Standard"
+    },
+    "44": {
+        "title": "Professional"
+    },
+    "45": {
+        "title": "Swap Free"
+    },
+    "46": {
+        "title": "Crypto Wallet"
+    },
+    "47": {
+        "title": "Premium"
+    },
+    "48": {
+        "title": "Digital Asset"
+    },
+    "49": {
+        "title": "STP\/ECN Zero"
+    },
+    "50": {
+        "title": "Pro Spread"
+    },
+    "51": {
+        "title": "Equity Bonus"
+    },
+    "52": {
+        "title": "Standard"
+    },
+    "53": {
+        "title": "Premium Raw Spread"
+    },
+    "54": {
+        "title": "Mirror Trading"
+    },
+    "55": {
+        "title": "TREX"
+    },
+    "56": {
+        "title": "Affiliate Commissions"
+    },
+    "57": {
+        "title": "Cent"
+    },
+    "60": {
+        "title": "Copy Trade"
+    },
+    "59": {
+        "title": "Copy Trade Professional"
+    },
+    "61": {
+        "title": "Practice  Account (STP)"
+    },
+    "62": {
+        "title": "Weekend  Account (STP)"
+    },
+    "63": {
+        "title": "Master  account (STP)"
+    },
+    "64": {
+        "title": "STP Swap Free"
+    },
+    "65": {
+        "title": "VIP Zero Spread"
+    }
+};
+    var notAvailableLabel = 'Not Available';
+    var archivedLabel = 'Archived';
+
+    var actionSuccessTemplate = '<div id="ajax_success" class="alert alert-success" role="alert" > <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span class="icon icon-close"></span> </button> <span class="icon icon-notification-approve"></span> <b></b> <span id="notification" class="collapse show"> _replaceThis_ </span> </div>';
+    var actionFailTemplate = '<div id="ajax_fail" class="alert alert-danger" role="alert" > <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span class="icon icon-close"></span> </button> <span class="icon icon-notification-error"></span> <b></b> <span id="notification" class="collapse show"> _replaceThis_ </span> </div>';
+    var actionSuccessMessage = 'Success';
+    var actionFailMessage = 'Error';
+</script>
+											</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>				
+<footer class="main-footer  ">
+    <div class="row">
+                    <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
+                <div class="row">
+                                                                <div class="col-sm-12 col-md-3 col-md-3 ">
+                            <p>&copy; 2022 T4Trade.<br/>All Rights Reserved.</p>
+                                                                                    
+                            
+                            
+                            
+                            
+                            
+                                                    </div>
+                                                                <div class="col-sm-12 col-md-9 ">
+                                                        <p>T4Trade, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+<p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
+<p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
+<p><strong>Risk Warning:</strong></p>
+<p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
+
+</p>
+<p>T4Trade does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static '/lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</footer>
+    
+
+<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
+</script>
+<script>
+    Sentry.init({
+        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
+        release: ''
+    });
+</script>
+
+<script type="text/javascript">
+    
+    
+    
+    var Site = jQuery.extend( { } , {
+        language: "en",
+        ssl: true,
+        context: "ea",
+        domain: "#",
+        brand: "t4trade",
+        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
+        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
+        portalId: "2232054",
+        guid: "e6434b8a-3da1-456c-b4fd-1c68d0a44a72",
+    } );
+</script>
+<script type="text/javascript" src="{% static '/lte/js/jquery-migrate.min.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/jquery-form.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/jquery-widget.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/jquery-cookie.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/jquery-ui.min.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/common.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/sso.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/widget-login.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/deposit-list.js?v=' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/lte/js/referrer.js?v=' %}"></script>
+                <script type="text/javascript" src="{% static '/lte/js/page-account-home.js?v=' %}"></script>
+    			</div>
+		
+	</body>
+</html>
