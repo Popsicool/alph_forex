@@ -514,14 +514,14 @@
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
 		                <div class="text-center">
-		                    <a href="https://www.t4trade.com/en/client-portal/transactions/deposits/bank" class="icon-link-btn"><div class="image nav-BankWire"></div></a>
+		                    <a href="{% url 'dashboard:deposit' %}" class="icon-link-btn"><div class="image nav-BankWire"></div></a>
 							<input type="hidden" class="deposit-method" value="banktransfer" />
 		                    <h3 class="profile-username">Bank Transfer</h3>
 		                </div>
 		        	</div>
 					<div class="card-footer">
 						<div class="text-center">
-							<a href="https://www.t4trade.com/en/client-portal/transactions/deposits/bank" class="btn btn-default btn-block btn-green btn-small-card">Deposit</a>
+							<a href="{% url 'dashboard:deposit' %}" class="btn btn-default btn-block btn-green btn-small-card">Deposit</a>
 							<input type="hidden" class="deposit-method" value="banktransfer" />
 						</div>
 					</div>

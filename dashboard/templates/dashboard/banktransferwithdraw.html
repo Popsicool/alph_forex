@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,25 +8,25 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Bank Transfer</title>
-	<link rel="manifest" href="/lte/js/t4trade/manifest.json">
+	<link rel="manifest" href="{% static 'lte/js/t4trade/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="/lte/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-select.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-datepicker.min.css" />
-	<link rel="stylesheet" href="/lte/css/lte.min.css" />
-	<link rel="stylesheet" href="/lte/css/flags.css" />
-			<link rel="stylesheet" href="/lte/css/icomoon.css" />
-		<link rel="stylesheet" href="/lte/css/style-providers-list.css" />
-	<link rel="stylesheet" href="/lte/css/t4trade/common.css" />
-		<script type="text/javascript" src="/lte/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/lte/js/iframeResizer.min.js"></script>
-	<script type="text/javascript" src="/lte/js/lte.min.js"></script>
-	<script type="text/javascript" src="/lte/js/popper.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="/lte/js/widget-providers-list.js"></script>
-					<link rel="icon" type="image/png" href="/lte/img/favicon.png" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/t4trade/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -98,7 +99,7 @@
 
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="/lte/js/pushwoosh-service-worker-init.js?v="></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js?v=' %}"></script>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -389,7 +390,7 @@
         <div class="modal-content">
             <div class="modal-body row justify-content-center text-center">
                 <div class="col-sm-8">
-                    <img src="/lte/img/approve.svg" class="approve">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
                 </div>
                 <div class="col-sm-8">
                     <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
@@ -753,7 +754,7 @@
 </p>
 <p>T4Trade does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="/lte/img/providers/visa.svg" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -786,20 +787,20 @@
         guid: "590417c5-0013-4f59-861f-93703dc1789c",
     } );
 </script>
-<script type="text/javascript" src="/lte/js/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-form.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-widget.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-cookie.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/lte/js/common.js"></script>
-<script type="text/javascript" src="/lte/js/sso.js"></script>
-<script type="text/javascript" src="/lte/js/widget-login.js"></script>
-<script type="text/javascript" src="/lte/js/deposit-list.js"></script>
-<script type="text/javascript" src="/lte/js/jcarousel/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="/lte/js/referrer.js"></script>
-                <script type="text/javascript" src="/lte/js/jquery.inputmask.bundle.js"></script>
-            <script type="text/javascript" src="/lte/js/page-withdraw-bank.js"></script>
-            <script type="text/javascript" src="/lte/js/transaction_kyc_check.js"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/jquery.inputmask.bundle.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/page-withdraw-bank.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/transaction_kyc_check.js' %}"></script>
     			</div>
 		
     

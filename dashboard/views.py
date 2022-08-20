@@ -80,3 +80,40 @@ class history(LoginRequiredMixin, View):
         return render(request, "dashboard/history.html")
     def get(self, request):
         return render(request, "dashboard/history.html")
+
+
+
+class banktransferwithdraw(LoginRequiredMixin, View):
+    def post(self, request):
+        amount= request.POST['amount']
+        owner = request.user
+
+        id = owner.id
+        if int(owner.balance) < int(amount):
+            messages.info(request, 'Insufficient fund')
+            return render(request, "dashboard/banktransferwithdraw.html")
+        else:
+            balance = int(owner.balance) - int(amount)
+            User.objects.filter(id=id).update(balance=balance)
+            messages.info(request, 'Withdrawal succesfull')
+            return render(request, "dashboard/dashboard.html")
+    def get(self, request):
+        return render(request, "dashboard/banktransferwithdraw.html")
+
+
+class creditcard(LoginRequiredMixin, View):
+    def post(self, request):
+        amount= request.POST['amount']
+        owner = request.user
+
+        id = owner.id
+        if int(owner.balance) < int(amount):
+            messages.info(request, 'Insufficient fund')
+            return render(request, "dashboard/creditcard.html")
+        else:
+            balance = int(owner.balance) - int(amount)
+            User.objects.filter(id=id).update(balance=balance)
+            messages.info(request, 'Withdrawal succesfull')
+            return render(request, "dashboard/creditcard.html")
+    def get(self, request):
+        return render(request, "dashboard/creditcard.html")

@@ -128,17 +128,17 @@
 			    </a>
 																																																				<div class="dropdown-menu dropdown-menu-right">
 							
-									<a href="https://www.t4trade.com/ar/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
 						<span class="flag flag-ar"></span>
 						العربية
 					</a>
 											
-									<a href="https://www.t4trade.com/de/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
 						<span class="flag flag-de"></span>
 						Deutsch
 					</a>
 											
-									<a href="https://www.t4trade.com/en/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
 						<span class="flag flag-en"></span>
 						English
 					</a>
@@ -256,7 +256,7 @@
 																															<ul class="nav nav-treeview">
 					
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/ar/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
 						<span class="nav-icon flag flag-ar"></span>
 						<p>
 							العربية
@@ -265,7 +265,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/de/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
 						<span class="nav-icon flag flag-de"></span>
 						<p>
 							Deutsch
@@ -274,7 +274,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/en/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
 						<span class="nav-icon flag flag-en"></span>
 						<p>
 							English
@@ -639,7 +639,7 @@ Kindly also be advised:<br />
 </p>
 <p>T4Trade does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
