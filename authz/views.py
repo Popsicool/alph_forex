@@ -34,9 +34,8 @@ def send_activation_email(user,request):
 def login(request):
     if request.method == 'POST':
         email= request.POST['email']
-        first_name = request.POST['first_name']
         password = request.POST['password']
-        if User.objects.filter(email=email, first_name=first_name).exists():
+        if User.objects.filter(email=email).exists():
             user = auth.authenticate(email=email,password=password)  
                 
 

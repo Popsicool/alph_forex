@@ -3,7 +3,7 @@
 <form method="post" autocomplete="on" action="{% url 'authz:resend_email' %}">
 				{% csrf_token %}
                 <label for="email">Enter your Email:</label><br>
-                <input type="email"><br>
+                <input type="email" name="email"><br>
                 <input type="submit" value="Resend verification Email">
             
             </form>
