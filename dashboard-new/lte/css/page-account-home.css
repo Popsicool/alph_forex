@@ -1,0 +1,48 @@
+.popover .popover-body{padding:15px}.popover .popover-body
+h5{font-size:14px;font-weight:bold;color:#eb1c24}.popover .popover-body
+p{font-size:14px;color:#222}.main-content .main-content-container .content
+.collapsing{-webkit-transition-duration:0s;transition-duration:0s}.main-content .main-content-container .content .filter-results{margin-left:auto}.main-content .main-content-container .content .card .card-header
+h5{display:inline-block;width:95%;font-weight:unset;margin-bottom:0px}.main-content .main-content-container .content .card .card-header h5
+.icon{float:left}.main-content .main-content-container .content .card .card-header
+p{display:inline-block}.main-content .main-content-container .content .card .card-header h5
+.status{float:right}.main-content .main-content-container .content .card .card-header h5
+.status.green{color:#39b54a}.main-content .main-content-container .content .card .card-header h5
+.status.orange{color:#ff9a07}.main-content .main-content-container .content .card .card-header h5
+.status.red{color:#eb1c24}.main-content .main-content-container .content .card .card-header .card-tools .btn-tool{font-size:16px}.main-content .main-content-container .content .card .card-body.collapse.show{display:none}.main-content .main-content-container .content .card .card-body
+.collapse.hide{display:block}.main-content .main-content-container .content .card .card-body .collapse-action{text-align:center}.main-content .main-content-container .content .card .card-body .collapse-action
+a{color:#222}.main-content .main-content-container .content .card .card-body .collapse-action a.collapsed
+.more{display:inline-block}.main-content .main-content-container .content .card .card-body .collapse-action a.collapsed
+.less{display:none}.main-content .main-content-container .content .card .card-body .collapse-action a:not(.collapsed) .more{display:none}.main-content .main-content-container .content .card .card-body .collapse-action a:not(.collapsed) .less{display:inline-block}.main-content .main-content-container .content .card.account-card .card-body .info-box{min-height:350px}.main-content .main-content-container .content .card.promotion-card .card-body .info-box{min-height:300px}.main-content .main-content-container .content .card .card-body .info-box .info-box-content .ribbon-wrapper{width:20px;height:20px;top:5px;right:5px}.main-content .main-content-container .content .card .card-body .info-box .info-box-content .ribbon-wrapper
+a{border:0px;box-shadow:none}.main-content .main-content-container .content .card .card-body .info-box .info-box-content .ribbon-wrapper
+.icon{font-size:18px}.main-content .main-content-container .content .card .card-body .info-box .info-box-content table
+td{border-top:none;padding:10px
+0px}.main-content .main-content-container .content .card .card-body .info-box .info-box-content table td>a{font-weight:bold}.main-content .main-content-container .content .card .card-body .info-box .info-box-content form .select
+button{background-color:initial;border:1px
+solid #ced4da;text-transform:capitalize}.main-content .main-content-container .content .card .card-body .info-box .info-box-content form
+#datepicker{display:block;width:100%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+img{display:block;margin-left:auto;margin-right:auto;width:98%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content .max-height{height:100%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+a.btn{bottom:0px}.btn-open-account{bottom:12px!important;position:relative!important}.main-content .main-content-container .content .card .card-body .info-box .info-box-content a.btn.tradecopier-banner-register{position:relative;margin-top:1em;margin-bottom:1em}.tradecopier-banner-register{font-size:14px;margin-top:8px}.promotion-flex{display:flex;flex-direction:column}pre{padding:0!important}@media (max-width: 575px){.tradecopier-banner{width:250px}.main-content .main-content-container .content .collapse .card .card-body .form-row{display:block}.main-content .main-content-container .content .card .card-header
+h5{width:100%}.main-content .main-content-container .content .card .card-header h5
+.icon{display:none}.main-content .main-content-container .content .card .card-header h5
+p{float:left}.main-content .main-content-container .content .card .card-header h5
+.status{float:left}.main-content .main-content-container .content .card .card-body{display:block !important}.main-content .main-content-container .content .card .card-body.collapse.show{display:block}.main-content .main-content-container .content .card .card-body
+.collapse.hide{display:none}.main-content .main-content-container .content .card .card-body
+.collapse.show{display:block}.main-content .main-content-container .content .card .card-body .info-box{min-height:auto;text-align:center}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+.btn{display:block;width:100%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+img{display:block;margin-left:auto;margin-right:auto;width:60%;margin-top:20px}}@media (min-width: 576px) and (max-width: 767px){.main-content .main-content-container .content .collapse .card .card-body .form-row{display:block}.main-content .main-content-container .content .card .card-header
+h5{width:100%}.main-content .main-content-container .content .card .card-header h5
+.icon{display:none}.main-content .main-content-container .content .card .card-header h5
+p{float:left}.main-content .main-content-container .content .card .card-header h5
+.status{float:left}.main-content .main-content-container .content .card .card-body{display:block !important}.main-content .main-content-container .content .card .card-body.collapse.show{display:block}.main-content .main-content-container .content .card .card-body
+.collapse.hide{display:none}.main-content .main-content-container .content .card .card-body
+.collapse.show{display:block}.main-content .main-content-container .content .card .card-body .info-box{min-height:auto;text-align:center}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+.btn{position:relative !important;display:block;width:100%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+img{display:block;margin-left:auto;margin-right:auto;width:60%;margin-top:20px}}@media (min-width: 768px) and (max-width: 990px){.main-content .main-content-container .content .collapse .card .card-body .form-row{display:block}.main-content .main-content-container .content .card .card-header
+h5{width:100%}.main-content .main-content-container .content .card .card-header h5
+.icon{display:none}.main-content .main-content-container .content .card .card-header h5
+p{float:left}.main-content .main-content-container .content .card .card-header h5
+.status{float:left}.main-content .main-content-container .content .card .card-body.collapse.show{display:block}.main-content .main-content-container .content .card .card-body{display:block !important}.main-content .main-content-container .content .card .card-body
+.collapse.hide{display:none}.main-content .main-content-container .content .card .card-body
+.collapse.show{display:block}.main-content .main-content-container .content .card .card-body .info-box{min-height:auto;text-align:center}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+.btn{position:relative !important;display:block;width:100%}.main-content .main-content-container .content .card .card-body .info-box .info-box-content
+img{display:block;margin-left:auto;margin-right:auto;width:60%;margin-top:14px}}
