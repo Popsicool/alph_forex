@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,7 +8,7 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Bank Transfer</title>
-	<link rel="manifest" href="{% static 'lte/js/t4trade/manifest.json' %}">
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css=' %}" />
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
@@ -18,7 +17,7 @@
 	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
 			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
 		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
-	<link rel="stylesheet" href="{% static 'lte/css/t4trade/common.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
 		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
@@ -27,7 +26,7 @@
 	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
-					<link rel="icon" type="image/png" href="{% static 'lte/img/t4trade/favicon.png' %}" />
+					<link rel="icon" type="image/png" href="{% static 'lte/img/AlphaForex/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -99,8 +98,8 @@
 
 
 	<!-- PushWoosh goes here -->
-	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js?v=' %}"></script>
+	<script type="text/javascript" src=ABCcdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -128,62 +127,62 @@
 			    </a>
 																																																				<div class="dropdown-menu dropdown-menu-right">
 							
-									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
+									<a href="#/ar/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-ar"></span>
 						العربية
 					</a>
 											
-									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
+									<a href="#/de/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-de"></span>
 						Deutsch
 					</a>
 											
-									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
+									<a href="#/en/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-en"></span>
 						English
 					</a>
 											
-									<a href="https://www.t4trade.com/es/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/es/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-es"></span>
 						Español
 					</a>
 											
-									<a href="https://www.t4trade.com/fr/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/fr/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-fr"></span>
 						Français
 					</a>
 											
-									<a href="https://www.t4trade.com/nl/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/nl/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-nl"></span>
 						Dutch
 					</a>
 											
-									<a href="https://www.t4trade.com/id/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/id/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-id"></span>
 						Bahasa Indonesia
 					</a>
 											
-									<a href="https://www.t4trade.com/it/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/it/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-it"></span>
 						Italiano
 					</a>
 											
-									<a href="https://www.t4trade.com/ms/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/ms/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-ms"></span>
 						Bahasa Melayu
 					</a>
 											
-									<a href="https://www.t4trade.com/pt/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/pt/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-pt"></span>
 						Português
 					</a>
 											
-									<a href="https://www.t4trade.com/vi/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/vi/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-vi"></span>
 						Tiếng Việt
 					</a>
 											
-									<a href="https://www.t4trade.com/zh/client-portal/transactions/deposits/bank" class="dropdown-item">
+									<a href="#/zh/client-portal/transactions/deposits/bank" class="dropdown-item">
 						<span class="flag flag-zh"></span>
 						中文
 					</a>
@@ -217,11 +216,11 @@
     </script>
 
                                 <a href=" # " class="nav-link pl-1">
-                    <span>test</span>
+                    <span>{{ user.first_name }} {{user.last_name }}</span>
                 </a>
             </li>
             <li class="nav-item user">
-                <a href=" # " class="nav-link">test@gmail.com</a>
+                <a href=" # " class="nav-link">{{  user.email }}</a>
             </li>
             <li class="nav-item logout">
                 <a href="#" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
@@ -237,14 +236,14 @@
 		<nav>
 			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
 															<li class="nav-item register">
-							<a href="https://www.t4trade.com/en/client-portal/accounts/register" data-action='new-account'
+							<a href="#/en/client-portal/accounts/register" data-action='new-account'
 							   class="nav-link button-click-action">
 								<span class="nav-icon icon icon-open-new-account"></span>
 								<p>Open New Account</p>
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="#" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/myprofile/my-documents" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/myprofile/password" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/accounts/register" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/top-traders-league" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/transactions/deposits" class="nav-link active" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/transactions/withdraw" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="https://www.t4trade.com/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/myprofile/my-documents" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/myprofile/password" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/accounts/register" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/top-traders-league" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link active" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -256,7 +255,7 @@
 																															<ul class="nav nav-treeview">
 					
 							<li class="nav-item">
-					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
+					<a href="#/ar/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-ar"></span>
 						<p>
 							العربية
@@ -265,7 +264,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
+					<a href="#/de/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-de"></span>
 						<p>
 							Deutsch
@@ -274,7 +273,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
+					<a href="#/en/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-en"></span>
 						<p>
 							English
@@ -283,7 +282,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/es/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/es/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-es"></span>
 						<p>
 							Español
@@ -292,7 +291,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/fr/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/fr/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-fr"></span>
 						<p>
 							Français
@@ -301,7 +300,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/nl/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/nl/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-nl"></span>
 						<p>
 							Dutch
@@ -310,7 +309,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/id/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/id/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-id"></span>
 						<p>
 							Bahasa Indonesia
@@ -319,7 +318,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/it/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/it/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-it"></span>
 						<p>
 							Italiano
@@ -328,7 +327,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/ms/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/ms/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-ms"></span>
 						<p>
 							Bahasa Melayu
@@ -337,7 +336,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/pt/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/pt/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-pt"></span>
 						<p>
 							Português
@@ -346,7 +345,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/vi/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/vi/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-vi"></span>
 						<p>
 							Tiếng Việt
@@ -355,7 +354,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.t4trade.com/zh/client-portal/transactions/deposits/bank" class="nav-link">
+					<a href="#/zh/client-portal/transactions/deposits/bank" class="nav-link">
 						<span class="nav-icon flag flag-zh"></span>
 						<p>
 							中文
@@ -507,19 +506,20 @@
                             <p><ul>
 
 
-<li>Please ensure that all payments are made from an account registered in the same name as your T4Trade account, using English characters only.</li>
+<li>Please ensure that all payments are made from an account registered in the same name as your AlphaForex account, using English characters only.</li>
 <li>In case of any missing details on your instruction for Bank Transfer, you may expect certain delays in funding your MT4 trading account.</li>
-<li>If you face any issues related to your Bank Transfer, please contact us from your registered email at funding@T4Trade.com.</li>
+<li>If you face any issues related to your Bank Transfer, please contact us from your registered email at funding@AlphaForex.com.</li>
 <li>In your email, please indicate your MT4 account number, the amount transferred, and the corresponding screenshot or transfer receipt of the payment you made, including all relevant details such as date, amount, sender's name and beneficiary's name.</li>
 </ul>
 Kindly also be advised:<br />
-<em>* T4Trade does not charge for deposits. However, the sending and correspondent bank may charge according to their own fee policy.</em><br />
+<em>* AlphaForex does not charge for deposits. However, the sending and correspondent bank may charge according to their own fee policy.</em><br />
 <em>* We will credit your account within 24 hours upon receipt of your funds, and a confirmation email will be sent to you so you can start trading immediately.</em></p>
                         </div>
                     </div>
 
 
-    <form method="post" id="depositForm" action="" class="">
+    <form method="post" id="depositForm" action="{% url 'dashboard:banktransfer' %}" class="">
+		{% csrf_token %}
         <div class="card">
             <div class="card-body">
                 
@@ -621,7 +621,7 @@ Kindly also be advised:<br />
                     <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
                 <div class="row">
                                                                 <div class="col-sm-12 col-md-3 col-md-3 ">
-                            <p>&copy; 2022 T4Trade.<br/>All Rights Reserved.</p>
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
                                                                                     
                             
                             
@@ -630,14 +630,14 @@ Kindly also be advised:<br />
                             
                                                     </div>
                                                                 <div class="col-sm-12 col-md-9 ">
-                                                        <p>T4Trade, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
 <p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
 <p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
 <p><strong>Risk Warning:</strong></p>
 <p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
 
 </p>
-<p>T4Trade does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
 </p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
@@ -664,28 +664,28 @@ Kindly also be advised:<br />
         language: "en",
         ssl: true,
         context: "ea",
-        domain: "https://www.t4trade.com",
-        brand: "t4trade",
+        domain: "#",
+        brand: "AlphaForex",
         soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
         soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
         portalId: "2232054",
         guid: "590417c5-0013-4f59-861f-93703dc1789c",
     } );
 </script>
-<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/jquery-form.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/common.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/sso.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/widget-login.js?v=' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/deposit-list.js?v=' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
 <script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lte/js/referrer.js?v=' %}"></script>
-                <script type="text/javascript" src="{% static 'lte/js/jquery.inputmask.bundle.js?v=' %}"></script>
-            <script type="text/javascript" src="{% static 'lte/js/page-deposit-bank.js?v=' %}"></script>
-            <script type="text/javascript" src="{% static 'lte/js/transaction_kyc_check.js?v=' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/jquery.inputmask.bundle.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/page-deposit-bank.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/transaction_kyc_check.js' %}"></script>
     			</div>
 		
     
