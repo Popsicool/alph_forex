@@ -1,7 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+	
+
+    <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -9,23 +11,23 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Dashboard</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="{% static '/lte/css/bootstrap.min.css' %}" />
-	<link rel="stylesheet" href="{% static '/lte/css/bootstrap-select.min.css' %}" />
-	<link rel="stylesheet" href="{% static '/lte/css/bootstrap-datepicker.min.css' %}" />
-	<link rel="stylesheet" href="{% static '/lte/css/lte.min.css' %}" />
-	<link rel="stylesheet" href="{% static '/lte/css/flags.css' %}" />
-			<link rel="stylesheet" href="{% static '/lte/css/icomoon.css' %}" />
-		<link rel="stylesheet" href="{% static '/lte/css/style-providers-list.css' %}" />
-	<link rel="stylesheet" href="{% static '/lte/css/common.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
 		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/lte/js/popper.min.js?v=' %}"></script>
-	<script type="text/javascript" src="{% static '/lte/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/lte/js/bootstrap-select.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/lte/js/bootstrap-datepicker.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/lte/js/widget-providers-list.js?v=' %}"></script>
-								<link type="text/css" rel="stylesheet" href="{% static '/lte/css/page-account-home.css' %}" />
-							<!-- <link rel="icon" type="image/png" href="/lte/img/favicon.png" /> -->
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-account-home.css' %}" />
+							<!-- <link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png" /> -->
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -67,7 +69,7 @@
 
     if (!isEmpty(cookieValues)) {
       setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
-    
+    }
 
 
   </script>
@@ -95,7 +97,7 @@
 
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="{% static '/lte/js/pushwoosh-service-worker-init.js?v=' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -212,11 +214,11 @@
     </script>
 
                                 <a href=" #" class="nav-link pl-1">
-                    <span>test user</span>
+                    <span>{{ user.first_name }} {{user.last_name }}</span>
                 </a>
             </li>
             <li class="nav-item user">
-                <a href=" # " class="nav-link">test@gmail.com</a>
+                <a href=" # " class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
                 <a href="#" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
@@ -239,10 +241,9 @@
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="#" class="nav-link active" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	
-    </li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>					</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="#" class="nav-link active" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
-												<a href="#" class="nav-link">
+												<a href="{% url 'dashboard:dash' %}" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
 				<p>
 					English
@@ -387,7 +388,7 @@
         <div class="modal-content">
             <div class="modal-body row justify-content-center text-center">
                 <div class="col-sm-8">
-                    <img src="{% static '/lte/img/approve.svg' %}" class="approve">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
                 </div>
                 <div class="col-sm-8">
                     <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
@@ -490,28 +491,28 @@
                                                                     </div>
         
         <div class="carousel-custom-arrows-wrapper">
-            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselDesktop.carousel('prev')" alt="previous" />
+            <img class="carousel-arrows" src="{% static 'lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselDesktop.carousel('prev')" alt="previous" />
             <div class="carousel-indicators">
                                     <li data-target="#carousel-desktop"></li>
                                                                                             </div>
-            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselDesktop.carousel('next')" alt="next" />
+            <img class="carousel-arrows" src="{% static 'lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselDesktop.carousel('next')" alt="next" />
         </div>
     </div>
     <div id="carousel-mobile" class="carousel slide d-lg-none d-xl-none" data-ride="carousel">
         <div class="carousel-inner">
                             <div class="carousel-item" order="1">
-                    <a href="{% static '/en/client-portal/top-traders-league' %}">
+                    <a href="{% static 'en/client-portal/top-traders-league' %}">
                         <img class="d-block w-100" src="https://shared.gighl.com/t4t-banners-carusel/T4T-Top%20Traders-CP-EN-Mob%20(1).jpg" alt="slider" />
                     </a>
                 </div>
                                                                     </div>
         
         <div class="carousel-custom-arrows-wrapper">
-            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselMobile.carousel('prev')" alt="previous" />
+            <img class="carousel-arrows" src="{% static 'lte/img/icons/arrow-circle-left.svg' %}" onclick="carouselMobile.carousel('prev')" alt="previous" />
             <div class="carousel-indicators">
                                     <li data-target="#carousel-mobile"></li>
                                                                                             </div>
-            <img class="carousel-arrows" src="{% static '/lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselMobile.carousel('next')" alt="next" />
+            <img class="carousel-arrows" src="{% static 'lte/img/icons/arrow-circle-right.svg' %}" onclick="carouselMobile.carousel('next')" alt="next" />
         </div>
     </div>
     <script>
@@ -642,7 +643,8 @@
 </div>
 <hr>
 <div class="collapse" id="filter-results">
-	<form method="post" action="" class="">
+	<form method="post" action="{% url 'dashboard:dash' %}" class="">
+        {% csrf_token %}
 		<div class="card">
 			<div class="card-body">
 				<div class="form-row">
@@ -714,10 +716,10 @@
         </div>
                             <p>Equity:</p>
                         <h3><b>USC0</b></h3>
-                        <p>Balance: <b>{{balance}}</b></p>
+                        <p>Balance: <b>USC0</b></p>
                         <p>Credit: <b>USC0</b></p>
                         <p>Free Margin: <b>USC0</b></p>
-                                                    <a href="{% url 'dashboard:deposit' %}" data-action='deposit' class="btn btn-default btn-green btn-open-account button-click-action">Deposit</a>
+                                                    <a href="#" data-action='deposit' class="btn btn-default btn-green btn-open-account button-click-action">Deposit</a>
                                             </div>
                 </div>
             </div>
@@ -773,7 +775,7 @@
                                 <td>Server</td>
                                 <td>
                                     <b>
-                                                                                    T4Trade-Real1
+                                                                                    AlphaForex-Real1
                                                                             </b>
                                 </td>
                             </tr>
@@ -794,14 +796,15 @@
                             <tr>
                                 <td>Transaction history</td>
                                 <td>
-                                    <a href="{% url 'dashboard:history' %}">
+                                    <a href="#">
                                         View history
                                     </a>
                                 </td>
                             </tr>
                         </table>
                         <hr>
-                        <form action="post">
+                        <form method="post" action="{% url 'dashboard:dash' %}">
+                            {% csrf_token %}
                             <div id="datepicker" class="form-group">
                                 <label for="datepicker_from_1">Trading report</label>
                                 <div class="input-group">
@@ -899,7 +902,7 @@
         "changeLeverage": false,
         "reset": true,
         "subscribeOnStatement": true,
-        "serverName": "T4Trade-Real1",
+        "serverName": "AlphaForex-Real1",
         "created": "2022-08-18 19:25:37.159632",
         "managed_master": null,
         "managed_promo_code": "",
@@ -1128,7 +1131,7 @@
                     <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
                 <div class="row">
                                                                 <div class="col-sm-12 col-md-3 col-md-3 ">
-                            <p>&copy; 2022 T4Trade.<br/>All Rights Reserved.</p>
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
                                                                                     
                             
                             
@@ -1137,16 +1140,16 @@
                             
                                                     </div>
                                                                 <div class="col-sm-12 col-md-9 ">
-                                                        <p>T4Trade, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
 <p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
 <p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
 <p><strong>Risk Warning:</strong></p>
 <p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
 
 </p>
-<p>T4Trade does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static '/lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -1172,25 +1175,25 @@
         ssl: true,
         context: "ea",
         domain: "#",
-        brand: "t4trade",
+        brand: "AlphaForex",
         soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
         soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
         portalId: "2232054",
         guid: "e6434b8a-3da1-456c-b4fd-1c68d0a44a72",
     } );
 </script>
-<script type="text/javascript" src="{% static '/lte/js/jquery-migrate.min.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/jquery-form.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/jquery-widget.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/jquery-cookie.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/jquery-ui.min.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/common.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/sso.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/widget-login.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/deposit-list.js?v=' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static '/lte/js/referrer.js?v=' %}"></script>
-                <script type="text/javascript" src="{% static '/lte/js/page-account-home.js?v=' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/page-account-home.js' %}"></script>
     			</div>
 		
 	</body>
