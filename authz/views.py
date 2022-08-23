@@ -84,7 +84,7 @@ def signup(request):
                 messages.info(request, "Email already exist")
                 return redirect('authz:signup')
             else:
-                user = User.objects.create_user(first_name=first_name,password=password, last_name=last_name, email=email, phone_num = phone_num, gender=gender)
+                user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender)
                 user.save()
 
                 messages.info(request, "Account created, check your email for activation link")
