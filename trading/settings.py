@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'alph.apps.AlphConfig',
     'market.apps.MarketConfig',
-    'dashboard.apps.DashboardConfig'
+    'dashboard.apps.DashboardConfig',
+    'user_profile.apps.UserProfileConfig'
     
 ]
 AUTH_USER_MODEL = 'authz.User'
