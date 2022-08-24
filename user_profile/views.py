@@ -113,3 +113,13 @@ class documents(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "user_profile/documents.html", context)
+
+class newaccount(LoginRequiredMixin, View):
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "user_profile/newaccount.html", context)
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "user_profile/newaccount.html", context)
