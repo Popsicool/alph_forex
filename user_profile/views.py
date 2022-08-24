@@ -26,21 +26,23 @@ class change_password(LoginRequiredMixin, View):
         amount= request.POST['amount']
         user = request.user
         context = {'user':user}
-        old_password = request.POST['pass1']
-        new_password = request.POST['pass2']
-        new_password2 = request.POST['pass2']
-            if len(password1) < 1 or len(password2) < 1:
-                messages.info(request, "Field cannot be empty")
-                return redirect('metadata:profile', pk=pk)
-            if password1 == password2:
-                u = User.objects.get(username=username)
-                u.set_password(password1)
+        old_password = request.POST['old_password']
+        new_password = request.POST['new_password']
+        new_password2 = request.POST['confirm_new_password']
+        if len(new_password) < 1 or len(confirm_new_password) < 1:
+            messages.info(request, "Field cannot be empty")
+            return redirect('user_profile:change_password')            
+            if new_password == confirm_new_password:
+                u = User.objects.get(email=user.email)
+                u.set_password(new_password)
                 u.save()
                 messages.info(request, "Password updated!!")
-                user = auth.authenticate(username=username, password=password1)
-                if user is not None:
-                    auth.login(request, user)
-                    return redirect('metadata:profile', pk=pk)
+                user = auth.authenticate(email=user.email, password=new_password)
+            else:
+                messages.info(request, "Password did not match!!")
+            if user is not None:
+                auth.login(request, user)
+                return redirect('dashboard:dash')
 
 
 
