@@ -36,7 +36,7 @@ def login(request):
         email= request.POST['email']
         password = request.POST['password']
         if User.objects.filter(email=email).exists():
-            user = auth.authenticate(email=email,password=password)  
+            user = auth.authenticate(email=email,password=password)
                 
 
             if user is not None:
