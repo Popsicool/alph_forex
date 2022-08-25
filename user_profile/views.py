@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.hashers import check_password
 from django.views import View
 from authz.models import User
 from django.contrib.auth.models import  auth
 from django.contrib import messages
+from .models import Document, Change_document_request
 
 
 
@@ -20,13 +21,11 @@ class verify(LoginRequiredMixin, View):
         dob_dd = request.POST['dob_dd']
         tin = request.POST['tin']
         tax_country = request.POST['tax_country']
-
         address1 = request.POST['address1']
         address2 = request.POST['address2']
         town = request.POST['town']
         postcode = request.POST['postcode']
         country = request.POST['country']
-
         phone_landline = request.POST['phone_landline']
         phone_mobile = request.POST['phone_mobile']
         employment_status = request.POST['employment_status']
@@ -44,10 +43,34 @@ class verify(LoginRequiredMixin, View):
         traded_products_volume = request.POST['traded_products_volume']
         seminar_experience = request.POST['seminar_experience']
         seminar_course_experience = request.POST['seminar_course_experience']
-
         work_experiencework_experience = request.POST['work_experience']
         work_qualification_experience = request.POST['work_qualification_experience']
-        messages.info(request, "Ok")
+        try:
+            postcode = int(postcode)
+            phone_landline= int(phone_landline)
+            phone_mobile = int(phone_mobile)
+
+        except:
+            messages.info(request, "Bad input type in number fields")
+            return render(request, "user_profile/verify.html", context)
+
+
+
+        document = Document(user=user, first_name=first_name, last_name=last_name, email=email,nationality=nationality,
+        gender=gender, dob_dd=dob_dd, tin=tin, tax_country=tax_country, address1=address1, address2=address2,
+        town=town, postcode=postcode, country=country, phone_landline=phone_landline, phone_mobile=phone_mobile,
+        employment_status=employment_status, business_nature=business_nature, funds_source=funds_source,
+        expected_deposit_id=expected_deposit_id, annual_income=annual_income,net_worth=net_worth,traded_forex=traded_forex,
+        traded_forex_frequency=traded_forex_frequency, traded_forex_volume=traded_forex_volume,traded_products_frequency=traded_products_frequency,
+        traded_products_volume=traded_products_volume, seminar_experience=seminar_experience, seminar_course_experience=seminar_course_experience,
+        work_experiencework_experience=work_experiencework_experience, work_qualification_experience=work_qualification_experience)
+        
+        document.save()
+        user.is_document_submitted = True
+        user.save()
+        messages.info(request, "Document Submitted")
+        return redirect('dashboard:dash')
+
         context = {'user':user}
         return render(request, "user_profile/verify.html", context)
 
@@ -123,3 +146,18 @@ class newaccount(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "user_profile/newaccount.html", context)
+class change_document_request(LoginRequiredMixin, View):
+    def post(self, request):
+        user = request.user
+        message = request.POST['message']
+        contact = Change_document_request(
+        user = user, message= message)
+        contact.save()
+        messages.info(request, "Request sent")
+        return redirect('dashboard:dash')
+        context= {"user":user}
+        return render(request, "user_profile/change_document_request.html", context)
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "user_profile/change_document_request.html", context)

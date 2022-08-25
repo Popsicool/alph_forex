@@ -218,7 +218,7 @@
     </script>
 
                                 <a href=" #/en/client-portal/myprofile/update " class="nav-link pl-1">
-                    <span>test user</span>
+                    <span>{{ user.first_name}} {{user.last_name}}</span>
                 </a>
             </li>
             <li class="nav-item user">
@@ -238,14 +238,14 @@
 		<nav>
 			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
 															<li class="nav-item register">
-							<a href= "{% url 'user_profile:newaccount' %}" data-action='new-account'
+							<a href= "{% url 'authz:signup' %}" data-action='new-account'
 							   class="nav-link button-click-action">
 								<span class="nav-icon icon icon-open-new-account"></span>
 								<p>Open New Account</p>
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link active" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:newaccount' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="trader-comp.html" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link active" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="trader-comp.html" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -624,6 +624,7 @@
 	
 	
 			<form method="post" action="" id="documents-form" class="" enctype="multipart/form-data">
+				{% csrf_token %}
 	<div class="card">
 		<div class="card-header">
 			<h5><span class="icon icon-my-profile red"></span>Personal Details</h5>
@@ -635,7 +636,7 @@
 				<input
 	type="text"
 	class="form-control "
-			value="nike"
+			value="{{user.first_name}}"
 		id="first_name"
 	name="first_name"
 						required		data-toggle="tooltip" title="" data-placement="bottom"
@@ -646,7 +647,7 @@
 				<input
 	type="text"
 	class="form-control "
-			value="cole"
+			value="{{user.last_name}}"
 		id="last_name"
 	name="last_name"
 						required		data-toggle="tooltip" title="" data-placement="bottom"
@@ -681,7 +682,7 @@
 				<input
 	type="text"
 	class="form-control "
-			value="test@gmail.com"
+			value="{{user.email}}"
 		id="email"
 	name="email"
 			readonly="readonly"			required		data-toggle="tooltip" title="" data-placement="bottom"
@@ -1615,7 +1616,7 @@
 		</div>
 		<div class="card-body">
 			<div class="form-group">
-				<label for="tin">TIN:</label>
+				<label for="tin">TIN (ENTER NULL IF NOT AVAILABLE):</label>
 				<input
 	type="text"
 	class="form-control "
@@ -1853,7 +1854,9 @@
 					
 					
 					
-					
+					<div class="form-check">
+						<input type="radio" value="0" class="form-check-input" id="tin_unavailable_1" name="tin_unavailable"><label class="form-check-label">TIN submitted</label>
+					</div>
 					<div class="form-check">
 						<input type="radio" value="1" class="form-check-input" id="tin_unavailable_1" name="tin_unavailable"><label class="form-check-label">Country does not issue TIN</label>
 					</div>
@@ -1922,7 +1925,7 @@
 			<div class="form-group">
 				<label for="postcode">Post Code:</label>
 				<input
-	type="text"
+	type="number"
 	class="form-control "
 			value=""
 		id="postcode"
@@ -2156,14 +2159,14 @@
 				<label for="phone_landline">Landline:</label>
 				<div class="form-inline">
 					<input
-	type="text"
+	type="number"
 	class="form-control "
 			value=""
 		id="phone_landline_prefix"
 	name="phone_landline_prefix"
 			readonly="readonly"					data-toggle="tooltip" title="" data-placement="bottom"
 >					<input
-	type="text"
+	type="number"
 	class="form-control "
 			value=""
 		id="phone_landline"
@@ -2176,14 +2179,14 @@
 				<label for="phone_mobile">Mobile:</label>
 				<div class="form-inline">
 					<input
-	type="text"
+	type="number"
 	class="form-control "
 			value=""
 		id="phone_mobile_prefix"
 	name="phone_mobile_prefix"
 			readonly="readonly"					data-toggle="tooltip" title="" data-placement="bottom"
 >					<input
-	type="text"
+	type="number"
 	class="form-control "
 			value="8145336427"
 		id="phone_mobile"
@@ -2487,7 +2490,7 @@
 								</select></div>
 				
 			</div>
-			<div class="form-group  collapse">
+			<div class="form-group  ">
 				<label for="traded_forex_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
 				<div class="col-md-12">		
 
@@ -2556,12 +2559,12 @@
 								</select></div>
 				
 			</div>
-			<div class="form-group  collapse">
+			<div class="form-group ">
 				<label for="traded_bonds_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
 				<div class="col-md-12">		
 
 
-			<select name="traded_bonds_volume" id="traded_bonds_volume" disabled="disabled"		class="form-control" required>
+			<select name="traded_bonds_volume" id="traded_bonds_volume" 		class="form-control" required>
 	
 	<option value="">- Select -</option>
 																									<option value="1"                                                                 >
@@ -2625,12 +2628,12 @@
 								</select></div>
 				
 			</div>
-			<div class="form-group  collapse">
+			<div class="form-group">
 				<label for="traded_products_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
 				<div class="col-md-12">		
 
 
-			<select name="traded_products_volume" id="traded_products_volume" disabled="disabled"		class="form-control" required>
+			<select name="traded_products_volume" id="traded_products_volume" 		class="form-control" required>
 	
 	<option value="">- Select -</option>
 																									<option value="1"                                                                 >
@@ -2687,12 +2690,12 @@
 					No
 				</label>
 			</div>
-			<div class="form-group collapse">
+			<div class="form-group ">
 				<div class="col-md-12 col-md-offset-2">
 							
 
 
-			<select name="seminar_course_experience" id="seminar_course_experience" disabled="disabled"		class="form-control" required>
+			<select name="seminar_course_experience" id="seminar_course_experience" 		class="form-control" required>
 	
 	<option value="">- Select -</option>
 																									<option value="1"                                                                 >
@@ -2723,12 +2726,12 @@
 					</label>
 				</div>
 			</div>
-			<div class="form-group collapse">
-				<div class="col-md-12 col-md-offset-2 collapse">
+			<div class="form-group">
+				<div class="col-md-12 col-md-offset-2 ">
 							
 
 
-			<select name="work_qualification_experience" id="work_qualification_experience" disabled="disabled"		class="form-control" required>
+			<select name="work_qualification_experience" id="work_qualification_experience" 	class="form-control" required>
 	
 	<option value="">- Select -</option>
 																									<option value="1"                                                                 >
@@ -2746,7 +2749,11 @@
 		</div>
 		<div class="card-footer">
 			<div class="form-group">
+				{% if user.is_document_submitted %}
+				<p >Details already submitted, <button class="btn btn-default btn-blue"><a href="{% url 'user_profile:change_document_request' %}"> Contact an administrator</a></button> to modify your already submitted documents</p>
+				{% else %}
 				<button data-action='profile-update' class="btn btn-default btn-blue" type="submit">Update</button>
+				{% endif %}
 			</div>
 		</div>
 	</div>

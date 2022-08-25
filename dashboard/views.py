@@ -17,9 +17,9 @@ def dashboard(request):
 class deposit(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
-        owner = request.user
-        balance = int(owner.balance) + int(amount)
-        id = owner.id
+        user = request.user
+        balance = int(user.balance) + int(amount)
+        id = user.id
         User.objects.filter(id=id).update(balance=balance)
         messages.info(request, 'Deposit succesfull')
         return render(request, "dashboard/dashboard.html")
@@ -35,12 +35,12 @@ class withdraw(LoginRequiredMixin, View):
         amount= request.POST['amount']
         user = request.user
         context = {}
-        id = owner.id
-        if int(owner.balance) < int(amount):
+        id = user.id
+        if int(user.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/withdraw.html", context)
         else:
-            balance = int(owner.balance) - int(amount)
+            balance = int(user.balance) - int(amount)
             User.objects.filter(id=id).update(balance=balance)
             messages.info(request, 'Withdrawal succesfull')
             return render(request, "dashboard/dashboard.html")
@@ -55,12 +55,15 @@ class banktransferwitdrw(LoginRequiredMixin, View):
         amount= request.POST['amount']
         user = request.user
         context = {}
-        id = owner.id
-        if int(owner.balance) < int(amount):
+        if (user.is_document_verified == False):
+            messages.info(request, 'Account not yet verified, withdrawal can not  be processed ')
+            return render(request, "dashboard/banktransferwitdrw.html", context)
+        id = user.id
+        if int(user.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/banktransferwitdrw.html", context)
         else:
-            balance = int(owner.balance) - int(amount)
+            balance = int(user.balance) - int(amount)
             User.objects.filter(id=id).update(balance=balance)
             messages.info(request, 'Withdrawal succesfull', context)
             return render(request, "dashboard/dash", context)
@@ -86,15 +89,15 @@ class transfer(LoginRequiredMixin, View):
     def post(self, request):
         recepient = request.POST['recepient']
         amount= request.POST['amount']
-        owner = request.user
+        user = request.user
         context = {}
-        id = owner.id
-        if int(owner.balance) < int(amount):
+        id = user.id
+        if int(user.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/banktransfer.html", context)
         else:
             if User.objects.filter(email=recepient).exists():
-                balance = int(owner.balance) - int(amount)
+                balance = int(user.balance) - int(amount)
                 User.objects.filter(id=id).update(balance=balance)
                 receiver = User.objects.get(email=recepient)
                 receiver_balance = int(receiver.balance) + int(amount)
@@ -125,16 +128,16 @@ class history(LoginRequiredMixin, View):
 class banktransferwithdraw(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
-        owner = request.user
+        user = request.user
         
         user = request.user
         context= {"user":user}
-        id = owner.id
-        if int(owner.balance) < int(amount):
+        id = user.id
+        if int(user.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/banktransferwithdraw.html", context)
         else:
-            balance = int(owner.balance) - int(amount)
+            balance = int(user.balance) - int(amount)
             User.objects.filter(id=id).update(balance=balance)
             messages.info(request, 'Withdrawal succesfull')
             return render(request, "dashboard/dashboard.html")
@@ -147,15 +150,15 @@ class banktransferwithdraw(LoginRequiredMixin, View):
 class creditcard(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
-        owner = request.user
+        user = request.user
         user = request.user
         context= {"user":user}
-        id = owner.id
-        if int(owner.balance) < int(amount):
+        id = user.id
+        if int(user.balance) < int(amount):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/creditcard.html", context)
         else:
-            balance = int(owner.balance) - int(amount)
+            balance = int(user.balance) - int(amount)
             User.objects.filter(id=id).update(balance=balance)
             messages.info(request, 'Withdrawal succesfull')
             return render(request, "dashboard/creditcard.html", context)
