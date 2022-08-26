@@ -12,64 +12,64 @@
   height: 60px;
 }
 .provider-skrill {
-  background: url(/lte/img/providers/skrill_grey.png) no-repeat center;
+  background: url(/lte/img/skrill_grey.png) no-repeat center;
 }
 span:hover.provider-skrill {
-  background: url(/lte/img/providers/skrill_color.png) no-repeat center;
+  background: url(/lte/img/skrill_color.png) no-repeat center;
 }
 .provider-neteller {
-  background: url(/lte/img/providers/neteller_grey.png) no-repeat center;
+  background: url(/lte/img/neteller_grey.png) no-repeat center;
 }
 span:hover.provider-neteller {
-  background: url(/lte/img/providers/neteller_color.png) no-repeat center;
+  background: url(/lte/img/neteller_color.png) no-repeat center;
 }
 .provider-visa {
-  background: url(/lte/img/providers/visa_grey.png) no-repeat center;
+  background: url(/lte/img/visa_grey.png) no-repeat center;
 }
 span:hover.provider-visa {
-  background: url(/lte/img/providers/visa_color.png) no-repeat center;
+  background: url(/lte/img/visa_color.png) no-repeat center;
 }
 .provider-mastercard {
-  background: url(/lte/img/providers/mastercard_grey.png) no-repeat center;
+  background: url(/lte/img/mastercard_grey.png) no-repeat center;
 }
 span:hover.provider-mastercard {
-  background: url(/lte/img/providers/mastercard_color.png) no-repeat center;
+  background: url(/lte/img/mastercard_color.png) no-repeat center;
 }
 .provider-bankwire {
-  background: url(/lte/img/providers/bankwire_grey.png) no-repeat center;
+  background: url(/lte/img/bankwire_grey.png) no-repeat center;
 }
 span:hover.provider-bankwire {
-  background: url(/lte/img/providers/bankwire_color.png) no-repeat center;
+  background: url(/lte/img/bankwire_color.png) no-repeat center;
 }
 .provider-maestro {
-  background: url(/lte/img/providers/maestro_grey.png) no-repeat center;
+  background: url(/lte/img/maestro_grey.png) no-repeat center;
 }
 span:hover.provider-maestro {
-  background: url(/lte/img/providers/maestro_color.png) no-repeat center;
+  background: url(/lte/img/maestro_color.png) no-repeat center;
 }
 .provider-unionpay {
-  background: url(/lte/img/providers/unionpay_grey.png) no-repeat center;
+  background: url(/lte/img/unionpay_grey.png) no-repeat center;
 }
 span:hover.provider-unionpay {
-  background: url(/lte/img/providers/unionpay_color.png) no-repeat center;
+  background: url(/lte/img/unionpay_color.png) no-repeat center;
 }
 .provider-fasapay {
-  background: url(/lte/img/providers/fasapay_grey.png) no-repeat center;
+  background: url(/lte/img/fasapay_grey.png) no-repeat center;
 }
 span:hover.provider-fasapay {
-  background: url(/lte/img/providers/fasapay_color.png) no-repeat center;
+  background: url(/lte/img/fasapay_color.png) no-repeat center;
 }
 .provider-dotpay {
-  background: url(/lte/img/providers/dotpay_grey.png) no-repeat center;
+  background: url(/lte/img/dotpay_grey.png) no-repeat center;
 }
 span:hover.provider-dotpay {
-  background: url(/lte/img/providers/dotpay_color.png) no-repeat center;
+  background: url(/lte/img/dotpay_color.png) no-repeat center;
 }
 .provider-moto {
-  background: url(/lte/img/providers/moto_grey.png) no-repeat center;
+  background: url(/lte/img/moto_grey.png) no-repeat center;
 }
 span:hover.provider-moto {
-  background: url(/lte/img/providers/moto_color.png) no-repeat center;
+  background: url(/lte/img/moto_color.png) no-repeat center;
 }
 .providers .carousel-control {
   position: absolute;
