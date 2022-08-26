@@ -1,0 +1,1 @@
+$(function(){$('.providers-widget').jcarousel();$('.lang-ar .providers-widget').jcarousel({rtl:true});});$('.providers-widget .backward').click(function(){$('.providers-widget').jcarousel('scroll','-=1');});$('.providers-widget .forward').click(function(){$('.providers-widget').jcarousel('scroll','+=1');});

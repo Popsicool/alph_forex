@@ -1,5 +1,5 @@
 .mobile-sub.wsmenu-list
-hr{margin-top:0;margin-bottom:0;display:block;border:0px;height:2px;background-image:url('/lte/v1/img/mobile_div_line.png');width:90%}.header{background-color:#000;min-height:60px}.header .clearfix:after{display:inline;clear:none}.header .navbar-left{margin-left:-15px}.header .ifx-logo:hover{background-color:transparent}.header .ifx-logo{padding-top:14px}.header .ifx-logo-image{background-image:url("/lte/img/AlphaForex/logo.svg");background-repeat:no-repeat;background-position:center;display:block;width:179px;height:33px;background-size:contain}.header
+hr{margin-top:0;margin-bottom:0;display:block;border:0px;height:2px;background-image:url('/lte/v1/img/mobile_div_line.png');width:90%}.header{background-color:#000;min-height:60px}.header .clearfix:after{display:inline;clear:none}.header .navbar-left{margin-left:-15px}.header .ifx-logo:hover{background-color:transparent}.header .ifx-logo{padding-top:14px}.header .ifx-logo-image{background-image:url("/lte/img/alphaforex.png");background-repeat:no-repeat;background-position:center;display:block;width:179px;height:33px;background-size:contain}.header
 .separator{border-left:1px solid #fff;height:50px;margin-top:40px;padding-left:0px;padding-right:0px}.header
 .link{padding-top:38px}.header .link
 a{background-color:transparent;border:1px
@@ -16,7 +16,7 @@ solid #eb212e;border-radius:2px;color:#fff;padding:11.5px 36.5px;font-size:16px;
 solid #eb212e}.header .risk-warning{color:#fff;font-size:10px;font-style:italic;text-align:right;float:right;padding-top:5px}.header .language-selector
 .selected{background-color:transparent;border:1px
 solid #fff;border-radius:2px;color:#fff;padding:0px
-5px 0px 0px;font-size:16px;font-weight:bold;text-transform:uppercase}.header .language-selector .selected .wsmenu-submenu{top:46px}body.cont-ea .main-menu{background-color:#1c1127}.main-menu
+5px 0px 0px;font-size:16px;font-weight:bold;text-transform:uppercase}.header .language-selector .selected .wsmenu-submenu{top:46px}/*navbar of register page*/body.cont-ea .main-menu{background-color:#050405}.main-menu
 .wsmenu{float:left;width:100%;background-color:#000 !important}.main-menu .wsmenu-list{display:block}.main-menu .wsmenu-list>li>a{color:#fff;font-size:14px;text-transform:uppercase}.main-menu
 .megamenu{color:#fff;border-top:1px solid #eb212e !important;border-left:none;border-right:none;border-bottom:none;background-color:#000}.main-menu .megamenu
 .title{border-bottom:1px solid #fff !important;font-size:14px !important;height:40px;font-weight:bold;text-transform:uppercase}.main-menu .link-list li
