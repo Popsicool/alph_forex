@@ -15,4 +15,13 @@ urlpatterns = [
      path('transfer', views.transfer.as_view(), name='transfer'),
      path('creditcard', views.creditcard.as_view(), name='creditcard'),
      path('history', views.history.as_view(), name='history'),
+     path('bonus', views.bonus.as_view(), name='bonus'),
+     path('ib_assignment', views.ib_assignment.as_view(), name='ib_assignment'),
+     path('internal_transfer', views.internal_transfer.as_view(), name='internal_transfer'),
+     path('premium_normal', views.premium_normal.as_view(), name='premium_normal'),
+     path('request_overview', views.request_overview.as_view(), name='request_overview'),
+     path('swap_free', views.swap_free.as_view(), name='swap_free'),
+     path('top_trader_comp', views.top_trader_comp.as_view(), name='top_trader_comp'),
+     path('trading_report', views.trading_report.as_view(), name='trading_report'),
+     path('trading_platform', views.trading_platform.as_view(), name='trading_platform'),
          ]

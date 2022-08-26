@@ -166,3 +166,78 @@ class creditcard(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "dashboard/creditcard.html", context)
+
+class bonus(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/bonus.html", context)
+
+class ib_assignment(LoginRequiredMixin, View):
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/ib-assignment.html", context)
+
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/ib-assignment.html", context)
+
+class internal_transfer(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/internaltransfer.html", context)
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/internaltransfer.html", context)
+
+class premium_normal(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/premium-normal.html", context)
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/premium-normal.html", context)
+
+class request_overview(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/requestoverview.html", context)
+
+class swap_free(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/swapfree.html", context)
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/swapfree.html", context)
+
+class top_trader_comp(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/top-trader-comp.html", context)
+
+class trading_report(LoginRequiredMixin, View):
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/tradingreport.html", context)
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/tradingreport.html", context)
+    
+class trading_platform(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/tradingplatform.html", context)
