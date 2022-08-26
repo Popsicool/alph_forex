@@ -1,0 +1,4 @@
+jQuery(function($){var accountSelector=$('select#account');accountSelector.change(function(event){event.preventDefault();});function WidgetSwapFree(params){WidgetForm.apply(this,arguments);this.setup();}
+WidgetSwapFree.prototype=$.extend(new WidgetForm(),{validation:null,setup:function(){var validation=this.validation=new Form(),node=this.node,fn_not_empty=Validation.notEmpty,fn_checked=Validation.isChecked;validation.add(node.find('#swap_free'),{'validate':fn_checked});this.setupFieldHighlighting(validation);this.initChain();},validate:function(values){return this.validation.validate();},_handleFormSubmit:function(){if(this.sending)
+return false;var values=this.form.serializeObject(),data;if(this.validate(values)){this.sending=true;$("button[type=submit]").attr("disabled","disabled");return true;}
+return false;}});this.swapFreeForm=new WidgetSwapFree({'html':$('form.swap-free-form')});});
