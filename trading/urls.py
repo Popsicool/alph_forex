@@ -26,4 +26,5 @@ urlpatterns = [
     path('account', include('authz.urls')),
     path('market', include('market.urls')),
     path('dashboard', include('dashboard.urls')),
+    path('user_profile', include('user_profile.urls')),
 ]

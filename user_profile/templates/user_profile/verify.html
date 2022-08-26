@@ -1,0 +1,2882 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<meta name="language" content="en" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<title>Verify Profile</title>
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/autoKYC.css' %}" />
+					<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-upload-documents.css' %}" />
+							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
+		  <script>
+    function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+      }
+
+      return vars;
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function isEmpty(obj) {
+      for(var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+
+      return JSON.stringify(obj) === JSON.stringify(new Object());
+    }
+
+    var vars = getUrlVars();
+    var cookieValues = new Object();
+
+    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
+    for(var entry in vars) {
+      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
+        cookieValues[entry] = vars[entry];
+      }
+    }
+
+    if (!isEmpty(cookieValues)) {
+      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
+    }
+
+
+  </script>
+
+	<!-- livechat preview: 0. -->
+	<script type="text/javascript">
+	  var __lc = { };
+	  __lc.license = 1486502;
+	  __lc.chat_between_groups = false;
+	  __lc.group = 127;
+	  var currentTime = '2022-08-23 21:58:30';
+	  	  __lc.params = [
+		 { name: 'Name', value: 'test user' },
+		 { name: 'SalesCode', value: '4387' }
+	  ];
+	  	  (function() {
+		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	  })();
+	</script>
+
+	
+
+	
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
+
+
+	<!-- PushWoosh goes here -->
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+</head>	<body class="sidebar-mini client-portal lang-en cont-ea">
+		
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+
+
+		
+			<div class="wrapper">
+				
+				<nav class="main-header navbar navbar-expand   ">
+    
+                        <a href="#/en/client-portal/home" class="brand-link d-block d-lg-none">
+                <div class="logo"></div>
+            </a>
+                <ul class="navbar-nav left">
+                    <li class="nav-item hamburger">
+                <a href="#" class="nav-link" data-widget="pushmenu" role="button" ><span class="icon icon-hamburger"></span></a>
+            </li>
+            </ul>
+        <ul class=" navbar-nav right ml-auto">
+                    
+	<li class="nav-item dropdown language">
+																			<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+					en
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+			    </a>
+																																																				<div class="dropdown-menu dropdown-menu-right">
+							
+									<a href="#/ar/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-ar"></span>
+						العربية
+					</a>
+											
+									<a href="#/de/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-de"></span>
+						Deutsch
+					</a>
+											
+									<a href="#/en/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-en"></span>
+						English
+					</a>
+											
+									<a href="#/es/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-es"></span>
+						Español
+					</a>
+											
+									<a href="#/fr/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-fr"></span>
+						Français
+					</a>
+											
+									<a href="#/nl/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-nl"></span>
+						Dutch
+					</a>
+											
+									<a href="#/id/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-id"></span>
+						Bahasa Indonesia
+					</a>
+											
+									<a href="#/it/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-it"></span>
+						Italiano
+					</a>
+											
+									<a href="#/ms/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-ms"></span>
+						Bahasa Melayu
+					</a>
+											
+									<a href="#/pt/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-pt"></span>
+						Português
+					</a>
+											
+									<a href="#/vi/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-vi"></span>
+						Tiếng Việt
+					</a>
+											
+									<a href="#/zh/client-portal/myprofile/legacy" class="dropdown-item">
+						<span class="flag flag-zh"></span>
+						中文
+					</a>
+									</div>
+	</li>
+
+            <li class="nav-item user d-flex">
+                                                
+    
+    
+
+                                                <a href="#"
+           class="popover_inline icon-center popover-username"
+           data-toggle="popover"
+           data-trigger="hover"
+           data-placement="bottom"
+           data-html="true"
+           data-content="Please proceed with step <span class='yellow'>2</span> and verify your identity"
+        >
+            <span class="icon icon-note kyc-status red"></span>
+        </a>
+        <script>
+        $(document).ready(function() {
+            $('.popover-username').popover().on("inserted.bs.popover", function(){
+                $(".popover").addClass('width-10');
+            })
+        });
+        var poi_not_uploaded = "Please proceed with step <span class='yellow'>2</span> and verify your identity",
+            poa_not_uploaded = "Your profile is almost verified, please upload your proof of address",
+            documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
+    </script>
+
+                                <a href=" #/en/client-portal/myprofile/update " class="nav-link pl-1">
+                    <span>{{ user.first_name}} {{user.last_name}}</span>
+                </a>
+            </li>
+            <li class="nav-item user">
+                <a href=" #/en/client-portal/myprofile/update " class="nav-link">{{ user.email }}</a>
+            </li>
+            <li class="nav-item logout">
+                <a href="#/logout" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
+            </li>
+            </ul>
+</nav>				
+<aside class="main-sidebar sidebar-no-expand">
+	<a href="{% url 'dashboard:dash' %}" class="brand-link logo-switch ">
+		<div class="logo-xs"></div>
+		<div class="logo-xl"></div>
+	</a>
+	<div class="sidebar">
+		<nav>
+			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
+															<li class="nav-item register">
+							<a href= "{% url 'authz:signup' %}" data-action='new-account'
+							   class="nav-link button-click-action">
+								<span class="nav-icon icon icon-open-new-account"></span>
+								<p>Open New Account</p>
+							</a>
+						</li>
+													
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link active" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="trader-comp.html" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+									<li class="nav-item has-treeview language d-block d-lg-none">
+												<a href="#" class="nav-link">
+				<span class="nav-icon flag flag-en"></span>
+				<p>
+					English
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+				</p>
+			</a>
+																															<ul class="nav nav-treeview">
+					
+							<li class="nav-item">
+					<a href="#/ar/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-ar"></span>
+						<p>
+							العربية
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/de/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-de"></span>
+						<p>
+							Deutsch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/en/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-en"></span>
+						<p>
+							English
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/es/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-es"></span>
+						<p>
+							Español
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/fr/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-fr"></span>
+						<p>
+							Français
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/nl/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-nl"></span>
+						<p>
+							Dutch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/id/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-id"></span>
+						<p>
+							Bahasa Indonesia
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/it/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-it"></span>
+						<p>
+							Italiano
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/ms/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-ms"></span>
+						<p>
+							Bahasa Melayu
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/pt/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-pt"></span>
+						<p>
+							Português
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/vi/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-vi"></span>
+						<p>
+							Tiếng Việt
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/zh/client-portal/myprofile/legacy" class="nav-link">
+						<span class="nav-icon flag flag-zh"></span>
+						<p>
+							中文
+						</p>
+					</a>
+				</li>
+						</ul>
+</li>
+													<li class="nav-item d-block d-lg-none">
+						<a href="#/logout" class="nav-link">
+															<span class="nav-icon icon icon-logout"></span>
+														<p >Logout</p>
+						</a>
+					</li>
+											</ul>
+
+					</nav>
+	</div>
+</aside>
+				
+
+
+<div class="main-content content-wrapper" style="position: relative">
+	<div class="row main-row">
+		
+		
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="affiliatePopup" tabindex="-1" role="dialog" aria-labelledby="affiliatePopup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body row justify-content-center text-center">
+                <div class="col-sm-8">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
+                </div>
+                <div class="col-sm-8">
+                    <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
+                </div>
+                <div class="col-sm-8 success-block-margin">Thank you for registering with the affiliate program.<br>Your commissions account has been successfully created.</div>
+                <div class="col-sm-8 success-block-margin"><p>Please note, your affiliate account requires further approval. We will notify you by email as soon as it is approved.</p></div>
+                <div class="col-sm-8 success-block-margin">
+                    <button class="btn btn-primary" data-dismiss="modal">GET STARTED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #affiliatePopup .modal-content {
+        border-radius: 0;
+        border: solid 1px #d0d4df;
+        width: 780px;
+        height: 760px;
+        flex-grow: 0;
+    }
+
+    .success-block-margin {
+        margin-top: 15px;
+    }
+    #affiliatePopup .btn-primary {
+        background-color: #0076fe;
+    }
+
+    #affiliatePopup .modal-body {
+        margin-top: 138px;
+        margin-bottom: 175px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script type="application/javascript">
+    $(function (){
+        if (Cookies.get('showAffiliatePopup')) {
+            $('#affiliatePopup').modal('toggle');
+            Cookies.remove('showAffiliatePopup');
+        }
+    });
+</script>		
+
+
+		<div class="col-sm-12">
+			<div class="top-notifications">
+				
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-11 col-lg-8 main-content-container">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+							<div class="content-header">
+										<h1 >My Profile - Verify Profile</h1>
+				</div>
+						<section class="content">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+												
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+                    <div id="upload_poi_status_pending" class="alert alert-warning kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-alert float-left align-self-center"></span><strong class="align-self-center">Your proof of identity document is uploaded</strong></div>
+                        <div id="notification" class="collapse">
+                            <p>Your proof of identity document is <strong>under review</strong>. This process is expected to take a few minutes</p>
+                        </div>
+                    </div>
+		
+                    <div id="upload_poi_status_rejected" class="alert alert-danger kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-error float-left align-self-center"></span><strong class="align-self-center">Your proof of identity document is rejected</strong></div>
+                        <div id="notification" class="collapse">
+                            <p><p>The document has been rejected due to the following reasons:</p><ul class="rejected-reasons"></ul>
+<p>If you have any questions please contact our customer support.</p></p>
+                        </div>
+                    </div>
+		
+                    <div id="upload_poi_status_approved" class="alert alert-success kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-approve float-left align-self-center"></span><strong class="align-self-center">Your proof of identity document is verified</strong></div>
+                        <div id="notification" class="collapse">
+                            <p></p>
+                        </div>
+                    </div>
+		
+                    <div id="upload_por_status_pending" class="alert alert-warning kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-alert float-left align-self-center"></span><strong class="align-self-center">Your proof of address document is uploaded</strong></div>
+                        <div id="notification" class="collapse">
+                            <p>Your proof of address document is <strong>under review</strong>. This process is expected to take a few minutes</p>
+                        </div>
+                    </div>
+		
+                    <div id="upload_por_status_rejected" class="alert alert-danger kyc  d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-error float-left align-self-center"></span><strong class="align-self-center">Your proof of address document is rejected</strong></div>
+                        <div id="notification" class="collapse">
+                            <p><p>Your proof of address document has been rejected due to the following reasons:</p><ul class="rejected-reasons"></ul>
+<p>If you have any questions please contact our customer support.</p></p>
+                        </div>
+                    </div>
+		
+                    <div id="verification_done" class="alert alert-success kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-approve float-left align-self-center"></span><strong class="align-self-center">Your profile has been verified</strong></div>
+                        <div id="notification" class="collapse">
+                            <p></p>
+                        </div>
+                    </div>
+		
+                    <div id="manual_approval_in_progress" class="alert alert-warning kyc d-none" role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-alert float-left align-self-center"></span>Your document is still under review&nbsp;<span class="align-self-center notification-title"></span></div>
+                        <div id="notification" class="collapse">
+                            <p>The initial automated check has discovered issues that need to be manually reviewed. Our team will review your document and get back to you within the next 24-48 hours.</p>
+                        </div>
+                    </div>
+		
+			
+
+
+
+
+
+<div class="card">
+	<div class="card-body">
+		<div class="row justify-content-center">
+            {% for message in messages %}
+			<p>{{ message }}</p>
+			{% endfor %}
+			<h5 class="text-center">To start trading please verify your identity and your address.</h5>
+		</div>
+		<div class="stepper-wrapper px-xl-5 px-0 mx-n4 mx-lg-0">
+		<div class="stepper-item active">
+			<div class="step-counter">1</div>
+			<div class="step-name text-center step-title">Complete profile<span class="icon icon-clock yellow ml-lg-2 ml-1"></span></div>
+		</div>
+		<div class="stepper-item poi">
+			<div class="step-counter">2</div>
+			<div class="step-name text-center step-title">Verify Identity
+							</div>
+		</div>
+		<div class="stepper-item poa">
+			<div class="step-counter">3</div>
+			<div class="step-name text-center step-title">Verify Address
+							</div>
+		</div>
+	</div>
+</div>
+</div>		
+	
+	
+	
+	
+			<form method="post" action="" id="documents-form" class="" enctype="multipart/form-data">
+				{% csrf_token %}
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-my-profile red"></span>Personal Details</h5>
+		</div>
+		<div class="card-body">
+			<input type="hidden" name="security" value="dc2f8ef2a6ce1c02e0dc299e3117054a">
+			<div class="form-group">
+				<label for="first_name">First name:</label>
+				<input
+	type="text"
+	class="form-control "
+			value="{{user.first_name}}"
+		id="first_name"
+	name="first_name"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="last_name">Last name:</label>
+				<input
+	type="text"
+	class="form-control "
+			value="{{user.last_name}}"
+		id="last_name"
+	name="last_name"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="local-names" style="display:none;">
+				<div class="form-group">
+					<label for="first_name_local">First name (Local):</label>
+					<input
+	type="text"
+	class="form-control "
+			value=""
+		id="first_name_local"
+	name="first_name_local"
+								data-toggle="tooltip" title="" data-placement="bottom"
+>					
+				</div>
+				<div class="form-group">
+					<label for="last_name_local">Last name (Local):</label>
+					<input
+	type="text"
+	class="form-control "
+			value=""
+		id="last_name_local"
+	name="last_name_local"
+								data-toggle="tooltip" title="" data-placement="bottom"
+>					
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email">E-mail:</label>
+				<input
+	type="text"
+	class="form-control "
+			value="{{user.email}}"
+		id="email"
+	name="email"
+			readonly="readonly"			required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="nationality">Nationality:</label>
+						
+
+
+			<select name="nationality" id="nationality"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="AF"  >
+						Afghan
+					</option>
+																																<option value="AL"  >
+						Albanian
+					</option>
+																																<option value="DZ"  >
+						Algerian
+					</option>
+																																<option value="US"  >
+						American
+					</option>
+																																<option value="UM"  >
+						American Minor Outlying Islands
+					</option>
+																																<option value="AD"  >
+						Andorran
+					</option>
+																																<option value="AO"  >
+						Angolan
+					</option>
+																																<option value="AI"  >
+						Anguillian
+					</option>
+																																<option value="AG"  >
+						Antiguan
+					</option>
+																																<option value="AR"  >
+						Argentinian
+					</option>
+																																<option value="AM"  >
+						Armenian
+					</option>
+																																<option value="AW"  >
+						Arubanic
+					</option>
+																																<option value="AU"  >
+						Australian
+					</option>
+																																<option value="AT"  >
+						Austrian
+					</option>
+																																<option value="AZ"  >
+						Azerbaijani
+					</option>
+																																<option value="BS"  >
+						Bahaman
+					</option>
+																																<option value="BH"  >
+						Bahraini
+					</option>
+																																<option value="BD"  >
+						Bangladeshi
+					</option>
+																																<option value="BB"  >
+						Barbadan
+					</option>
+																																<option value="BY"  >
+						Belarusian
+					</option>
+																																<option value="BE"  >
+						Belgian
+					</option>
+																																<option value="BZ"  >
+						Belizean
+					</option>
+																																<option value="BJ"  >
+						Beninese
+					</option>
+																																<option value="BM"  >
+						Bermudan
+					</option>
+																																<option value="BT"  >
+						Bhutanese
+					</option>
+																																<option value="BO"  >
+						Bolivian
+					</option>
+																																<option value="BA"  >
+						Bosnian-Herzegovinian
+					</option>
+																																<option value="BW"  >
+						Botswanan
+					</option>
+																																<option value="BR"  >
+						Brazilian
+					</option>
+																																<option value="IO"  >
+						Brit.Ind.Oc.Ter
+					</option>
+																																<option value="GB"  >
+						British
+					</option>
+																																<option value="VG"  >
+						Brit.Virgin Is.
+					</option>
+																																<option value="BN"  >
+						Brunei
+					</option>
+																																<option value="BG"  >
+						Bulgarian
+					</option>
+																																<option value="BF"  >
+						Burkinabe
+					</option>
+																																<option value="MM"  >
+						Burmese
+					</option>
+																																<option value="BI"  >
+						Burundi
+					</option>
+																																<option value="KH"  >
+						Cambodian
+					</option>
+																																<option value="CM"  >
+						Cameroonian
+					</option>
+																																<option value="CA"  >
+						Canadian
+					</option>
+																																<option value="CV"  >
+						Cape Verdean
+					</option>
+																																<option value="KY"  >
+						Cayman Islands
+					</option>
+																																<option value="CF"  >
+						Central African
+					</option>
+																																<option value="TD"  >
+						Chadian
+					</option>
+																																<option value="CL"  >
+						Chilean
+					</option>
+																																<option value="CN"  >
+						Chinese
+					</option>
+																																<option value="CX"  >
+						Christmas Island
+					</option>
+																																<option value="CC"  >
+						Coconut Islands
+					</option>
+																																<option value="CO"  >
+						Colombian
+					</option>
+																																<option value="KM"  >
+						Comoran
+					</option>
+																																<option value="CG"  >
+						Congolese
+					</option>
+																																<option value="CK"  >
+						Cook Islands
+					</option>
+																																<option value="CR"  >
+						Costa Rican
+					</option>
+																																<option value="HR"  >
+						Croatian
+					</option>
+																																<option value="CU"  >
+						Cuban
+					</option>
+																																<option value="CW"  >
+						Curacao
+					</option>
+																																<option value="CY"  >
+						Cypriot
+					</option>
+																																<option value="CZ"  >
+						Czech
+					</option>
+																																<option value="DK"  >
+						Danish
+					</option>
+																																<option value="CD"  >
+						Dem. Rep. Congo
+					</option>
+																																<option value="DJ"  >
+						Djiboutian
+					</option>
+																																<option value="DM"  >
+						Dominica
+					</option>
+																																<option value="DO"  >
+						Dominican
+					</option>
+																																<option value="NL"  >
+						Dutch
+					</option>
+																																<option value="AN"  >
+						Dutch Antilles
+					</option>
+																																<option value="TL"  >
+						East Timor
+					</option>
+																																<option value="EC"  >
+						Ecuadorian
+					</option>
+																																<option value="EG"  >
+						Egyptian
+					</option>
+																																<option value="GQ"  >
+						Equatorial Guinean
+					</option>
+																																<option value="ER"  >
+						Eritrean
+					</option>
+																																<option value="EE"  >
+						Estonian
+					</option>
+																																<option value="ET"  >
+						Ethiopian
+					</option>
+																																<option value="FK"  >
+						Falkland Islnds
+					</option>
+																																<option value="FO"  >
+						Faroe Islands
+					</option>
+																																<option value="FJ"  >
+						Fijian
+					</option>
+																																<option value="PH"  >
+						Filipino
+					</option>
+																																<option value="FI"  >
+						Finnish
+					</option>
+																																<option value="FR"  >
+						French
+					</option>
+																																<option value="GF"  >
+						French Guayana
+					</option>
+																																<option value="TF"  >
+						French S.Territ
+					</option>
+																																<option value="PF"  >
+						Frenc.Polynesia
+					</option>
+																																<option value="AQ"  >
+						From Antarctica
+					</option>
+																																<option value="TP"  >
+						From East Timor
+					</option>
+																																<option value="KN"  >
+						From Saint Kitts and Nevis
+					</option>
+																																<option value="BV"  >
+						From the Bouvet Islands
+					</option>
+																																<option value="HM"  >
+						From the Heard and McDonald Islands
+					</option>
+																																<option value="NF"  >
+						From the Norfolk Islands
+					</option>
+																																<option value="TK"  >
+						From the Tokelau Islands
+					</option>
+																																<option value="TC"  >
+						From the Turks and Caicos Islands
+					</option>
+																																<option value="VI"  >
+						From the Virgin Islands
+					</option>
+																																<option value="WF"  >
+						From the Wallis and Futuna Islands
+					</option>
+																																<option value="TT"  >
+						From Trinidad and Tobago
+					</option>
+																																<option value="GA"  >
+						Gabonese
+					</option>
+																																<option value="GM"  >
+						Gambian
+					</option>
+																																<option value="GE"  >
+						Georgian
+					</option>
+																																<option value="DE"  >
+						German
+					</option>
+																																<option value="GH"  >
+						Ghanian
+					</option>
+																																<option value="GI"  >
+						Gibraltar
+					</option>
+																																<option value="GR"  >
+						Greek
+					</option>
+																																<option value="GL"  >
+						Greenland
+					</option>
+																																<option value="GD"  >
+						Grenadian
+					</option>
+																																<option value="GP"  >
+						Guadeloupe
+					</option>
+																																<option value="GU"  >
+						Guam
+					</option>
+																																<option value="GT"  >
+						Guatemalan
+					</option>
+																																<option value="GW"  >
+						Guinea-Bissau
+					</option>
+																																<option value="GN"  >
+						Guinean
+					</option>
+																																<option value="GY"  >
+						Guyanese
+					</option>
+																																<option value="HT"  >
+						Haitian
+					</option>
+																																<option value="HN"  >
+						Honduran
+					</option>
+																																<option value="HK"  >
+						Hong Kong
+					</option>
+																																<option value="HU"  >
+						Hungarian
+					</option>
+																																<option value="IS"  >
+						Icelandic
+					</option>
+																																<option value="IN"  >
+						Indian
+					</option>
+																																<option value="ID"  >
+						Indonesian
+					</option>
+																																<option value="IR"  >
+						Iranian
+					</option>
+																																<option value="IQ"  >
+						Iraqi
+					</option>
+																																<option value="IE"  >
+						Irish
+					</option>
+																																<option value="IL"  >
+						Israeli
+					</option>
+																																<option value="IT"  >
+						Italian
+					</option>
+																																<option value="CI"  >
+						Ivoirian
+					</option>
+																																<option value="JM"  >
+						Jamaican
+					</option>
+																																<option value="JP"  >
+						Japanese
+					</option>
+																																<option value="JO"  >
+						Jordanian
+					</option>
+																																<option value="KZ"  >
+						Kazakh
+					</option>
+																																<option value="KE"  >
+						Kenyan
+					</option>
+																																<option value="KI"  >
+						Kiribati
+					</option>
+																																<option value="KR"  >
+						Korean
+					</option>
+																																<option value="KW"  >
+						Kuwaiti
+					</option>
+																																<option value="KG"  >
+						Kyrgyzstani
+					</option>
+																																<option value="LA"  >
+						Laotian
+					</option>
+																																<option value="LV"  >
+						Latvian
+					</option>
+																																<option value="LB"  >
+						Lebanese
+					</option>
+																																<option value="LS"  >
+						Lesothan
+					</option>
+																																<option value="LR"  >
+						Liberian
+					</option>
+																																<option value="LY"  >
+						Libyan
+					</option>
+																																<option value="LI"  >
+						Liechtenstein
+					</option>
+																																<option value="LT"  >
+						Lithuanian
+					</option>
+																																<option value="LC"  >
+						Lucian
+					</option>
+																																<option value="LU"  >
+						Luxembourgian
+					</option>
+																																<option value="MO"  >
+						Macau
+					</option>
+																																<option value="MK"  >
+						Macedonian
+					</option>
+																																<option value="MG"  >
+						Madagascan
+					</option>
+																																<option value="MW"  >
+						Malawian
+					</option>
+																																<option value="MY"  >
+						Malaysian
+					</option>
+																																<option value="MV"  >
+						Maldivian
+					</option>
+																																<option value="ML"  >
+						Malian
+					</option>
+																																<option value="MT"  >
+						Maltese
+					</option>
+																																<option value="MP"  >
+						Marianian
+					</option>
+																																<option value="MH"  >
+						Marshallese
+					</option>
+																																<option value="MQ"  >
+						Martinique
+					</option>
+																																<option value="MR"  >
+						Mauretanian
+					</option>
+																																<option value="MU"  >
+						Mauritian
+					</option>
+																																<option value="YT"  >
+						Mayotte
+					</option>
+																																<option value="MX"  >
+						Mexican
+					</option>
+																																<option value="FM"  >
+						Micronesian
+					</option>
+																																<option value="MD"  >
+						Moldovan
+					</option>
+																																<option value="MC"  >
+						Monegasque
+					</option>
+																																<option value="MN"  >
+						Mongolian
+					</option>
+																																<option value="ME"  >
+						Montenegrin
+					</option>
+																																<option value="MS"  >
+						Montserrat
+					</option>
+																																<option value="MA"  >
+						Moroccan
+					</option>
+																																<option value="MZ"  >
+						Mozambican
+					</option>
+																																<option value="NA"  >
+						Namibian
+					</option>
+																																<option value="NR"  >
+						Nauruian
+					</option>
+																																<option value="NP"  >
+						Nepalese
+					</option>
+																																<option value="NC"  >
+						New Caledonia
+					</option>
+																																<option value="NZ"  >
+						New Zealand
+					</option>
+																																<option value="NI"  >
+						Nicaraguan
+					</option>
+																																<option value="NE"  >
+						Niger
+					</option>
+																																<option value="NG"  >
+						Nigerian
+					</option>
+																																<option value="NU"  >
+						Niuean
+					</option>
+																																<option value="VU"  >
+						Ni-Vanuatu
+					</option>
+																																<option value="KP"  >
+						North Korea
+					</option>
+																																<option value="NO"  >
+						Norwegian
+					</option>
+																																<option value="OM"  >
+						Omani
+					</option>
+																																<option value="PK"  >
+						Pakistani
+					</option>
+																																<option value="PW"  >
+						Palauan
+					</option>
+																																<option value="PS"  >
+						Palestinian
+					</option>
+																																<option value="PA"  >
+						Panamanian
+					</option>
+																																<option value="PG"  >
+						Papua New Guinean
+					</option>
+																																<option value="PY"  >
+						Paraguayan
+					</option>
+																																<option value="PE"  >
+						Peruvian
+					</option>
+																																<option value="PN"  >
+						Pitcairn Islnds
+					</option>
+																																<option value="PL"  >
+						Polish
+					</option>
+																																<option value="PT"  >
+						Portuguese
+					</option>
+																																<option value="PR"  >
+						Puerto Rico
+					</option>
+																																<option value="QA"  >
+						Qatari
+					</option>
+																																<option value="RE"  >
+						Reunion
+					</option>
+																																<option value="RO"  >
+						Romanian
+					</option>
+																																<option value="RU"  >
+						Russian
+					</option>
+																																<option value="RW"  >
+						Rwandan
+					</option>
+																																<option value="SH"  >
+						Saint Helenian
+					</option>
+																																<option value="SV"  >
+						Salvadoran
+					</option>
+																																<option value="SM"  >
+						Sammarinese
+					</option>
+																																<option value="WS"  >
+						Samoa
+					</option>
+																																<option value="AS"  >
+						Samoan
+					</option>
+																																<option value="ST"  >
+						Sao Tomean
+					</option>
+																																<option value="SA"  >
+						Saudi Arabian
+					</option>
+																																<option value="SN"  >
+						Senegalese
+					</option>
+																																<option value="RS"  >
+						Serbia
+					</option>
+																																<option value="CS"  >
+						Serbian; Montenegrin
+					</option>
+																																<option value="SC"  >
+						Seychellian
+					</option>
+																																<option value="SL"  >
+						Sierra Leonean
+					</option>
+																																<option value="SG"  >
+						Singaporean
+					</option>
+																																<option value="SK"  >
+						Slovakian
+					</option>
+																																<option value="SI"  >
+						Slovenian
+					</option>
+																																<option value="SB"  >
+						Solomonese
+					</option>
+																																<option value="SO"  >
+						Somali
+					</option>
+																																<option value="ZA"  >
+						South African
+					</option>
+																																<option value="GS"  >
+						South Georgia
+					</option>
+																																<option value="ES"  >
+						Spanish
+					</option>
+																																<option value="LK"  >
+						Sri Lankan
+					</option>
+																																<option value="PM"  >
+						St.Pier,Miquel.
+					</option>
+																																<option value="SD"  >
+						Sudanese
+					</option>
+																																<option value="SR"  >
+						Surinamese
+					</option>
+																																<option value="SJ"  >
+						Svalbard
+					</option>
+																																<option value="SZ"  >
+						Swazi
+					</option>
+																																<option value="SE"  >
+						Swedish
+					</option>
+																																<option value="CH"  >
+						Swiss
+					</option>
+																																<option value="SY"  >
+						Syrian
+					</option>
+																																<option value="TW"  >
+						Taiwan
+					</option>
+																																<option value="TJ"  >
+						Tajikistani
+					</option>
+																																<option value="TZ"  >
+						Tanzanian
+					</option>
+																																<option value="TH"  >
+						Thai
+					</option>
+																																<option value="TG"  >
+						Togolese
+					</option>
+																																<option value="TO"  >
+						Tongan
+					</option>
+																																<option value="TN"  >
+						Tunisian
+					</option>
+																																<option value="TR"  >
+						Turkish
+					</option>
+																																<option value="TM"  >
+						Turkmenian
+					</option>
+																																<option value="TV"  >
+						Tuvaluese
+					</option>
+																																<option value="UG"  >
+						Ugandan
+					</option>
+																																<option value="UA"  >
+						Ukrainian
+					</option>
+																																<option value="AE"  >
+						United Arab Emirates
+					</option>
+																																<option value="UY"  >
+						Uruguayan
+					</option>
+																																<option value="UZ"  >
+						Uzbekistani
+					</option>
+																																<option value="VA"  >
+						Vatican City
+					</option>
+																																<option value="VE"  >
+						Venezuelan
+					</option>
+																																<option value="VN"  >
+						Vietnamese
+					</option>
+																																<option value="VC"  >
+						Vincentian
+					</option>
+																																<option value="EH"  >
+						West Sahara
+					</option>
+																																<option value="YE"  >
+						Yemeni
+					</option>
+																																<option value="ZM"  >
+						Zambian
+					</option>
+																																<option value="ZW"  >
+						Zimbabwean
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="gender">Gender:</label>
+						
+
+
+			<select name="gender" id="gender"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="M"  >
+						Male
+					</option>
+																																<option value="F"  >
+						Female
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="dob_dd">Date of Birth:</label>
+				<div class="form-inline">
+					<div class="form-group">
+						<select name="dob_dd" id="dob_dd" class="custom-select" required="required">
+							<option value="">&nbsp;</option>
+																															<option value="1" >01</option>
+																															<option value="2" >02</option>
+																															<option value="3" selected="selected">03</option>
+																															<option value="4" >04</option>
+																															<option value="5" >05</option>
+																															<option value="6" >06</option>
+																															<option value="7" >07</option>
+																															<option value="8" >08</option>
+																															<option value="9" >09</option>
+																															<option value="10" >10</option>
+																															<option value="11" >11</option>
+																															<option value="12" >12</option>
+																															<option value="13" >13</option>
+																															<option value="14" >14</option>
+																															<option value="15" >15</option>
+																															<option value="16" >16</option>
+																															<option value="17" >17</option>
+																															<option value="18" >18</option>
+																															<option value="19" >19</option>
+																															<option value="20" >20</option>
+																															<option value="21" >21</option>
+																															<option value="22" >22</option>
+																															<option value="23" >23</option>
+																															<option value="24" >24</option>
+																															<option value="25" >25</option>
+																															<option value="26" >26</option>
+																															<option value="27" >27</option>
+																															<option value="28" >28</option>
+																															<option value="29" >29</option>
+																															<option value="30" >30</option>
+																															<option value="31" >31</option>
+													</select>
+					</div>
+					<div class="form-group">
+												
+						<select name="dob_mm" id="dob_mm" class="custom-select" required="required">
+							<option value="">&nbsp;</option>
+															<option value="1" >01 - January</option>
+															<option value="2" >02 - February</option>
+															<option value="3" >03 - March</option>
+															<option value="4" selected="selected">04 - April</option>
+															<option value="5" >05 - May</option>
+															<option value="6" >06 - June</option>
+															<option value="7" >07 - July</option>
+															<option value="8" >08 - August</option>
+															<option value="9" >09 - September</option>
+															<option value="10" >10 - October</option>
+															<option value="11" >11 - November</option>
+															<option value="12" >12 - December</option>
+													</select>
+					</div>
+					<div class="form-group">
+						<select name="dob_yy" id="dob_yy" class="custom-select" required="required">
+							<option value="">&nbsp;</option>
+																																					<option value="2004" >2004</option>
+																							<option value="2003" >2003</option>
+																							<option value="2002" >2002</option>
+																							<option value="2001" >2001</option>
+																							<option value="2000" >2000</option>
+																							<option value="1999" >1999</option>
+																							<option value="1998" >1998</option>
+																							<option value="1997" >1997</option>
+																							<option value="1996" >1996</option>
+																							<option value="1995" >1995</option>
+																							<option value="1994" selected="selected">1994</option>
+																							<option value="1993" >1993</option>
+																							<option value="1992" >1992</option>
+																							<option value="1991" >1991</option>
+																							<option value="1990" >1990</option>
+																							<option value="1989" >1989</option>
+																							<option value="1988" >1988</option>
+																							<option value="1987" >1987</option>
+																							<option value="1986" >1986</option>
+																							<option value="1985" >1985</option>
+																							<option value="1984" >1984</option>
+																							<option value="1983" >1983</option>
+																							<option value="1982" >1982</option>
+																							<option value="1981" >1981</option>
+																							<option value="1980" >1980</option>
+																							<option value="1979" >1979</option>
+																							<option value="1978" >1978</option>
+																							<option value="1977" >1977</option>
+																							<option value="1976" >1976</option>
+																							<option value="1975" >1975</option>
+																							<option value="1974" >1974</option>
+																							<option value="1973" >1973</option>
+																							<option value="1972" >1972</option>
+																							<option value="1971" >1971</option>
+																							<option value="1970" >1970</option>
+																							<option value="1969" >1969</option>
+																							<option value="1968" >1968</option>
+																							<option value="1967" >1967</option>
+																							<option value="1966" >1966</option>
+																							<option value="1965" >1965</option>
+																							<option value="1964" >1964</option>
+																							<option value="1963" >1963</option>
+																							<option value="1962" >1962</option>
+																							<option value="1961" >1961</option>
+																							<option value="1960" >1960</option>
+																							<option value="1959" >1959</option>
+																							<option value="1958" >1958</option>
+																							<option value="1957" >1957</option>
+																							<option value="1956" >1956</option>
+																							<option value="1955" >1955</option>
+																							<option value="1954" >1954</option>
+																							<option value="1953" >1953</option>
+																							<option value="1952" >1952</option>
+																							<option value="1951" >1951</option>
+																							<option value="1950" >1950</option>
+																							<option value="1949" >1949</option>
+																							<option value="1948" >1948</option>
+																							<option value="1947" >1947</option>
+																							<option value="1946" >1946</option>
+																							<option value="1945" >1945</option>
+																							<option value="1944" >1944</option>
+																							<option value="1943" >1943</option>
+																							<option value="1942" >1942</option>
+																							<option value="1941" >1941</option>
+																							<option value="1940" >1940</option>
+																							<option value="1939" >1939</option>
+																							<option value="1938" >1938</option>
+																							<option value="1937" >1937</option>
+																							<option value="1936" >1936</option>
+																							<option value="1935" >1935</option>
+																							<option value="1934" >1934</option>
+																							<option value="1933" >1933</option>
+																							<option value="1932" >1932</option>
+																							<option value="1931" >1931</option>
+																							<option value="1930" >1930</option>
+																							<option value="1929" >1929</option>
+																							<option value="1928" >1928</option>
+																							<option value="1927" >1927</option>
+																							<option value="1926" >1926</option>
+																							<option value="1925" >1925</option>
+																							<option value="1924" >1924</option>
+																							<option value="1923" >1923</option>
+																							<option value="1922" >1922</option>
+																							<option value="1921" >1921</option>
+																							<option value="1920" >1920</option>
+																							<option value="1919" >1919</option>
+																							<option value="1918" >1918</option>
+																							<option value="1917" >1917</option>
+																							<option value="1916" >1916</option>
+																							<option value="1915" >1915</option>
+																							<option value="1914" >1914</option>
+																							<option value="1913" >1913</option>
+																							<option value="1912" >1912</option>
+																							<option value="1911" >1911</option>
+																							<option value="1910" >1910</option>
+																							<option value="1909" >1909</option>
+																							<option value="1908" >1908</option>
+																							<option value="1907" >1907</option>
+																							<option value="1906" >1906</option>
+																							<option value="1905" >1905</option>
+													</select>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-tax red"></span>Tax Residency</h5>
+		</div>
+		<div class="card-body">
+			<div class="form-group">
+				<label for="tin">TIN (ENTER NULL IF NOT AVAILABLE):</label>
+				<input
+	type="text"
+	class="form-control "
+			value=""
+		id="tin"
+	name="tin"
+								data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="tax_country">Country of Tax Residence:</label>
+				
+				<select name="tax_country" id="tax_country" class="custom-select" required>
+					<option value="">- Select -</option>
+											<option value="AD">Andorra</option>
+											<option value="AE">United Arab Emirates</option>
+											<option value="AF">Afghanistan</option>
+											<option value="AG">Antigua and Barbuda</option>
+											<option value="AI">Anguilla</option>
+											<option value="AL">Albania</option>
+											<option value="AM">Armenia</option>
+											<option value="AN">Netherlands Antilles</option>
+											<option value="AO">Angola</option>
+											<option value="AQ">Antarctica</option>
+											<option value="AR">Argentina</option>
+											<option value="AS">American Samoa</option>
+											<option value="AT">Austria</option>
+											<option value="AU">Australia</option>
+											<option value="AW">Aruba</option>
+											<option value="AZ">Azerbaijan</option>
+											<option value="BB">Barbados</option>
+											<option value="BD">Bangladesh</option>
+											<option value="BE">Belgium</option>
+											<option value="BG">Bulgaria</option>
+											<option value="BH">Bahrain</option>
+											<option value="BI">Burundi</option>
+											<option value="BJ">Benin</option>
+											<option value="BN">Brunei</option>
+											<option value="BO">Bolivia</option>
+											<option value="BS">Bahamas</option>
+											<option value="BT">Bhutan</option>
+											<option value="BV">Bouvet Island</option>
+											<option value="BW">Botswana</option>
+											<option value="BZ">Belize</option>
+											<option value="CC">Cocos (Keeling) Islands</option>
+											<option value="CD">Congo - Kinshasa</option>
+											<option value="CF">Central African Republic</option>
+											<option value="CG">Congo - Brazzaville</option>
+											<option value="CH">Switzerland</option>
+											<option value="CI">Côte d’Ivoire</option>
+											<option value="CK">Cook Islands</option>
+											<option value="CL">Chile</option>
+											<option value="CM">Cameroon</option>
+											<option value="CN">China</option>
+											<option value="CO">Colombia</option>
+											<option value="CR">Costa Rica</option>
+											<option value="CV">Cape Verde</option>
+											<option value="CW">Curaçao</option>
+											<option value="CX">Christmas Island</option>
+											<option value="CZ">Czech Republic</option>
+											<option value="DE">Germany</option>
+											<option value="DJ">Djibouti</option>
+											<option value="DK">Denmark</option>
+											<option value="DM">Dominica</option>
+											<option value="DO">Dominican Republic</option>
+											<option value="DZ">Algeria</option>
+											<option value="EC">Ecuador</option>
+											<option value="EE">Estonia</option>
+											<option value="EG">Egypt</option>
+											<option value="ER">Eritrea</option>
+											<option value="ES">Spain</option>
+											<option value="ET">Ethiopia</option>
+											<option value="FJ">Fiji</option>
+											<option value="FK">Falkland Islands</option>
+											<option value="FM">Micronesia</option>
+											<option value="FO">Faroe Islands</option>
+											<option value="FR">France</option>
+											<option value="GA">Gabon</option>
+											<option value="GB">United Kingdom</option>
+											<option value="GD">Grenada</option>
+											<option value="GE">Georgia</option>
+											<option value="GF">French Guiana</option>
+											<option value="GH">Ghana</option>
+											<option value="GI">Gibraltar</option>
+											<option value="GL">Greenland</option>
+											<option value="GM">Gambia</option>
+											<option value="GN">Guinea</option>
+											<option value="GP">Guadeloupe</option>
+											<option value="GQ">Equatorial Guinea</option>
+											<option value="GR">Greece</option>
+											<option value="GS">South Georgia &amp; South Sandwich Islands</option>
+											<option value="GT">Guatemala</option>
+											<option value="GW">Guinea-Bissau</option>
+											<option value="GY">Guyana</option>
+											<option value="HK">Hong Kong SAR China</option>
+											<option value="HM">Heard &amp; McDonald Islands</option>
+											<option value="HN">Honduras</option>
+											<option value="HR">Croatia</option>
+											<option value="HU">Hungary</option>
+											<option value="ID">Indonesia</option>
+											<option value="IE">Ireland</option>
+											<option value="IL">Israel</option>
+											<option value="IN">India</option>
+											<option value="IO">British Indian Ocean Territory</option>
+											<option value="IQ">Iraq</option>
+											<option value="IS">Iceland</option>
+											<option value="IT">Italy</option>
+											<option value="JM">Jamaica</option>
+											<option value="JO">Jordan</option>
+											<option value="KE">Kenya</option>
+											<option value="KG">Kyrgyzstan</option>
+											<option value="KH">Cambodia</option>
+											<option value="KI">Kiribati</option>
+											<option value="KM">Comoros</option>
+											<option value="KN">Saint Kitts and Nevis</option>
+											<option value="KR">South Korea</option>
+											<option value="KW">Kuwait</option>
+											<option value="KY">Cayman Islands</option>
+											<option value="KZ">Kazakhstan</option>
+											<option value="LA">Laos</option>
+											<option value="LB">Lebanon</option>
+											<option value="LC">Saint Lucia</option>
+											<option value="LI">Liechtenstein</option>
+											<option value="LK">Sri Lanka</option>
+											<option value="LR">Liberia</option>
+											<option value="LS">Lesotho</option>
+											<option value="LT">Lithuania</option>
+											<option value="LU">Luxembourg</option>
+											<option value="LV">Latvia</option>
+											<option value="LY">Libya</option>
+											<option value="MC">Monaco</option>
+											<option value="MD">Moldova</option>
+											<option value="ME">Montenegro</option>
+											<option value="MG">Madagascar</option>
+											<option value="MH">Marshall Islands</option>
+											<option value="MK">Macedonia</option>
+											<option value="ML">Mali</option>
+											<option value="MM">Myanmar (Burma)</option>
+											<option value="MN">Mongolia</option>
+											<option value="MO">Macau SAR China</option>
+											<option value="MP">Northern Mariana Islands</option>
+											<option value="MQ">Martinique</option>
+											<option value="MR">Mauritania</option>
+											<option value="MS">Montserrat</option>
+											<option value="MT">Malta</option>
+											<option value="MU">Mauritius</option>
+											<option value="MV">Maldives</option>
+											<option value="MW">Malawi</option>
+											<option value="MX">Mexico</option>
+											<option value="MY">Malaysia</option>
+											<option value="MZ">Mozambique</option>
+											<option value="NA">Namibia</option>
+											<option value="NC">New Caledonia</option>
+											<option value="NE">Niger</option>
+											<option value="NF">Norfolk Island</option>
+											<option value="NG">Nigeria</option>
+											<option value="NI">Nicaragua</option>
+											<option value="NL">Netherlands</option>
+											<option value="NO">Norway</option>
+											<option value="NP">Nepal</option>
+											<option value="NR">Nauru</option>
+											<option value="NU">Niue</option>
+											<option value="NZ">New Zealand</option>
+											<option value="OM">Oman</option>
+											<option value="PE">Peru</option>
+											<option value="PF">French Polynesia</option>
+											<option value="PG">Papua New Guinea</option>
+											<option value="PH">Philippines</option>
+											<option value="PK">Pakistan</option>
+											<option value="PL">Poland</option>
+											<option value="PM">Saint Pierre and Miquelon</option>
+											<option value="PN">Pitcairn Islands</option>
+											<option value="PS">Palestinian Territories</option>
+											<option value="PT">Portugal</option>
+											<option value="PW">Palau</option>
+											<option value="PY">Paraguay</option>
+											<option value="QA">Qatar</option>
+											<option value="RE">Reunion</option>
+											<option value="RO">Romania</option>
+											<option value="RS">Serbia</option>
+											<option value="RU">Russia</option>
+											<option value="RW">Rwanda</option>
+											<option value="SA">Saudi Arabia</option>
+											<option value="SB">Solomon Islands</option>
+											<option value="SC">Seychelles</option>
+											<option value="SE">Sweden</option>
+											<option value="SG">Singapore</option>
+											<option value="SH">Saint Helena</option>
+											<option value="SI">Slovenia</option>
+											<option value="SJ">Svalbard and Jan Mayen</option>
+											<option value="SK">Slovakia</option>
+											<option value="SL">Sierra Leone</option>
+											<option value="SM">San Marino</option>
+											<option value="SO">Somalia</option>
+											<option value="SR">Suriname</option>
+											<option value="ST">São Tomé and Príncipe</option>
+											<option value="SV">El Salvador</option>
+											<option value="SZ">Swaziland</option>
+											<option value="TC">Turks and Caicos Islands</option>
+											<option value="TD">Chad</option>
+											<option value="TF">French Southern Territories</option>
+											<option value="TG">Togo</option>
+											<option value="TH">Thailand</option>
+											<option value="TJ">Tajikistan</option>
+											<option value="TK">Tokelau</option>
+											<option value="TL">Timor-Leste</option>
+											<option value="TM">Turkmenistan</option>
+											<option value="TN">Tunisia</option>
+											<option value="TO">Tonga</option>
+											<option value="TR">Turkey</option>
+											<option value="TT">Trinidad and Tobago</option>
+											<option value="TV">Tuvalu</option>
+											<option value="TW">Taiwan</option>
+											<option value="TZ">Tanzania</option>
+											<option value="UA">Ukraine</option>
+											<option value="UG">Uganda</option>
+											<option value="UY">Uruguay</option>
+											<option value="UZ">Uzbekistan</option>
+											<option value="VA">Vatican City</option>
+											<option value="VC">St. Vincent &amp; Grenadines</option>
+											<option value="VE">Venezuela</option>
+											<option value="VG">British Virgin Islands</option>
+											<option value="VN">Vietnam</option>
+											<option value="WF">Wallis and Futuna</option>
+											<option value="WS">Samoa</option>
+											<option value="YT">Mayotte</option>
+											<option value="ZM">Zambia</option>
+											<option value="ZW">Zimbabwe</option>
+									</select>
+				
+			</div>
+			<div id="tin-unavailable-section">
+				<div class="form-group">
+					<label for="tin_unavailable">Options:</label>
+					
+					
+					
+					<div class="form-check">
+						<input type="radio" value="0" class="form-check-input" id="tin_unavailable_1" name="tin_unavailable"><label class="form-check-label">TIN submitted</label>
+					</div>
+					<div class="form-check">
+						<input type="radio" value="1" class="form-check-input" id="tin_unavailable_1" name="tin_unavailable"><label class="form-check-label">Country does not issue TIN</label>
+					</div>
+					<div class="form-check">
+						<input type="radio" value="2" class="form-check-input" id="tin_unavailable_2" name="tin_unavailable"><label class="form-check-label">TIN is not required by the domestic law</label>
+					</div>
+					<div class="form-check">
+						<input type="radio" value="3" class="form-check-input" id="tin_unavailable_3" name="tin_unavailable"><label class="form-check-label">Unable to obtain a TIN. Please indicate reason:</label>
+					</div>
+				</div>
+				<div class="form-group collapse">
+					<label for="tin_reason">Reason TIN Unavailable:</label>
+				</div>
+				<div class="form-group reason-section collapse">
+					<label class="control-label col-sm-4 portal-form-label" for="tin_reason">Reason TIN Unavailable:</label>
+					<div class="col-sm-5 portal-form-element"><input
+	type="text"
+	class="form-control hastip "
+			value=""
+		id="tin_reason"
+	name="tin_reason"
+								data-toggle="tooltip" title="" data-placement="bottom"
+></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-home-address red"></span>Home Address</h5>
+		</div>
+		<div class="card-body por">
+			<div class="form-group">
+				<label for="address1">Address Line 1:</label>
+				<input
+	type="text"
+	class="form-control "
+			value=""
+		id="address1"
+	name="address1"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="address2">Address Line 2:</label>
+				<input
+	type="text"
+	class="form-control "
+			value=""
+		id="address2"
+	name="address2"
+								data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="town">Town/City:</label>
+				<input
+	type="text"
+	class="form-control "
+			value=""
+		id="town"
+	name="town"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="postcode">Post Code:</label>
+				<input
+	type="number"
+	class="form-control "
+			value=""
+		id="postcode"
+	name="postcode"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				
+			</div>
+			<div class="form-group">
+				<label for="country">Country of residence:</label>
+				
+				<select name="country" id="country" class="custom-select">
+					<option value="">- Select -</option>
+											<option value="AD">Andorra</option>
+											<option value="AE">United Arab Emirates</option>
+											<option value="AF">Afghanistan</option>
+											<option value="AG">Antigua and Barbuda</option>
+											<option value="AI">Anguilla</option>
+											<option value="AL">Albania</option>
+											<option value="AM">Armenia</option>
+											<option value="AN">Netherlands Antilles</option>
+											<option value="AO">Angola</option>
+											<option value="AQ">Antarctica</option>
+											<option value="AR">Argentina</option>
+											<option value="AS">American Samoa</option>
+											<option value="AT">Austria</option>
+											<option value="AU">Australia</option>
+											<option value="AW">Aruba</option>
+											<option value="AZ">Azerbaijan</option>
+											<option value="BB">Barbados</option>
+											<option value="BD">Bangladesh</option>
+											<option value="BE">Belgium</option>
+											<option value="BG">Bulgaria</option>
+											<option value="BH">Bahrain</option>
+											<option value="BI">Burundi</option>
+											<option value="BJ">Benin</option>
+											<option value="BN">Brunei</option>
+											<option value="BO">Bolivia</option>
+											<option value="BS">Bahamas</option>
+											<option value="BT">Bhutan</option>
+											<option value="BV">Bouvet Island</option>
+											<option value="BW">Botswana</option>
+											<option value="BZ">Belize</option>
+											<option value="CC">Cocos (Keeling) Islands</option>
+											<option value="CD">Congo - Kinshasa</option>
+											<option value="CF">Central African Republic</option>
+											<option value="CG">Congo - Brazzaville</option>
+											<option value="CH">Switzerland</option>
+											<option value="CI">Côte d’Ivoire</option>
+											<option value="CK">Cook Islands</option>
+											<option value="CL">Chile</option>
+											<option value="CM">Cameroon</option>
+											<option value="CN">China</option>
+											<option value="CO">Colombia</option>
+											<option value="CR">Costa Rica</option>
+											<option value="CV">Cape Verde</option>
+											<option value="CW">Curaçao</option>
+											<option value="CX">Christmas Island</option>
+											<option value="CZ">Czech Republic</option>
+											<option value="DE">Germany</option>
+											<option value="DJ">Djibouti</option>
+											<option value="DK">Denmark</option>
+											<option value="DM">Dominica</option>
+											<option value="DO">Dominican Republic</option>
+											<option value="DZ">Algeria</option>
+											<option value="EC">Ecuador</option>
+											<option value="EE">Estonia</option>
+											<option value="EG">Egypt</option>
+											<option value="ER">Eritrea</option>
+											<option value="ES">Spain</option>
+											<option value="ET">Ethiopia</option>
+											<option value="FJ">Fiji</option>
+											<option value="FK">Falkland Islands</option>
+											<option value="FM">Micronesia</option>
+											<option value="FO">Faroe Islands</option>
+											<option value="FR">France</option>
+											<option value="GA">Gabon</option>
+											<option value="GB">United Kingdom</option>
+											<option value="GD">Grenada</option>
+											<option value="GE">Georgia</option>
+											<option value="GF">French Guiana</option>
+											<option value="GH">Ghana</option>
+											<option value="GI">Gibraltar</option>
+											<option value="GL">Greenland</option>
+											<option value="GM">Gambia</option>
+											<option value="GN">Guinea</option>
+											<option value="GP">Guadeloupe</option>
+											<option value="GQ">Equatorial Guinea</option>
+											<option value="GR">Greece</option>
+											<option value="GS">South Georgia &amp; South Sandwich Islands</option>
+											<option value="GT">Guatemala</option>
+											<option value="GW">Guinea-Bissau</option>
+											<option value="GY">Guyana</option>
+											<option value="HK">Hong Kong SAR China</option>
+											<option value="HM">Heard &amp; McDonald Islands</option>
+											<option value="HN">Honduras</option>
+											<option value="HR">Croatia</option>
+											<option value="HU">Hungary</option>
+											<option value="ID">Indonesia</option>
+											<option value="IE">Ireland</option>
+											<option value="IL">Israel</option>
+											<option value="IN">India</option>
+											<option value="IO">British Indian Ocean Territory</option>
+											<option value="IQ">Iraq</option>
+											<option value="IS">Iceland</option>
+											<option value="IT">Italy</option>
+											<option value="JM">Jamaica</option>
+											<option value="JO">Jordan</option>
+											<option value="KE">Kenya</option>
+											<option value="KG">Kyrgyzstan</option>
+											<option value="KH">Cambodia</option>
+											<option value="KI">Kiribati</option>
+											<option value="KM">Comoros</option>
+											<option value="KN">Saint Kitts and Nevis</option>
+											<option value="KR">South Korea</option>
+											<option value="KW">Kuwait</option>
+											<option value="KY">Cayman Islands</option>
+											<option value="KZ">Kazakhstan</option>
+											<option value="LA">Laos</option>
+											<option value="LB">Lebanon</option>
+											<option value="LC">Saint Lucia</option>
+											<option value="LI">Liechtenstein</option>
+											<option value="LK">Sri Lanka</option>
+											<option value="LR">Liberia</option>
+											<option value="LS">Lesotho</option>
+											<option value="LT">Lithuania</option>
+											<option value="LU">Luxembourg</option>
+											<option value="LV">Latvia</option>
+											<option value="LY">Libya</option>
+											<option value="MC">Monaco</option>
+											<option value="MD">Moldova</option>
+											<option value="ME">Montenegro</option>
+											<option value="MG">Madagascar</option>
+											<option value="MH">Marshall Islands</option>
+											<option value="MK">Macedonia</option>
+											<option value="ML">Mali</option>
+											<option value="MM">Myanmar (Burma)</option>
+											<option value="MN">Mongolia</option>
+											<option value="MO">Macau SAR China</option>
+											<option value="MP">Northern Mariana Islands</option>
+											<option value="MQ">Martinique</option>
+											<option value="MR">Mauritania</option>
+											<option value="MS">Montserrat</option>
+											<option value="MT">Malta</option>
+											<option value="MU">Mauritius</option>
+											<option value="MV">Maldives</option>
+											<option value="MW">Malawi</option>
+											<option value="MX">Mexico</option>
+											<option value="MY">Malaysia</option>
+											<option value="MZ">Mozambique</option>
+											<option value="NA">Namibia</option>
+											<option value="NC">New Caledonia</option>
+											<option value="NE">Niger</option>
+											<option value="NF">Norfolk Island</option>
+											<option value="NG" selected="selected">Nigeria</option>
+											<option value="NI">Nicaragua</option>
+											<option value="NL">Netherlands</option>
+											<option value="NO">Norway</option>
+											<option value="NP">Nepal</option>
+											<option value="NR">Nauru</option>
+											<option value="NU">Niue</option>
+											<option value="NZ">New Zealand</option>
+											<option value="OM">Oman</option>
+											<option value="PE">Peru</option>
+											<option value="PF">French Polynesia</option>
+											<option value="PG">Papua New Guinea</option>
+											<option value="PH">Philippines</option>
+											<option value="PK">Pakistan</option>
+											<option value="PL">Poland</option>
+											<option value="PM">Saint Pierre and Miquelon</option>
+											<option value="PN">Pitcairn Islands</option>
+											<option value="PS">Palestinian Territories</option>
+											<option value="PT">Portugal</option>
+											<option value="PW">Palau</option>
+											<option value="PY">Paraguay</option>
+											<option value="QA">Qatar</option>
+											<option value="RE">Reunion</option>
+											<option value="RO">Romania</option>
+											<option value="RS">Serbia</option>
+											<option value="RU">Russia</option>
+											<option value="RW">Rwanda</option>
+											<option value="SA">Saudi Arabia</option>
+											<option value="SB">Solomon Islands</option>
+											<option value="SC">Seychelles</option>
+											<option value="SE">Sweden</option>
+											<option value="SG">Singapore</option>
+											<option value="SH">Saint Helena</option>
+											<option value="SI">Slovenia</option>
+											<option value="SJ">Svalbard and Jan Mayen</option>
+											<option value="SK">Slovakia</option>
+											<option value="SL">Sierra Leone</option>
+											<option value="SM">San Marino</option>
+											<option value="SO">Somalia</option>
+											<option value="SR">Suriname</option>
+											<option value="ST">São Tomé and Príncipe</option>
+											<option value="SV">El Salvador</option>
+											<option value="SZ">Swaziland</option>
+											<option value="TC">Turks and Caicos Islands</option>
+											<option value="TD">Chad</option>
+											<option value="TF">French Southern Territories</option>
+											<option value="TG">Togo</option>
+											<option value="TH">Thailand</option>
+											<option value="TJ">Tajikistan</option>
+											<option value="TK">Tokelau</option>
+											<option value="TL">Timor-Leste</option>
+											<option value="TM">Turkmenistan</option>
+											<option value="TN">Tunisia</option>
+											<option value="TO">Tonga</option>
+											<option value="TR">Turkey</option>
+											<option value="TT">Trinidad and Tobago</option>
+											<option value="TV">Tuvalu</option>
+											<option value="TW">Taiwan</option>
+											<option value="TZ">Tanzania</option>
+											<option value="UA">Ukraine</option>
+											<option value="UG">Uganda</option>
+											<option value="UY">Uruguay</option>
+											<option value="UZ">Uzbekistan</option>
+											<option value="VA">Vatican City</option>
+											<option value="VC">St. Vincent &amp; Grenadines</option>
+											<option value="VE">Venezuela</option>
+											<option value="VG">British Virgin Islands</option>
+											<option value="VN">Vietnam</option>
+											<option value="WF">Wallis and Futuna</option>
+											<option value="WS">Samoa</option>
+											<option value="YT">Mayotte</option>
+											<option value="ZM">Zambia</option>
+											<option value="ZW">Zimbabwe</option>
+									</select>
+				
+			</div>
+			<div class="form-group">
+				<label for="phone_landline">Landline:</label>
+				<div class="form-inline">
+					<input
+	type="number"
+	class="form-control "
+			value=""
+		id="phone_landline_prefix"
+	name="phone_landline_prefix"
+			readonly="readonly"					data-toggle="tooltip" title="" data-placement="bottom"
+>					<input
+	type="number"
+	class="form-control "
+			value=""
+		id="phone_landline"
+	name="phone_landline"
+								data-toggle="tooltip" title="" data-placement="bottom"
+>				</div>
+				
+			</div>
+			<div class="form-group">
+				<label for="phone_mobile">Mobile:</label>
+				<div class="form-inline">
+					<input
+	type="number"
+	class="form-control "
+			value=""
+		id="phone_mobile_prefix"
+	name="phone_mobile_prefix"
+			readonly="readonly"					data-toggle="tooltip" title="" data-placement="bottom"
+>					<input
+	type="number"
+	class="form-control "
+			value="8145336427"
+		id="phone_mobile"
+	name="phone_mobile"
+						required		data-toggle="tooltip" title="" data-placement="bottom"
+>				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-employment-details red"></span>Employment Details</h5>
+		</div>
+		<div class="card-body">
+			<div class="form-group">
+				<label for="employment_status">Employment status:</label>
+						
+
+
+			<select name="employment_status" id="employment_status"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						Employed
+					</option>
+																																<option value="2"  >
+						Unemployed
+					</option>
+																																<option value="3"  >
+						Self Employed
+					</option>
+																																<option value="4"  >
+						Retired
+					</option>
+																																<option value="5"  >
+						Student
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="business_nature">Nature of Business:</label>
+						
+
+
+			<select name="business_nature" id="business_nature"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						Accountancy
+					</option>
+																																<option value="2"  >
+						Admin/Secretarial
+					</option>
+																																<option value="3"  >
+						Agriculture
+					</option>
+																																<option value="4"  >
+						Financial Services - Banking
+					</option>
+																																<option value="5"  >
+						Catering/Hospitality
+					</option>
+																																<option value="6"  >
+						Creative/Media
+					</option>
+																																<option value="7"  >
+						Education
+					</option>
+																																<option value="8"  >
+						Emergency Services
+					</option>
+																																<option value="9"  >
+						Engineering
+					</option>
+																																<option value="10"  >
+						Financial Services - Other
+					</option>
+																																<option value="11"  >
+						Health/Medicine
+					</option>
+																																<option value="12"  >
+						HM Forces
+					</option>
+																																<option value="13"  >
+						HR
+					</option>
+																																<option value="14"  >
+						Financial Services - Insurance
+					</option>
+																																<option value="15"  >
+						IT
+					</option>
+																																<option value="16"  >
+						Legal
+					</option>
+																																<option value="17"  >
+						Leisure/Entertainment/Tourism
+					</option>
+																																<option value="18"  >
+						Manufacturing
+					</option>
+																																<option value="19"  >
+						Marketing/PR/Advertising
+					</option>
+																																<option value="20"  >
+						Pharmaceuticals
+					</option>
+																																<option value="21"  >
+						Property/Construction/Trades
+					</option>
+																																<option value="22"  >
+						Retail
+					</option>
+																																<option value="23"  >
+						Sales
+					</option>
+																																<option value="24"  >
+						Social Care/Services
+					</option>
+																																<option value="25"  >
+						Telecommunications
+					</option>
+																																<option value="27"  >
+						Transport/Logistics
+					</option>
+																																<option value="29"  >
+						Defense Industries
+					</option>
+																																<option value="30"  >
+						Extractive Industries
+					</option>
+																																<option value="31"  >
+						Public procurement
+					</option>
+																																<option value="28"   class="other">
+						Other
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="funds_source">Source of Funds:</label>
+						
+
+
+			<select name="funds_source" id="funds_source"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="7"  >
+						Employment
+					</option>
+																																<option value="1"  >
+						Savings/Investments
+					</option>
+																																<option value="2"  >
+						Partner/Parent/Family
+					</option>
+																																<option value="3"  >
+						Benefits/Borrowing
+					</option>
+																																<option value="4"  >
+						Private Pension
+					</option>
+																																<option value="5"  >
+						State Pension
+					</option>
+																																<option value="6"   class="other">
+						Other
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="expected_deposit">What is the amount that you expect to deposit in the next 12 months (USD)?</label>
+						
+
+
+			<select name="expected_deposit_id" id="expected_deposit_id"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						&lt; 10,000
+					</option>
+																																<option value="2"  >
+						10,000-50,000
+					</option>
+																																<option value="3"  >
+						50,000-100,000
+					</option>
+																																<option value="4"  >
+						100,000-300,000
+					</option>
+																																<option value="5"  >
+						300,000-1,000,000
+					</option>
+																																<option value="6"   class="other">
+						&gt; 1,000,000
+					</option>
+										</select>				
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-financial-details red"></span>Financial Details</h5>
+		</div>
+		<div class="card-body">
+			<div class="form-group">
+				<label for="annual_income">Estimated Annual Income (USD):</label>
+						
+
+
+			<select name="annual_income" id="annual_income"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						Less than $15,000
+					</option>
+																																<option value="2"  >
+						$15,000 – $24,999
+					</option>
+																																<option value="3"  >
+						$25,000 – $49,999
+					</option>
+																																<option value="4"  >
+						$50,000 – $99,000
+					</option>
+																																<option value="5"  >
+						$100,000 – $249,000
+					</option>
+																																<option value="6"  >
+						$250,000 or more
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
+				<label for="net_worth">Estimated Net Worth (USD):</label>
+						
+
+
+			<select name="net_worth" id="net_worth"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						Less than $15,000
+					</option>
+																																<option value="2"  >
+						$15,000 – $24,999
+					</option>
+																																<option value="3"  >
+						$25,000 – $49,999
+					</option>
+																																<option value="4"  >
+						$50,000 – $99,000
+					</option>
+																																<option value="5"  >
+						$100,000 – $249,000
+					</option>
+																																<option value="6"  >
+						$250,000 or more
+					</option>
+										</select>				
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5>Trading Experience</h5>
+		</div>
+		<div class="card-body">
+			<div class="form-group">
+				<label for="last_3_years">In the last three years, how frequently have you traded the following products?</label>
+				<div class="alert alert-info" role="alert">
+					
+					Select Regularly if you have traded more than 25 times.<br />Select Occasionally if you have traded between 10 and 25 times.<br />Select Rarely if you have traded less than 10 times.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="forex_and_cfds">Forex and CFD's</label>
+				<input class="checkbox" type="hidden" name="traded_forex" id="traded_forex" value="1" checked="checked" />
+			</div>
+			<div class="form-group ">
+				<label for="traded_forex_frequency" class="col-md-12 control-label">Frequency of transactions:</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_forex_frequency" id="traded_forex_frequency" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="11"                                                                 >
+					Regularly
+				</option>
+																									<option value="12"                                                                 >
+					Occasionally
+				</option>
+																									<option value="13"                                                                 >
+					Rarely
+				</option>
+																									<option value="14"                                                                 >
+					Never
+				</option>
+								</select></div>
+				
+			</div>
+			<div class="form-group  ">
+				<label for="traded_forex_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_forex_volume" id="traded_forex_volume" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					Less than $10,000
+				</option>
+																									<option value="2"                                                                 >
+					$10,000 – $20,000
+				</option>
+																									<option value="3"                                                                 >
+					$20,000 – $30,000
+				</option>
+																									<option value="4"                                                                 >
+					$30,000 – $40,000
+				</option>
+																									<option value="5"                                                                 >
+					$40,000 – $50,000
+				</option>
+																									<option value="6"                                                                 >
+					$50,000 – $100,000
+				</option>
+																									<option value="7"                                                                 >
+					$100,000 – $150,000
+				</option>
+																									<option value="8"                                                                 >
+					$150,000 – $200,000
+				</option>
+																									<option value="9"                                                                 >
+					$200,000 – $250,000
+				</option>
+																									<option value="10"                                                                 >
+					$250,000 or more
+				</option>
+								</select></div>
+				
+			</div>
+
+			<div class="form-group">
+				<label for="traded_bonds">Securities (Shares or Bonds)</label>
+				<input class="checkbox" type="hidden" name="traded_bonds" id="traded_bonds" value="1" checked="checked" />
+			</div>
+			<div class="form-group ">
+				<label for="traded_bonds_frequency" class="col-md-12 control-label">Frequency of transactions:</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_bonds_frequency" id="traded_bonds_frequency" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="11"                                                                 >
+					Regularly
+				</option>
+																									<option value="12"                                                                 >
+					Occasionally
+				</option>
+																									<option value="13"                                                                 >
+					Rarely
+				</option>
+																									<option value="14"                                                                 >
+					Never
+				</option>
+								</select></div>
+				
+			</div>
+			<div class="form-group ">
+				<label for="traded_bonds_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_bonds_volume" id="traded_bonds_volume" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					Less than $10,000
+				</option>
+																									<option value="2"                                                                 >
+					$10,000 – $20,000
+				</option>
+																									<option value="3"                                                                 >
+					$20,000 – $30,000
+				</option>
+																									<option value="4"                                                                 >
+					$30,000 – $40,000
+				</option>
+																									<option value="5"                                                                 >
+					$40,000 – $50,000
+				</option>
+																									<option value="6"                                                                 >
+					$50,000 – $100,000
+				</option>
+																									<option value="7"                                                                 >
+					$100,000 – $150,000
+				</option>
+																									<option value="8"                                                                 >
+					$150,000 – $200,000
+				</option>
+																									<option value="9"                                                                 >
+					$200,000 – $250,000
+				</option>
+																									<option value="10"                                                                 >
+					$250,000 or more
+				</option>
+								</select></div>
+				
+			</div>
+
+			<div class="form-group">
+				<label for="traded_products">Other Derivative Products</label>
+				<input class="checkbox" type="hidden" name="traded_products" id="traded_products" value="1" checked="checked" />
+			</div>
+			<div class="form-group ">
+				<label for="traded_products_frequency" class="col-md-12 control-label">Frequency of transactions:</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_products_frequency" id="traded_products_frequency" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="11"                                                                 >
+					Regularly
+				</option>
+																									<option value="12"                                                                 >
+					Occasionally
+				</option>
+																									<option value="13"                                                                 >
+					Rarely
+				</option>
+																									<option value="14"                                                                 >
+					Never
+				</option>
+								</select></div>
+				
+			</div>
+			<div class="form-group">
+				<label for="traded_products_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_products_volume" id="traded_products_volume" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					Less than $10,000
+				</option>
+																									<option value="2"                                                                 >
+					$10,000 – $20,000
+				</option>
+																									<option value="3"                                                                 >
+					$20,000 – $30,000
+				</option>
+																									<option value="4"                                                                 >
+					$30,000 – $40,000
+				</option>
+																									<option value="5"                                                                 >
+					$40,000 – $50,000
+				</option>
+																									<option value="6"                                                                 >
+					$50,000 – $100,000
+				</option>
+																									<option value="7"                                                                 >
+					$100,000 – $150,000
+				</option>
+																									<option value="8"                                                                 >
+					$150,000 – $200,000
+				</option>
+																									<option value="9"                                                                 >
+					$200,000 – $250,000
+				</option>
+																									<option value="10"                                                                 >
+					$250,000 or more
+				</option>
+								</select></div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-header">
+			<h5><span class="icon icon-financial-details red"></span>Investment Knowledge</h5>
+		</div>
+		
+		<div class="card-body">
+			<p>
+				<label for="seminar_course">Have you attended seminars or courses on CFDs and/or Forex?</label>
+			</p>
+			<div class="form-group">
+				<label class="radio-inline required" for="seminar_experience_yes">
+					<input required type="radio" id="seminar_experience_yes" name="seminar_experience" value="1"  />
+					Yes
+				</label>
+				<label class="radio-inline required" for="seminar_experience_no">
+					<input required type="radio" id="seminar_experience_no" name="seminar_experience" value="0"  />
+					No
+				</label>
+			</div>
+			<div class="form-group ">
+				<div class="col-md-12 col-md-offset-2">
+							
+
+
+			<select name="seminar_course_experience" id="seminar_course_experience" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					Seminars/Courses of less than 30 minutes
+				</option>
+																									<option value="2"                                                                 >
+					Seminars/Courses of at least 30 minutes or more
+				</option>
+																									<option value="3"                                                                 >
+					Hold a diploma/higher level academic qualifications in the relevant field
+				</option>
+								</select>				</div>
+				
+			</div>
+
+			<p>
+				<label for="previous_experience">Do you have previous work experience or relevant qualifications that have helped you acquire knowledge and understanding of trading derivatives and the relevant risks, particularly leveraged trading?</label>
+			</p>
+			<div class="form-group">
+				<div class="controls col-md-6 col-md-offset-2">
+					<label class="radio-inline required" for="work_experience_yes">
+						<input required type="radio" id="work_experience_yes" name="work_experience" value="1"  />
+						Yes
+					</label>
+					<label class="radio-inline required" for="work_experience_no">
+						<input required type="radio" id="work_experience_no" name="work_experience" value="0"  />
+						No
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12 col-md-offset-2 ">
+							
+
+
+			<select name="work_qualification_experience" id="work_qualification_experience" 	class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					From working in a directly relevant role in financial services for at least 3 years
+				</option>
+																									<option value="2"                                                                 >
+					From working in a directly relevant role for less than 3 years/have at least one year’ experience as self-directed trader
+				</option>
+																									<option value="3"                                                                 >
+					Hold a diploma/higher level academic qualifications in the relevant field
+				</option>
+								</select>				</div>
+				
+			</div>
+		</div>
+		<div class="card-footer">
+			<div class="form-group">
+				{% if user.is_document_submitted %}
+				<p >Details already submitted, <button class="btn btn-default btn-blue"><a href="{% url 'user_profile:change_document_request' %}"> Contact an administrator</a></button> to modify your already submitted documents</p>
+				{% else %}
+				<button data-action='profile-update' class="btn btn-default btn-blue" type="submit">Update</button>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</form>
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+<script type="text/javascript">
+	let CountryToPrefix = {"AD":"376","AE":"971","AF":"93","AG":"268","AI":"264","AL":"355","AM":"374","AN":"599","AO":"244","AQ":"672","AR":"54","AS":"684","AT":"43","AU":"61","AW":"297","AZ":"994","BA":"387","BB":"246","BD":"880","BE":"32","BF":"226","BG":"359","BH":"973","BI":"257","BJ":"229","BM":"1441","BN":"673","BO":"591","BR":"55","BS":"242","BT":"975","BV":"55","BW":"267","BY":"375","BZ":"501","CA":"1","CC":"672","CD":"243","CF":"236","CG":"242","CH":"41","CI":"225","CK":"682","CL":"56","CM":"237","CN":"86","CO":"57","CR":"506","CU":"53","CV":"238","CW":"599","CX":"61","CY":"357","CZ":"420","DE":"49","DJ":"253","DK":"45","DM":"768","DO":"829","DZ":"213","EC":"593","EE":"372","EG":"20","EH":"212","ER":"291","ES":"34","ET":"251","FI":"358","FJ":"679","FK":"500","FM":"691","FO":"298","FR":"33","GA":"241","GB":"44","GD":"473","GE":"995","GF":"594","GH":"233","GI":"350","GL":"299","GM":"220","GN":"224","GP":"590","GQ":"240","GR":"30","GS":"500","GT":"502","GU":"671","GW":"245","GY":"592","HK":"852","HM":"6723","HN":"504","HR":"385","HT":"509","HU":"36","ID":"62","IE":"353","IL":"972","IN":"91","IO":"246","IQ":"964","IR":"98","IS":"354","IT":"39","JM":"1876","JO":"962","JP":"81","KE":"254","KG":"996","KH":"855","KI":"686","KM":"269","KN":"869","KP":"850","KR":"82","KW":"965","KY":"345","KZ":"7","LA":"856","LB":"961","LC":"758","LI":"423","LK":"94","LR":"231","LS":"266","LT":"370","LU":"352","LV":"371","LY":"218","MA":"212","MC":"377","MD":"373","ME":"382","MG":"261","MH":"692","MK":"389","ML":"223","MM":"95","MN":"976","MO":"853","MP":"670","MQ":"596","MR":"222","MS":"664","MT":"356","MU":"230","MV":"960","MW":"265","MX":"52","MY":"60","MZ":"258","NA":"264","NC":"687","NE":"227","NF":"6723","NG":"234","NI":"505","NL":"31","NO":"47","NP":"977","NR":"674","NU":"683","NZ":"64","OM":"968","PA":"507","PE":"51","PF":"689","PG":"675","PH":"63","PK":"92","PL":"48","PM":"508","PN":"64","PR":"787","PS":"970","PT":"351","PW":"680","PY":"595","QA":"974","RE":"262","RO":"40","RS":"381","RU":"7","RW":"250","SA":"966","SB":"677","SC":"248","SD":"249","SE":"46","SG":"65","SH":"290","SI":"386","SJ":"79","SK":"421","SL":"232","SM":"378","SN":"221","SO":"252","SR":"597","SS":"211","ST":"239","SV":"503","SY":"963","SZ":"268","TC":"649","TD":"235","TF":"260","TG":"228","TH":"66","TJ":"992","TK":"690","TL":"670","TM":"993","TN":"216","TO":"676","TR":"90","TT":"1868","TV":"688","TW":"886","TZ":"255","UA":"38","UG":"256","UM":"581","US":"1","UY":"598","UZ":"998","VA":"39","VC":"1784","VE":"58","VG":"284","VI":"340","VN":"84","VU":"678","WF":"681","WS":"685","YE":"967","YT":"269","ZA":"27","ZM":"260","ZW":"263"};
+	let autoKYC = true,
+		showLocalNames = false,
+		corWithLocal = ["AF","DZ","AM","BH","BG","BD","BY","BU","KH","TD","KM","CN","CY","DJ","EG","ER","ET","FJ","GE","GR","IN","IR","IQ","IL","JP","JO","KZ","KW","KG","LA","LB","LY","MK","MV","MR","MN","ME","MO","NP","OM","PK","PS","RU","QA","SA","RS","SG","SO","KR","LK","TJ","TH","TN","UA","AE"],
+		completeProfile = true;
+</script>	
+											</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>				
+<footer class="main-footer  ">
+    <div class="row">
+                    <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
+                <div class="row">
+                                                                <div class="col-sm-12 col-md-3 col-md-3 ">
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
+                                                                                    
+                            
+                            
+                            
+                            
+                            
+                                                    </div>
+                                                                <div class="col-sm-12 col-md-9 ">
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+<p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
+<p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
+<p><strong>Risk Warning:</strong></p>
+<p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
+
+</p>
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</footer>
+    
+
+<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
+</script>
+<script>
+    Sentry.init({
+        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
+        release: ''
+    });
+</script>
+
+<script type="text/javascript">
+    
+    
+    
+    var Site = jQuery.extend( { } , {
+        language: "en",
+        ssl: true,
+        context: "ea",
+        domain: "#",
+        brand: "AlphaForex",
+        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
+        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
+        portalId: "2232054",
+        guid: "f95c192b-3043-403c-9b2e-3f8ca3f4cb09",
+    } );
+</script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/page-verify-upload-documents.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/page-change-profile.js' %}"></script>
+    			</div>
+		
+	</body>
+</html>
