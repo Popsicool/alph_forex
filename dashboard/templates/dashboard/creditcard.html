@@ -100,6 +100,7 @@
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
 	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+	<script src="https://js.paystack.co/v1/inline.js"></script> 
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -447,45 +448,6 @@
 			
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 							<div class="content-header">
 										<h1 >Credit/Debit Cards</h1>
 				</div>
@@ -532,81 +494,32 @@
                     </div>
     
 
-    <form method="post" id="depositForm" action="{% url 'dashboard:creditcard' %}" class="">
-		{% csrf_token %}
+    <form action="" id="paymentForm" >
         <div class="card">
             <div class="card-body">
                 
 	<input type="hidden" name="security" value="f2f63672193ff976bc9a4cce48e3530f" />
 	<input type="hidden" name="cp-process" value="1" />
-	
-
-
-
-
-
-
-
-
 
     <div class="form-group">
     	
-        <label for="address_1">Address:</label>
-        <input class="form-control" type="text" name="address_1" id="address_1" value="" />
+        <label for="address_1">First name:</label>
+        <input class="form-control" type="text" name="address_1" disabled="disabled" id="address_1" value="{{user.first_name}}" />
         
     </div>
     <div class="form-group">
     	
-        <label for="city">City:</label>
-        <input class="form-control" type="text" name="city" id="city" value="" />
+        <label for="city">Last name:</label>
+        <input class="form-control" type="text" disabled="disabled" name="city" id="city" value="{{user.last_name}}" />
         
     </div>
-    <div class="form-group">
-    	
-        <label for="zip">Post code:</label>
-        <input class="form-control" type="text" name="zip" id="zip" value="" />
-        
-    </div>
-	<div class="form-group">
-		
-		<label for="account">Account:</label>
-		<select
-	id="account"
-	name="account"
-	class="custom-select"
-		>
-            <option value="11174679"
-													class="portal-dropdown-black"
-						>
-            11174679 | USC
-							| 1:500
-						| Not Applicable
-																													</option>
-	</select>
-	</div>
-	
-	
-
-
-
-
-<div class="form-group">
-    <label for="exp_dd">Card type:</label>
-    <select name="method" id="method" class="custom-select" required>
-        <option value="">Select type</option>
-                    <option value="visa" >Visa</option>
-            </select>
-</div>	<div class="form-group">
-		<label for="currency">Currency:</label>
-		<select class="custom-select" name="currency" id="currency" required>
-			<option value="">Select</option>
-		</select>
-	</div>
 	<div class="form-group">
 		<label for="amount">Deposit amount:</label>
-		<select class="custom-select" name="amount" id="amount" required>
-			<option value="">Select</option>
-		</select>
+		<input type="number" id="amount22" required /><br>
+	</div>
+	<div class="form-group">
+		<label for="amount">Email:</label>
+		<input type="email" id="email" disabled="disabled" value= "{{ user.email }}" required /><br>
 	</div>
 	<script type="application/javascript">
 			var amounts = {"visa":{"EUR":{"40000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":40000},"35000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":35000},"30000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":30000},"25000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":25000},"20000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":20000},"15000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":15000},"10000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":10000},"5000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":5000},"4900EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4900},"4800EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4800},"4700EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4700},"4600EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4600},"4500EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4500},"4400EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4400},"4300EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4300},"4200EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4200},"4100EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4100},"4000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":4000},"3900EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3900},"3800EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3800},"3700EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3700},"3600EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3600},"3500EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3500},"3400EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3400},"3300EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3300},"3200EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3200},"3100EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3100},"3000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":3000},"2900EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2900},"2800EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2800},"2700EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2700},"2600EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2600},"2500EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2500},"2400EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2400},"2300EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2300},"2200EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2200},"2100EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2100},"2000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":2000},"1900EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1900},"1800EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1800},"1700EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1700},"1600EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1600},"1500EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1500},"1400EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1400},"1300EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1300},"1200EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1200},"1100EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1100},"1000EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":1000},"900EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":900},"800EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":800},"700EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":700},"600EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":600},"500EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":500},"450EUR":{"currency":"EUR","title":450},"400EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":400},"350EUR":{"currency":"EUR","title":350},"300EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":300},"250EUR":{"currency":"EUR","title":250},"200EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":200},"100EUR":{"min":100,"max":40000,"step":100,"amount":[50,250,350,450],"currency":"EUR","title":100},"50EUR":{"currency":"EUR","title":50}},"GBP":{"30000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":30000},"25000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":25000},"20000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":20000},"15000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":15000},"10000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":10000},"5000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":5000},"4900GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4900},"4800GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4800},"4700GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4700},"4600GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4600},"4500GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4500},"4400GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4400},"4300GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4300},"4200GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4200},"4100GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4100},"4000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":4000},"3900GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3900},"3800GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3800},"3700GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3700},"3600GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3600},"3500GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3500},"3400GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3400},"3300GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3300},"3200GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3200},"3100GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3100},"3000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":3000},"2900GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2900},"2800GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2800},"2700GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2700},"2600GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2600},"2500GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2500},"2400GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2400},"2300GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2300},"2200GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2200},"2100GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2100},"2000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":2000},"1900GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1900},"1800GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1800},"1700GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1700},"1600GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1600},"1500GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1500},"1400GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1400},"1300GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1300},"1200GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1200},"1100GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1100},"1000GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":1000},"900GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":900},"800GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":800},"700GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":700},"600GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":600},"500GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":500},"450GBP":{"currency":"GBP","title":450},"400GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":400},"350GBP":{"currency":"GBP","title":350},"300GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":300},"250GBP":{"currency":"GBP","title":250},"200GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":200},"100GBP":{"min":100,"max":30000,"step":100,"amount":[50,250,350,450],"currency":"GBP","title":100},"50GBP":{"currency":"GBP","title":50}},"USD":{"50000USD":{"currency":"USD","title":50000},"40000USD":{"currency":"USD","title":40000},"30000USD":{"currency":"USD","title":30000},"20000USD":{"currency":"USD","title":20000},"10000USD":{"currency":"USD","title":10000},"9000USD":{"currency":"USD","title":9000},"8000USD":{"currency":"USD","title":8000},"7000USD":{"currency":"USD","title":7000},"6000USD":{"currency":"USD","title":6000},"5000USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":5000},"4900USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4900},"4800USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4800},"4700USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4700},"4600USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4600},"4500USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4500},"4400USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4400},"4300USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4300},"4200USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4200},"4100USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4100},"4000USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":4000},"3900USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3900},"3800USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3800},"3700USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3700},"3600USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3600},"3500USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3500},"3400USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3400},"3300USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3300},"3200USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3200},"3100USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3100},"3000USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":3000},"2900USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2900},"2800USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2800},"2700USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2700},"2600USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2600},"2500USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2500},"2400USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2400},"2300USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2300},"2200USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2200},"2100USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2100},"2000USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":2000},"1900USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1900},"1800USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1800},"1700USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1700},"1600USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1600},"1500USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1500},"1400USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1400},"1300USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1300},"1200USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1200},"1100USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1100},"1000USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":1000},"900USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":900},"800USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":800},"700USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":700},"600USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":600},"500USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":500},"450USD":{"currency":"USD","title":450},"400USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":400},"350USD":{"currency":"USD","title":350},"300USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":300},"250USD":{"currency":"USD","title":250},"200USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":200},"100USD":{"min":100,"max":5000,"step":100,"amount":[50,250,350,450,6000,7000,8000,9000,10000,20000,30000,40000,50000],"currency":"USD","title":100},"50USD":{"currency":"USD","title":50}}}};
@@ -667,9 +580,7 @@
             <div class="card-footer">
                 
                     <div class="form-group">
-                        <button 
-                                class="btn btn-default btn-blue"
-                                type="submit">Submit</button>
+					<button class="btn btn-default btn-blue" type="submit" onclick="payWithPaystack()"> Pay </button>
                     </div>
                 
             </div>
@@ -677,7 +588,15 @@
     </form>
 
 
-
+<form action="" id="paymentForm">
+	<label for="amount">Amount:</label><br>
+	<input type="number" id="amount22" required /><br>
+	<label for="email">Email</label><br>
+	<input type="email" id="email-address" value="{{user.email}}" disabled="disabled">
+	 <div class="form-submit">
+    <button type="submit" onclick="payWithPaystack()"> Pay </button>
+  </div>
+</form>
 
 
 
@@ -812,6 +731,33 @@
         'upload_link': '#'
     };
 
+</script>
+
+<script>
+	const paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener("submit", payWithPaystack, false);
+function payWithPaystack(e) {
+  e.preventDefault();
+
+  let handler = PaystackPop.setup({
+    key: 'pk_test_55c5062aab46e116b0d38175f3d30f57f888c0e8', // Replace with your public key
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount22").value * 100,
+    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+    // label: "Optional string that replaces customer email"
+    onClose: function(){
+      	alert('Window closed.');
+    },
+    callback: function(response){
+      	// let message = 'Payment complete! Reference: ' + response.reference;
+      	// alert(message);
+		let c = response
+		window.location = "{% url 'dashboard:dash' %}";
+    }
+  });
+
+  handler.openIframe();
+}
 </script>
 
 	</body>

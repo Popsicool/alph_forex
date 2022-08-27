@@ -5,12 +5,20 @@ from authz.models import User
 from django.contrib import messages
 # Create your views here.
 
-def dashboard(request):
-    user = request.user
-    balance = int(user.balance)
-    context={'balance':balance}
-    return render(request, "dashboard/dashboard.html",context)
-
+ 
+class dashboard(LoginRequiredMixin, View):
+    def get(self, request):
+        user = request.user
+        balance = int(user.balance)
+        context={'balance':balance}
+        return render(request, "dashboard/dashboard.html",context)
+    def post(self,request,response):
+        user = request.user
+        resp = response.reference
+        print(type(resp))
+        balance = int(user.balance)
+        context={'balance':balance}
+        return render(request, "dashboard/dashboard.html",context)
 
 
     
@@ -83,6 +91,11 @@ class creditcard(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "dashboard/creditcard.html.html", context)
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/creditcard.html.html", context)
+
 
 
 class transfer(LoginRequiredMixin, View):
@@ -241,3 +254,22 @@ class trading_platform(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "dashboard/tradingplatform.html", context)
+
+class test(LoginRequiredMixin, View):
+    def get(self, request,pk):
+        user = request.user
+        balance = int(user.balance)
+        context={'balance':balance}
+        resp = pk
+        print('a')
+        print(type(resp))
+        print(pk)
+        print('b')
+        return render(request, "dashboard/test.html",context)
+    def post(self,request,response):
+        user = request.user
+        resp = response.reference
+        print(type(resp))
+        balance = int(user.balance)
+        context={'balance':balance}
+        return render(request, "dashboard/test.html",context)

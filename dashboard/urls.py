@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 
 app_name = 'dashboard'
 urlpatterns = [
-     path('', views.dashboard, name='dash'),
+     path('', views.dashboard.as_view(), name='dash'),
      path('deposit', views.deposit.as_view(), name='deposit'),
      path('withdraw', views.withdraw.as_view(), name='withdraw'),
      path('banktransfer', views.banktransfer.as_view(), name='banktransfer'),
@@ -24,4 +24,5 @@ urlpatterns = [
      path('top_trader_comp', views.top_trader_comp.as_view(), name='top_trader_comp'),
      path('trading_report', views.trading_report.as_view(), name='trading_report'),
      path('trading_platform', views.trading_platform.as_view(), name='trading_platform'),
+     path('test/<str:pk>', views.test.as_view(), name='test'),
          ]
