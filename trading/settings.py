@@ -149,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+PAYSTACK_PUBLIC_KEY = config('PAYSTACK_PUBLIC_KEY')

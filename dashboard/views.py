@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from authz.models import User
 from django.contrib import messages
+from django.http import HttpRequest, HttpResponse
+from .forms  import PaymentForm
+from django.conf import settings
+import secrets
+from .models import Payment
+import random
 # Create your views here.
 
- 
+def generateReferenceNumber():
+    return random.randrange(1111111111, 9999999999)
 class dashboard(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
@@ -127,13 +134,12 @@ class transfer(LoginRequiredMixin, View):
         return render(request, "dashboard/banktransfer.html")
 
 class history(LoginRequiredMixin, View):
-    def post(self, request):
-        user = request.user
-        context= {"user":user}
-        return render(request, "dashboard/history.html", context)
     def get(self, request):
         user = request.user
-        context= {"user":user}
+        email = user.email
+        data = Payment.objects.all()
+        context= {"user":user, "data":data}
+        print(data)
         return render(request, "dashboard/history.html", context)
 
 
@@ -273,3 +279,51 @@ class test(LoginRequiredMixin, View):
         balance = int(user.balance)
         context={'balance':balance}
         return render(request, "dashboard/test.html",context)
+
+
+
+def initiate_payment(request:HttpRequest):
+    if request.method == "POST":
+        # payment_form = PaymentForm(request.POST)
+        # if payment_form.is_valid():
+        #     payment = payment_form.save()
+        #     render(request, 'dashboard/make_payment.html', {"payment":payment})
+        amount = request.POST['amount']
+        try:
+            amount = int(amount)
+        except:
+            messages.info(request, 'Amount in integers only')
+            return render (request, 'dashboard/initiate_payment.html')
+
+        user = request.user
+        email= user.email
+        ref = 0
+        while (ref == 0):
+            ref2 = generateReferenceNumber()
+            object_with_similar_ref = Payment.objects.filter(ref=ref2)
+            if not object_with_similar_ref:
+                ref = ref2
+
+        money= Payment.objects.create(amount=amount,email=email,ref=ref)
+        
+        money.save()
+        
+        payment = {"amount":amount, "email":email, "ref":ref}
+        context = {"payment":payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY}
+        return render(request, 'dashboard/make_payment.html', context)
+
+    # else:
+    #     payment_form = PaymentForm
+    return render (request, 'dashboard/initiate_payment.html')
+
+def verify_payment(request:HttpRequest, ref:str) -> HttpResponse:
+    user = request.user
+    Payment.objects.filter(ref=ref).update(verified=True)
+    email = user.email
+    data = Payment.objects.get(ref=ref, email=email)
+    balance = int(user.balance)
+    balance = int(data.amount) + balance
+    User.objects.filter(email=user.email).update(balance=balance)
+    messages.info(request, 'Deposit succesfull')
+    context = {"user":user}
+    return redirect("dashboard:dash")

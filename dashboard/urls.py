@@ -25,4 +25,6 @@ urlpatterns = [
      path('trading_report', views.trading_report.as_view(), name='trading_report'),
      path('trading_platform', views.trading_platform.as_view(), name='trading_platform'),
      path('test/<str:pk>', views.test.as_view(), name='test'),
+     path('initiate_payment', views.initiate_payment, name='initiate_payment'),
+     path('<str:ref>', views.verify_payment, name='verify_payment'),
          ]

@@ -571,6 +571,11 @@
 
 							<div class="content-header">
 										<h1 >Dashboard</h1>
+                                        {% for message in messages %}
+
+                                        <p style="color:white" >{{message}}</p>
+
+                                        {% endfor%}
 				</div>
 						<section class="content">
 				<div class="row">
