@@ -137,9 +137,8 @@ class history(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
         email = user.email
-        data = Payment.objects.all()
-        context= {"user":user, "data":data}
-        print(data)
+        deposit = Payment.objects.filter(email=email, verified=True)
+        context= {"user":user, "deposit":deposit}
         return render(request, "dashboard/history.html", context)
 
 

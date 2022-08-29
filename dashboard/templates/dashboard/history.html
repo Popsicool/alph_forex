@@ -576,11 +576,28 @@
     						</th>
 					</tr>
 				</thead>
+				{% if deposit %}
+				{% for data in deposit %}
+				<tbody>
+											<tr class="odd">
+							<td colspan="1">1</td>
+							<td colspan="1">{{ data.date_created }}</td>
+							<td colspan="1">{{ data.ref }}</td>
+							<td colspan="1">{{ data.amount }}</td>
+							<td colspan="1"> Deposit </td>
+							<td colspan="1"> Naira</td>
+							<td colspan="1"> Successful</td>
+						</tr>
+									</tbody>
+									{% endfor %}
+
+				{% else %}
 				<tbody>
 											<tr class="odd">
 							<td colspan="8">Nothing has been found</td>
 						</tr>
 									</tbody>
+									{% endif %}
 			</table>
 		</div>
 	</div>
