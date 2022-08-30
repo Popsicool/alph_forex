@@ -26,7 +26,7 @@ class superman(LoginRequiredMixin, View):
 
 class superver(LoginRequiredMixin, View):
     def get(self, request, pk):
-        user = request.user
+        user= User.objects.get(email=pk)
         email = user.email
         document = Document.objects.get(email=email)
         context= {"user":user, "document":document}
