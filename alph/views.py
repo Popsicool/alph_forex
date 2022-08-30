@@ -26,9 +26,10 @@ class superman(LoginRequiredMixin, View):
 
 class superver(LoginRequiredMixin, View):
     def get(self, request, pk):
-        user= User.objects.get(email=pk)
-        email = user.email
+        cust= User.objects.get(email=pk)
+        email = cust.email
         document = Document.objects.get(email=email)
+        user = request.user
         context= {"user":user, "document":document}
         return render(request, "alph/superver.html", context)
     def post(self, request, pk):
