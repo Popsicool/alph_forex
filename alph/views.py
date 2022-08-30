@@ -39,6 +39,7 @@ class superver(LoginRequiredMixin, View):
 
 class superwit(LoginRequiredMixin, View):
     def get(self, request, pk):
+        user = request.user
         withdraw = Withdraw.objects.get(ref=pk)
         context= {"user":user, "withdraw":withdraw}
         return render(request, "alph/superwit.html", context)
