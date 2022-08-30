@@ -88,3 +88,6 @@ def metatrader(request):
     return render(request, "alph/metatrader.html")
 def metatrader(request):
     return render(request, "alph/metatrader.html")
+
+def error_404(request,exception):
+    return render(request, "alph/404.html")

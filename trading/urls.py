@@ -28,3 +28,4 @@ urlpatterns = [
     path('dashboard', include('dashboard.urls')),
     path('user_profile', include('user_profile.urls')),
 ]
+handler404 = 'alph.views.error_404'
