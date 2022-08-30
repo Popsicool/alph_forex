@@ -18,11 +18,7 @@ class superman(LoginRequiredMixin, View):
         document = Document.objects.filter(status=False)
         context= {"user":user,"withdraw":withdraw,"document":document}
         return render(request, "alph/super.html", context)
-    def post(self, request):
-        user = request.user
-        context= {"user":user}
-        return render(request, "alph/super.html", context)
-
+   
 
 class superver(LoginRequiredMixin, View):
     def get(self, request, pk):
@@ -32,14 +28,13 @@ class superver(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user, "document":document}
         return render(request, "alph/superver.html", context)
-    def post(self, request, pk):
-        user = request.user
-        context= {"user":user}
-        return render(request, "alph/super.html", context)
+    
 
 class superwit(LoginRequiredMixin, View):
     def get(self, request, pk):
         user = request.user
+        if user.is_superuser == False:
+            return render(request, "alph/404.html")
         withdraw = Withdraw.objects.get(ref=pk)
         context= {"user":user, "withdraw":withdraw}
         return render(request, "alph/superwit.html", context)
@@ -49,9 +44,15 @@ def alph4(request):
     return render(request, "alph/alph4.html")
 
 def appwit(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
     Withdraw.objects.filter(ref=pk).update(status=True)
     return redirect('alph:superman')
 def appwit2(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
     withdraw = Withdraw.objects.get(ref=pk)
     email= withdraw.email
     user= User.objects.get(email=email)
@@ -60,10 +61,16 @@ def appwit2(request,pk):
     Withdraw.objects.filter(ref=pk).delete()
     return redirect('alph:superman')
 def appwit3(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
     User.objects.filter(email=pk).update(is_document_verified=True)
     Document.objects.filter(email=pk).update(status=True)
     return redirect('alph:superman')
 def appwit4(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
     User.objects.filter(email=pk).update(is_document_submitted=False)
     Document.objects.filter(email=pk).delete()
     return redirect('alph:superman')
