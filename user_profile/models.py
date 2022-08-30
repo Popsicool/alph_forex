@@ -36,6 +36,7 @@ class Document(models.Model):
     seminar_course_experience = models.CharField(max_length=200)
     work_experiencework_experience = models.CharField(max_length=5)
     work_qualification_experience = models.CharField(max_length=200)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
         # show how we want it to be displayed

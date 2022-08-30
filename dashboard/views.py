@@ -7,8 +7,9 @@ from django.http import HttpRequest, HttpResponse
 from .forms  import PaymentForm
 from django.conf import settings
 import secrets
-from .models import Payment
+from .models import Payment, Withdraw
 import random
+from user_profile.models import Document
 # Create your views here.
 
 def generateReferenceNumber():
@@ -47,18 +48,9 @@ class deposit(LoginRequiredMixin, View):
 
 class withdraw(LoginRequiredMixin, View):
     def post(self, request):
-        amount= request.POST['amount']
         user = request.user
-        context = {}
-        id = user.id
-        if int(user.balance) < int(amount):
-            messages.info(request, 'Insufficient fund')
-            return render(request, "dashboard/withdraw.html", context)
-        else:
-            balance = int(user.balance) - int(amount)
-            User.objects.filter(id=id).update(balance=balance)
-            messages.info(request, 'Withdrawal succesfull')
-            return render(request, "dashboard/dashboard.html")
+        context= {"user":user}
+        return render(request, "dashboard/withdraw.html", context)
     def get(self, request):
         user = request.user
         context= {"user":user}
@@ -68,20 +60,47 @@ class withdraw(LoginRequiredMixin, View):
 class banktransferwitdrw(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
+        beneficiary_fullname= request.POST['beneficiary_fullname']
+        beneficiary_address= request.POST['beneficiary_address']
+        beneficiary_city= request.POST['beneficiary_city']
+        beneficiary_zip= request.POST['beneficiary_zip']
+        beneficiary_country= request.POST['beneficiary_country']
+        bank_account= request.POST['bank_account']
+        bank_name= request.POST['bank_name']
+        branch_code= request.POST['branch_code']
+        bank_address= request.POST['bank_address']
+        beneficiary_swift= request.POST['beneficiary_swift']
+        bic= request.POST['bic']
+        notes= request.POST['notes']
         user = request.user
-        context = {}
-        if (user.is_document_verified == False):
-            messages.info(request, 'Account not yet verified, withdrawal can not  be processed ')
+        email = user.email
+        context = {"user":user}
+        try:
+            amount = int(amount)
+        except:
+            messages.info(request, 'Enter Integer amount only')
             return render(request, "dashboard/banktransferwitdrw.html", context)
-        id = user.id
-        if int(user.balance) < int(amount):
+        if (int(amount) > user.balance ):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/banktransferwitdrw.html", context)
-        else:
-            balance = int(user.balance) - int(amount)
-            User.objects.filter(id=id).update(balance=balance)
-            messages.info(request, 'Withdrawal succesfull', context)
-            return render(request, "dashboard/dash", context)
+        ref = 0
+        while (ref == 0):
+            ref2 = generateReferenceNumber()
+            object_with_similar_ref = Withdraw.objects.filter(ref=ref2)
+            if not object_with_similar_ref:
+                ref = ref2
+
+        money= Withdraw.objects.create(amount=amount, ref=ref,email=email,beneficiary_fullname=beneficiary_fullname,
+        beneficiary_address=beneficiary_address,beneficiary_city=beneficiary_city, beneficiary_zip=beneficiary_zip,
+        beneficiary_country=beneficiary_country,bank_account=bank_account,bank_name=bank_name,branch_code=branch_code,
+        bank_address=bank_address,beneficiary_swift=beneficiary_swift,bic=bic, notes=notes)
+        money.save()
+        balance = user.balance - int(amount)
+        User.objects.filter(email=email).update(balance=balance)        
+        messages.info(request, 'Withrawal request Submitted')
+        return redirect("dashboard:dash")
+        
+        
     def get(self, request):
         user = request.user
         context= {"user":user}
@@ -138,7 +157,8 @@ class history(LoginRequiredMixin, View):
         user = request.user
         email = user.email
         deposit = Payment.objects.filter(email=email, verified=True)
-        context= {"user":user, "deposit":deposit}
+        withdraw = Withdraw.objects.filter(email=email)
+        context= {"user":user, "deposit":deposit, "withdraw":withdraw }
         return render(request, "dashboard/history.html", context)
 
 
@@ -146,8 +166,6 @@ class history(LoginRequiredMixin, View):
 class banktransferwithdraw(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
-        user = request.user
-        
         user = request.user
         context= {"user":user}
         id = user.id
@@ -325,4 +343,14 @@ def verify_payment(request:HttpRequest, ref:str) -> HttpResponse:
     User.objects.filter(email=user.email).update(balance=balance)
     messages.info(request, 'Deposit succesfull')
     context = {"user":user}
+    return redirect("dashboard:dash")
+
+def cancel_withrawal(request, pk):
+    user = request.user
+    amount = Withdraw.objects.get(ref=pk).amount
+    balance = int(user.balance) + int(amount)
+    email = user.email
+    User.objects.filter(email=email).update(balance=balance)
+    Withdraw.objects.filter(ref=pk).delete()
+    messages.info(request, 'Request Deleted')
     return redirect("dashboard:dash")

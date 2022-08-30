@@ -549,25 +549,11 @@
                 
     <input type="hidden" name="security" value="de453216f37c2cbd2c6f7abd1eaa7fed" />
         <div class="form-group">
-        <label for="account">Account No:</label>
-        <select
-	id="account"
-	name="account"
-	class="custom-select"
-		 required>
-            <option value="11174679"
-													class="portal-dropdown-black"
-						>
-            11174679 | USC
-							| 1:500
-						| Not Applicable
-																													</option>
-	</select>
+        <label for="account">Email:</label>
+        <input data-toggle="tooltip" type="text" class="form-control" name="email" id="beneficiary_fullname" value="{{user.email}}" data-original-title="Please use only English letters and numbers." disabled="disabled" />
+        
     </div>
-    <div class="form-group">
-        <label for="currency">Currency:</label>
-        <input type="text" class="form-control" name="currency" id="currency" value="" readonly="readonly" required>
-    </div>
+
 
     <div class="form-group">
         <label for="amount">Withdraw Amount:</label>
@@ -710,10 +696,15 @@
             </div>
             <div class="card-footer">
                 
-                    <input type="hidden" name="action" id="action" value="submit" />
-                    <div class="form-group">
+
+                    {% if user.is_document_verified %}
+				<div class="form-group">
                         <button class="btn btn-default btn-blue" type="submit">Submit</button>
                     </div>
+				{% else %}
+				<p>Cant make withdrawal until your documents are verified</p>
+				{% endif %}
+                    
                 
             </div>
         </form>
