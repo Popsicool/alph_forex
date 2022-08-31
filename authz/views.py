@@ -14,6 +14,9 @@ from django.utils.encoding import force_bytes, force_str, force_str,DjangoUnicod
 from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
+import random
+def generateReferenceNumber():
+    return random.randrange(1000000000, 9999999999)
 
 # Create your views here.
 
@@ -78,13 +81,19 @@ def signup(request):
         gender= request.POST['Gender']
         password = request.POST['password']
         pass2 = request.POST['password2']
+        account_number = 0
+        while (account_number == 0):
+            account_number2 = generateReferenceNumber()
+            object_with_similar_ref = User.objects.filter(account_number=account_number)
+            if not object_with_similar_ref:
+                account_number = account_number2
         email = email.lower()
         if password == pass2:
             if User.objects.filter(email=email).exists():
                 messages.info(request, "Email already exist")
                 return redirect('authz:signup')
             else:
-                user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender)
+                user = User.objects._create_user(email, password,account_number, first_name, last_name, phone_num, gender)
                 user.save()
 
                 messages.info(request, "Account created, check your email for activation link")

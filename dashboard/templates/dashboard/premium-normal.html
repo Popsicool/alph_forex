@@ -502,8 +502,8 @@
 			<div class="form-group">
 				<label for="account">MT4 Account Number:</label>
 				<select id="account" name="account" class="custom-select" required>
-																		<option value="11174679">
-								11174679 | USC | Not Applicable
+																		<option value="{{ user.account_number }}">
+								{{ user.account_number }} | USC | Not Applicable
 							</option>
 															</select>
 			</div>
@@ -531,7 +531,7 @@
 	</form>
 </div>
 <script type="text/javascript">
-	var mt4Accounts = {"11174679":{"group":"T4-S-Cent-USC"}};
+	var mt4Accounts = {"{{ user.account_number }}":{"group":"T4-S-Cent-USC"}};
 </script>
 											</div>
 				</div>

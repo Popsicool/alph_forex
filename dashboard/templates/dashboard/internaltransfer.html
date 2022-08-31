@@ -541,13 +541,13 @@ transfer of $1,980</p>
 				<label for="accountFrom">Account From:</label>
 				<select class="custom-select" id="accountFrom" name="accountFrom" data-direction="from">
 					    <option
-            value="11174679"
+            value="{{ user.account_number }}"
             data-type="personal"
             data-type-code="57"
             data-type-is-funded="0"
             class="portal-dropdown-black"
                                         >
-        11174679 | USC
+        {{ user.account_number }} | USC
          | Not Applicable                    | 1:500
                          | USC0    </option>
 				</select>
@@ -565,13 +565,13 @@ transfer of $1,980</p>
 				<select class="custom-select" id="accountTo" name="accountTo" data-direction="to" required>
 					<option value="" data-type="">Select account</option>
 					    <option
-            value="11174679"
+            value="{{ user.account_number }}"
             data-type="personal"
             data-type-code="57"
             data-type-is-funded="0"
             class="portal-dropdown-black"
                                         >
-        11174679 | USC
+        {{ user.account_number }} | USC
          | Not Applicable                    | 1:500
                          | USC0    </option>
 				</select>
