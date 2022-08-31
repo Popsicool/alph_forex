@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -194,19 +195,11 @@
 				<div class="row justify-content-md-center">
 					<div class="col-sm-12  col-md-6 col-lg-6 ">
 												<div class="card ">
-													<h3 class="center"><b>Reset password</b></h3>
-									<p class="center">You may choose a new password if you have forgotten it. Simply enter your email address below, and instructions on how to change your password will be sent to you.</p>
-							
-									{% if validlink %}
-<p>Please enter your new password twice:</p>
-<form action="." method="post">
-	{{ form.as_p }}{% csrf_token %}
-	<p><input type="submit" value="Change my password"/></p>
-</form>
-
-{% else %}<p>The password reset link was invalid, possibly because it has
-    already been used. Please request a new password reset.</p>
-{% endif %}
+													<h3 class="center"><b>Error</b></h3>
+							             
+<p class="center">
+	Page not found!
+</p>
 						</div>
 					</div>
 				</div>
@@ -287,3 +280,4 @@
             </div>
     </body>
 </html>
+

@@ -21,13 +21,13 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_user(self, email, password, first_name, last_name,phone_num, gender, **extra_fields):
-        extra_fields.setdefault('is_staff',True)
+        extra_fields.setdefault('is_staff',False)
         extra_fields.setdefault('is_active',True)
         extra_fields.setdefault('is_superuser',False)
         extra_fields.setdefault('is_email_verified',False)
         extra_fields.setdefault('is_document_submitted',False)
         extra_fields.setdefault('is_document_verified',False)
-        return self._create_user(email, password, first_name, last_name, phone_num, gender)
+        return self._create_user(email, password,first_name, last_name, phone_num, gender)
 
     def create_superuser(self, email, password,**extra_fields):
         extra_fields.setdefault('is_staff',True)
@@ -36,7 +36,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_email_verified',True)
         extra_fields.setdefault('is_document_submitted',True)
         extra_fields.setdefault('is_document_verified',True)
-        return self._create_user(email, password, first_name=None, last_name=None, phone_num=None, gender=None, **extra_fields)
+        return self._create_user(email, password,first_name=None, last_name=None, phone_num=None, gender=None, **extra_fields)
 
 
 class User(AbstractBaseUser,PermissionsMixin):

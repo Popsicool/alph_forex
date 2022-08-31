@@ -20,13 +20,12 @@
 	<link rel="stylesheet" href="{% static 'deposit/lte/css/common.css' %}" />
 		<script type="text/javascript" src="{% static 'deposit/lte/js/jquery.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'deposit/lte/js/lte.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/popper.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-select.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-datepicker.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/widget-providers-list.js' %}"></script>
+	
 								<link type="text/css" rel="stylesheet" href="{% static 'deposit/lte/css/deposit-all.css' %}" />
-							<!--<link rel="icon" type="image/png" href="{% static 'lte/img/AlphaForex/favicon.png" />-->
+							
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -498,21 +497,21 @@
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
 		                <div class="text-center">
-		                    <a href="{% url 'dashboard:creditcard' %}" class="icon-link-btn"><div class="image nav-generic_creditcard"></div></a>
+		                    <a href="{% url 'dashboard:initiate_payment' %}" class="icon-link-btn"><div class="image nav-generic_creditcard"></div></a>
 							<input type="hidden" class="deposit-method" value="creditcards" />
 		                    <h3 class="profile-username">Credit/Debit Cards</h3>
 		                </div>
 		        	</div>
 					<div class="card-footer">
 						<div class="text-center">
-							<a href="{% url 'dashboard:creditcard' %}" class="btn btn-default btn-block btn-green btn-small-card">Deposit</a>
+							<a href="{% url 'dashboard:initiate_payment' %}" class="btn btn-default btn-block btn-green btn-small-card">Deposit</a>
 							<input type="hidden" class="deposit-method" value="creditcards" />
 						</div>
 					</div>
 				</div>
 			</div>
 
-	    			<div class="col-sm-12 col-md-3 col-lg-3">
+	    			<!-- <div class="col-sm-12 col-md-3 col-lg-3">
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
 		                <div class="text-center">
@@ -528,7 +527,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 	    	</div>
 
 											</div>
@@ -560,7 +559,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>

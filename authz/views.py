@@ -14,6 +14,9 @@ from django.utils.encoding import force_bytes, force_str, force_str,DjangoUnicod
 from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
+import random
+def generateReferenceNumber():
+    return random.randrange(1000000000, 9999999999)
 
 # Create your views here.
 
@@ -84,13 +87,14 @@ def signup(request):
                 messages.info(request, "Email already exist")
                 return redirect('authz:signup')
             else:
+
                 user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender)
                 user.save()
 
                 messages.info(request, "Account created, check your email for activation link")
 
-                send_activation_email(user,request)
 
+                send_activation_email(user,request)
 
                 return redirect('authz:login')
         else:

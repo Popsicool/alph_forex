@@ -8,7 +8,6 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Bank Transfer</title>
-	<link rel="manifest" href="{% static 'lte/js/AlphaForex/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
@@ -549,25 +548,11 @@
                 
     <input type="hidden" name="security" value="de453216f37c2cbd2c6f7abd1eaa7fed" />
         <div class="form-group">
-        <label for="account">Account No:</label>
-        <select
-	id="account"
-	name="account"
-	class="custom-select"
-		 required>
-            <option value="11174679"
-													class="portal-dropdown-black"
-						>
-            11174679 | USC
-							| 1:500
-						| Not Applicable
-																													</option>
-	</select>
+        <label for="account">Email:</label>
+        <input data-toggle="tooltip" type="text" class="form-control" name="email" id="beneficiary_fullname" value="{{user.email}}" data-original-title="Please use only English letters and numbers." disabled="disabled" />
+        
     </div>
-    <div class="form-group">
-        <label for="currency">Currency:</label>
-        <input type="text" class="form-control" name="currency" id="currency" value="" readonly="readonly" required>
-    </div>
+
 
     <div class="form-group">
         <label for="amount">Withdraw Amount:</label>
@@ -710,10 +695,15 @@
             </div>
             <div class="card-footer">
                 
-                    <input type="hidden" name="action" id="action" value="submit" />
-                    <div class="form-group">
+
+                    {% if user.is_document_verified %}
+				<div class="form-group">
                         <button class="btn btn-default btn-blue" type="submit">Submit</button>
                     </div>
+				{% else %}
+				<p>Cant make withdrawal until your documents are verified</p>
+				{% endif %}
+                    
                 
             </div>
         </form>
@@ -724,7 +714,7 @@
 
 
     <script type="text/javascript">
-        var mt4Accounts = {"11174679":{"currency":"USC","leverage":500,"productType":"Not Applicable","type":57}};
+        var mt4Accounts = {"{{ user.id }}":{"currency":"USC","leverage":500,"productType":"Not Applicable","type":57}};
         var formSettings = null;
         var isBankWire = 1;
     </script>
@@ -758,7 +748,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -803,7 +793,6 @@
 <script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
                 <script type="text/javascript" src="{% static 'lte/js/jquery.inputmask.bundle.js' %}"></script>
-            <script type="text/javascript" src="{% static 'lte/js/page-withdraw-bank.js' %}"></script>
             <script type="text/javascript" src="{% static 'lte/js/transaction_kyc_check.js' %}"></script>
     			</div>
 		

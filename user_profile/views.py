@@ -42,9 +42,14 @@ class verify(LoginRequiredMixin, View):
         traded_products_frequency = request.POST['traded_products_frequency']
         traded_products_volume = request.POST['traded_products_volume']
         seminar_experience = request.POST['seminar_experience']
-        seminar_course_experience = request.POST['seminar_course_experience']
         work_experiencework_experience = request.POST['work_experience']
-        work_qualification_experience = request.POST['work_qualification_experience']
+
+        try:
+            work_qualification_experience = request.POST['work_qualification_experience']
+            seminar_course_experience = request.POST['seminar_course_experience']   
+        except:
+            work_qualification_experience = "None"
+            seminar_course_experience = "None"
         try:
             postcode = int(postcode)
             phone_landline= int(phone_landline)

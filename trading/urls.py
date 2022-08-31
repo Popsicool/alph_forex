@@ -20,7 +20,7 @@ from django.urls import path, include
 from django.views.static import serve
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('popsi', admin.site.urls),
     path('', include('alph.urls')),
     path('', include('django.contrib.auth.urls')),
     path('account', include('authz.urls')),
@@ -28,3 +28,4 @@ urlpatterns = [
     path('dashboard', include('dashboard.urls')),
     path('user_profile', include('user_profile.urls')),
 ]
+handler404 = 'alph.views.error_404'
