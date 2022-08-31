@@ -112,7 +112,7 @@
 				
 				<nav class="main-header navbar navbar-expand   ">
     
-                        <a href="#/en/client-portal/home" class="brand-link d-block d-lg-none">
+                        <a href="{% url 'alph:index' %}" class="brand-link d-block d-lg-none">
                 <div class="logo"></div>
             </a>
                 <ul class="navbar-nav left">
@@ -217,12 +217,12 @@
             documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
     </script>
 
-                                <a href=" #/en/client-portal/myprofile/update " class="nav-link pl-1">
+                                <a href="#" class="nav-link pl-1">
                     <span>{{ user.first_name}} {{user.last_name}}</span>
                 </a>
             </li>
             <li class="nav-item user">
-                <a href=" #/en/client-portal/myprofile/update " class="nav-link">{{ user.email }}</a>
+                <a href="#" class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
                 <a href="#/logout" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
@@ -245,7 +245,7 @@
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link active" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="trader-comp.html" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/trading-report" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="#/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="#/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link active" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="trader-comp.html" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:internal_transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:trading_report' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:ib_assignment' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -2328,6 +2328,106 @@
 										</select>				
 			</div>
 			<div class="form-group">
+				<label for="business_nature">Nature of Business:</label>
+						
+
+
+			<select name="business_nature" id="business_nature"  class="custom-select " required>
+	
+	<option value="">- Select -</option>
+																															<option value="1"  >
+						Accountancy
+					</option>
+																																<option value="2"  >
+						Admin/Secretarial
+					</option>
+																																<option value="3"  >
+						Agriculture
+					</option>
+																																<option value="4"  >
+						Financial Services - Banking
+					</option>
+																																<option value="5"  >
+						Catering/Hospitality
+					</option>
+																																<option value="6"  >
+						Creative/Media
+					</option>
+																																<option value="7"  >
+						Education
+					</option>
+																																<option value="8"  >
+						Emergency Services
+					</option>
+																																<option value="9"  >
+						Engineering
+					</option>
+																																<option value="10"  >
+						Financial Services - Other
+					</option>
+																																<option value="11"  >
+						Health/Medicine
+					</option>
+																																<option value="12"  >
+						HM Forces
+					</option>
+																																<option value="13"  >
+						HR
+					</option>
+																																<option value="14"  >
+						Financial Services - Insurance
+					</option>
+																																<option value="15"  >
+						IT
+					</option>
+																																<option value="16"  >
+						Legal
+					</option>
+																																<option value="17"  >
+						Leisure/Entertainment/Tourism
+					</option>
+																																<option value="18"  >
+						Manufacturing
+					</option>
+																																<option value="19"  >
+						Marketing/PR/Advertising
+					</option>
+																																<option value="20"  >
+						Pharmaceuticals
+					</option>
+																																<option value="21"  >
+						Property/Construction/Trades
+					</option>
+																																<option value="22"  >
+						Retail
+					</option>
+																																<option value="23"  >
+						Sales
+					</option>
+																																<option value="24"  >
+						Social Care/Services
+					</option>
+																																<option value="25"  >
+						Telecommunications
+					</option>
+																																<option value="27"  >
+						Transport/Logistics
+					</option>
+																																<option value="29"  >
+						Defense Industries
+					</option>
+																																<option value="30"  >
+						Extractive Industries
+					</option>
+																																<option value="31"  >
+						Public procurement
+					</option>
+																																<option value="28"   class="other">
+						Other
+					</option>
+										</select>				
+			</div>
+			<div class="form-group">
 				<label for="funds_source">Source of Funds:</label>
 						
 
@@ -2669,6 +2769,48 @@
 								</select></div>
 				
 			</div>
+			<div class="form-group">
+				<label for="traded_products_volume" class="col-md-12 control-label">Average volume size per transaction (USD):</label>
+				<div class="col-md-12">		
+
+
+			<select name="traded_products_volume" id="traded_products_volume" 		class="form-control" required>
+	
+	<option value="">- Select -</option>
+																									<option value="1"                                                                 >
+					Less than $10,000
+				</option>
+																									<option value="2"                                                                 >
+					$10,000 – $20,000
+				</option>
+																									<option value="3"                                                                 >
+					$20,000 – $30,000
+				</option>
+																									<option value="4"                                                                 >
+					$30,000 – $40,000
+				</option>
+																									<option value="5"                                                                 >
+					$40,000 – $50,000
+				</option>
+																									<option value="6"                                                                 >
+					$50,000 – $100,000
+				</option>
+																									<option value="7"                                                                 >
+					$100,000 – $150,000
+				</option>
+																									<option value="8"                                                                 >
+					$150,000 – $200,000
+				</option>
+																									<option value="9"                                                                 >
+					$200,000 – $250,000
+				</option>
+																									<option value="10"                                                                 >
+					$250,000 or more
+				</option>
+								</select></div>
+				
+			</div>
+			
 		</div>
 	</div>
 	<div class="card">
@@ -2694,12 +2836,14 @@
 				<div class="col-md-12 col-md-offset-2">
 							
 
-
+<p>
+				<label for="seminar_course">Options</label>
+			</p>
 			<select name="seminar_course_experience" id="seminar_course_experience" 		class="form-control" required>
 	
 	<option value="">- Select -</option>
-																									<option value="1"                                                                 >
-					Seminars/Courses of less than 30 minutes
+																					<option value="1"  selected                                                               >
+					Seminars/Courses of less than 30 minutes or None
 				</option>
 																									<option value="2"                                                                 >
 					Seminars/Courses of at least 30 minutes or more
@@ -2730,11 +2874,12 @@
 				<div class="col-md-12 col-md-offset-2 ">
 							
 
-
+					<label for="seminar_course">Options</label>
+			</p>
 			<select name="work_qualification_experience" id="work_qualification_experience" 	class="form-control" required>
 	
 	<option value="">- Select -</option>
-																									<option value="1"                                                                 >
+																									<option value="1"    selected                                                             >
 					From working in a directly relevant role in financial services for at least 3 years
 				</option>
 																									<option value="2"                                                                 >
@@ -2830,7 +2975,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/providers/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/providers/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>

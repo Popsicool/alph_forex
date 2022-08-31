@@ -1,4 +1,381 @@
-@font-face{font-family:'icomoon';src:url('/ironfx/fonts/fontastic.com/fonts/icomoon.eot?yuo9wz');src:url('/ironfx/fonts/fontastic.com/fonts/icomoon.eot?yuo9wz#iefix') format('embedded-opentype'),
-    url('/ironfx/fonts/fontastic.com/fonts/icomoon.ttf?yuo9wz') format('truetype'),
-    url('/ironfx/fonts/fontastic.com/fonts/icomoon.woff?yuo9wz') format('woff'),
-    url('/ironfx/fonts/fontastic.com/fonts/icomoon.svg?yuo9wz#icomoon') format('svg');font-weight:normal;font-style:normal}[class^="icon-"], [class*=" icon-"]{font-family:'icomoon' !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-icon_android-phone_hv-copy:before{content:"\e914";color:#43b77a}.icon-icon_desktop_hv-copy-4:before{content:"\e915";color:#65318f}.icon-icon_desktop_hv-copy-5:before{content:"\e916";color:#0073b9}.icon-icon_desktop_webtrader:before{content:"\e917";color:#5f3817}.icon-icon_desktop_windowsphone:before{content:"\e918";color:#5776b6}.icon-icon_ipad_hv-copy:before{content:"\e919";color:#eb212e}.icon-icon_iphone_hv-copy:before{content:"\e91a"}.icon-icon_mac_desktop_hv-copy:before{content:"\e91b";color:#f59331}.icon-icon_multiterminal-copy:before{content:"\e91c";color:#a2611a}.icon-icon_additionalaccount:before{content:"\e900";color:#555}.icon-icon_affiliates:before{content:"\e901";color:#555}.icon-icon_bonus:before{content:"\e902";color:#555}.icon-icon_deposits:before{content:"\e903";color:#555}.icon-icon_FAQ:before{content:"\e904";color:#555}.icon-icon_int:before{content:"\e905";color:#555}.icon-icon_ironfxcard:before{content:"\e906";color:#555}.icon-icon_leverage:before{content:"\e907";color:#555}.icon-icon_loyalty:before{content:"\e908";color:#555}.icon-icon_myaccounts:before{content:"\e909"}.icon-icon_myopenpositions:before{content:"\e90a";color:#555}.icon-icon_mytraansactionhistory:before{content:"\e90b";color:#555}.icon-icon_referfriend:before{content:"\e90c";color:#555}.icon-icon_signals:before{content:"\e90d";color:#555}.icon-icon_trading-history:before{content:"\e90e";color:#555}.icon-icon_trading-settings:before{content:"\e90f";color:#555}.icon-icon_tradingplatfoms:before{content:"\e910";color:#555}.icon-icon_uploaddocuments:before{content:"\e911";color:#555}.icon-icon_vps:before{content:"\e912";color:#555}.icon-icon_withdrawal:before{content:"\e913";color:#555}.icon-icon_android-phone_hv-copy2:before{content:"\e93a";color:#43b77a}.icon-icon_desktop_hv-copy-42:before{content:"\e93b";color:#65318f}.icon-icon_desktop_hv-copy-52:before{content:"\e93c";color:#0073b9}.icon-icon_desktop_webtrader2:before{content:"\e93d";color:#5f3817}.icon-icon_desktop_windowsphone2:before{content:"\e93e";color:#5776b6}.icon-icon_ipad_hv-copy2:before{content:"\e93f";color:#eb212e}.icon-icon_iphone_hv-copy2:before{content:"\e940"}.icon-icon_mac_desktop_hv-copy2:before{content:"\e941";color:#f59331}.icon-icon_multiterminal-copy2:before{content:"\e942";color:#a2611a}.icon-icon_additionalaccount2:before{content:"\e943";color:#555}.icon-icon_affiliates2:before{content:"\e944";color:#555}.icon-icon_bonus2:before{content:"\e945";color:#555}.icon-icon_deposits2:before{content:"\e946";color:#555}.icon-icon_FAQ2:before{content:"\e947";color:#555}.icon-icon_int2:before{content:"\e948";color:#555}.icon-icon_ironfxcard2:before{content:"\e949";color:#555}.icon-icon_leverage2:before{content:"\e94a";color:#555}.icon-icon_loyalty2:before{content:"\e94b";color:#555}.icon-icon_myaccounts2:before{content:"\e94c"}.icon-icon_myopenpositions2:before{content:"\e94d";color:#555}.icon-icon_mytraansactionhistory2:before{content:"\e94e";color:#555}.icon-icon_referfriend2:before{content:"\e94f";color:#555}.icon-icon_signals2:before{content:"\e950";color:#555}.icon-icon_trading-history2:before{content:"\e951";color:#555}.icon-icon_trading-settings2:before{content:"\e952";color:#555}.icon-icon_tradingplatfoms2:before{content:"\e953";color:#555}.icon-icon_vps2:before{content:"\e954";color:#555}.icon-icon_withdrawal2:before{content:"\e955";color:#555}.icon-additional_account:before{content:"\e92e";color:#555}.icon-arrow_down:before{content:"\e931";color:#595959}.icon-arrow_left:before{content:"\e932";color:#b7b7b7}.icon-arrow_red:before{content:"\e935";color:#eb1c24}.icon-arrow_right:before{content:"\e936";color:#b7b7b7}.icon-arrow_up:before{content:"\e939";color:#595959}.icon-bonus:before{content:"\e91d";color:#555}.icon-card:before{content:"\e91e";color:#555}.icon-DASHBOARD:before{content:"\e91f";color:#555}.icon-deposit:before{content:"\e920";color:#555}.icon-email_address:before{content:"\e921";color:#555}.icon-FAQ:before{content:"\e929";color:#555}.icon-icon_uploaddocuments2:before{content:"\e92a";color:#555}.icon-internal_transfer:before{content:"\e92b";color:#555}.icon-leverage:before{content:"\e928";color:#555}.icon-loyalty_status:before{content:"\e92c";color:#555}.icon-multi_accounts:before{content:"\e92d";color:#555}.icon-open_positions:before{content:"\e92f";color:#555}.icon-password:before{content:"\e930";color:#555}.icon-platforms:before{content:"\e933";color:#555}.icon-profile_settings:before{content:"\e934";color:#555}.icon-refer-a-friend:before{content:"\e937";color:#555}.icon-research_signals:before{content:"\e938";color:#555}.icon-settings:before{content:"\e922";color:#555}.icon-trading_history:before{content:"\e923";color:#555}.icon-transaction_history:before{content:"\e924"}.icon-VPS-Center:before{content:"\e925"}.icon-warning:before{content:"\e926";color:#eb212e}.icon-withdrawl:before{content:"\e927";color:#555}.icon-e-wallet:before{content:"\e956";color:#555}.icon-competition:before{content:"\e957";color:#555}.icon-partners:before{content:"\e958";color:#555}.icon-affiliates:before{content:"\e944";color:#555}.icon-trading-central:before{content:"\e949";color:#555}
+@font-face {
+	font-family: "icomoon";
+	src: url("/ironfx/fonts/fontastic.com/fonts/icomoon.eot?yuo9wz");
+	src: url("/ironfx/fonts/fontastic.com/fonts/icomoon.eot?yuo9wz#iefix")
+			format("embedded-opentype"),
+		url("/ironfx/fonts/fontastic.com/fonts/icomoon.ttf?yuo9wz")
+			format("truetype"),
+		url("/ironfx/fonts/fontastic.com/fonts/icomoon.woff?yuo9wz") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: "icomoon" !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-icon_android-phone_hv-copy:before {
+	content: "\e914";
+	color: #43b77a;
+}
+.icon-icon_desktop_hv-copy-4:before {
+	content: "\e915";
+	color: #65318f;
+}
+.icon-icon_desktop_hv-copy-5:before {
+	content: "\e916";
+	color: #0073b9;
+}
+.icon-icon_desktop_webtrader:before {
+	content: "\e917";
+	color: #5f3817;
+}
+.icon-icon_desktop_windowsphone:before {
+	content: "\e918";
+	color: #5776b6;
+}
+.icon-icon_ipad_hv-copy:before {
+	content: "\e919";
+	color: #eb212e;
+}
+.icon-icon_iphone_hv-copy:before {
+	content: "\e91a";
+}
+.icon-icon_mac_desktop_hv-copy:before {
+	content: "\e91b";
+	color: #f59331;
+}
+.icon-icon_multiterminal-copy:before {
+	content: "\e91c";
+	color: #a2611a;
+}
+.icon-icon_additionalaccount:before {
+	content: "\e900";
+	color: #555;
+}
+.icon-icon_affiliates:before {
+	content: "\e901";
+	color: #555;
+}
+.icon-icon_bonus:before {
+	content: "\e902";
+	color: #555;
+}
+.icon-icon_deposits:before {
+	content: "\e903";
+	color: #555;
+}
+.icon-icon_FAQ:before {
+	content: "\e904";
+	color: #555;
+}
+.icon-icon_int:before {
+	content: "\e905";
+	color: #555;
+}
+.icon-icon_ironfxcard:before {
+	content: "\e906";
+	color: #555;
+}
+.icon-icon_leverage:before {
+	content: "\e907";
+	color: #555;
+}
+.icon-icon_loyalty:before {
+	content: "\e908";
+	color: #555;
+}
+.icon-icon_myaccounts:before {
+	content: "\e909";
+}
+.icon-icon_myopenpositions:before {
+	content: "\e90a";
+	color: #555;
+}
+.icon-icon_mytraansactionhistory:before {
+	content: "\e90b";
+	color: #555;
+}
+.icon-icon_referfriend:before {
+	content: "\e90c";
+	color: #555;
+}
+.icon-icon_signals:before {
+	content: "\e90d";
+	color: #555;
+}
+.icon-icon_trading-history:before {
+	content: "\e90e";
+	color: #555;
+}
+.icon-icon_trading-settings:before {
+	content: "\e90f";
+	color: #555;
+}
+.icon-icon_tradingplatfoms:before {
+	content: "\e910";
+	color: #555;
+}
+.icon-icon_uploaddocuments:before {
+	content: "\e911";
+	color: #555;
+}
+.icon-icon_vps:before {
+	content: "\e912";
+	color: #555;
+}
+.icon-icon_withdrawal:before {
+	content: "\e913";
+	color: #555;
+}
+.icon-icon_android-phone_hv-copy2:before {
+	content: "\e93a";
+	color: #43b77a;
+}
+.icon-icon_desktop_hv-copy-42:before {
+	content: "\e93b";
+	color: #65318f;
+}
+.icon-icon_desktop_hv-copy-52:before {
+	content: "\e93c";
+	color: #0073b9;
+}
+.icon-icon_desktop_webtrader2:before {
+	content: "\e93d";
+	color: #5f3817;
+}
+.icon-icon_desktop_windowsphone2:before {
+	content: "\e93e";
+	color: #5776b6;
+}
+.icon-icon_ipad_hv-copy2:before {
+	content: "\e93f";
+	color: #eb212e;
+}
+.icon-icon_iphone_hv-copy2:before {
+	content: "\e940";
+}
+.icon-icon_mac_desktop_hv-copy2:before {
+	content: "\e941";
+	color: #f59331;
+}
+.icon-icon_multiterminal-copy2:before {
+	content: "\e942";
+	color: #a2611a;
+}
+.icon-icon_additionalaccount2:before {
+	content: "\e943";
+	color: #555;
+}
+.icon-icon_affiliates2:before {
+	content: "\e944";
+	color: #555;
+}
+.icon-icon_bonus2:before {
+	content: "\e945";
+	color: #555;
+}
+.icon-icon_deposits2:before {
+	content: "\e946";
+	color: #555;
+}
+.icon-icon_FAQ2:before {
+	content: "\e947";
+	color: #555;
+}
+.icon-icon_int2:before {
+	content: "\e948";
+	color: #555;
+}
+.icon-icon_ironfxcard2:before {
+	content: "\e949";
+	color: #555;
+}
+.icon-icon_leverage2:before {
+	content: "\e94a";
+	color: #555;
+}
+.icon-icon_loyalty2:before {
+	content: "\e94b";
+	color: #555;
+}
+.icon-icon_myaccounts2:before {
+	content: "\e94c";
+}
+.icon-icon_myopenpositions2:before {
+	content: "\e94d";
+	color: #555;
+}
+.icon-icon_mytraansactionhistory2:before {
+	content: "\e94e";
+	color: #555;
+}
+.icon-icon_referfriend2:before {
+	content: "\e94f";
+	color: #555;
+}
+.icon-icon_signals2:before {
+	content: "\e950";
+	color: #555;
+}
+.icon-icon_trading-history2:before {
+	content: "\e951";
+	color: #555;
+}
+.icon-icon_trading-settings2:before {
+	content: "\e952";
+	color: #555;
+}
+.icon-icon_tradingplatfoms2:before {
+	content: "\e953";
+	color: #555;
+}
+.icon-icon_vps2:before {
+	content: "\e954";
+	color: #555;
+}
+.icon-icon_withdrawal2:before {
+	content: "\e955";
+	color: #555;
+}
+.icon-additional_account:before {
+	content: "\e92e";
+	color: #555;
+}
+.icon-arrow_down:before {
+	content: "\e931";
+	color: #595959;
+}
+.icon-arrow_left:before {
+	content: "\e932";
+	color: #b7b7b7;
+}
+.icon-arrow_red:before {
+	content: "\e935";
+	color: #eb1c24;
+}
+.icon-arrow_right:before {
+	content: "\e936";
+	color: #b7b7b7;
+}
+.icon-arrow_up:before {
+	content: "\e939";
+	color: #595959;
+}
+.icon-bonus:before {
+	content: "\e91d";
+	color: #555;
+}
+.icon-card:before {
+	content: "\e91e";
+	color: #555;
+}
+.icon-DASHBOARD:before {
+	content: "\e91f";
+	color: #555;
+}
+.icon-deposit:before {
+	content: "\e920";
+	color: #555;
+}
+.icon-email_address:before {
+	content: "\e921";
+	color: #555;
+}
+.icon-FAQ:before {
+	content: "\e929";
+	color: #555;
+}
+.icon-icon_uploaddocuments2:before {
+	content: "\e92a";
+	color: #555;
+}
+.icon-internal_transfer:before {
+	content: "\e92b";
+	color: #555;
+}
+.icon-leverage:before {
+	content: "\e928";
+	color: #555;
+}
+.icon-loyalty_status:before {
+	content: "\e92c";
+	color: #555;
+}
+.icon-multi_accounts:before {
+	content: "\e92d";
+	color: #555;
+}
+.icon-open_positions:before {
+	content: "\e92f";
+	color: #555;
+}
+.icon-password:before {
+	content: "\e930";
+	color: #555;
+}
+.icon-platforms:before {
+	content: "\e933";
+	color: #555;
+}
+.icon-profile_settings:before {
+	content: "\e934";
+	color: #555;
+}
+.icon-refer-a-friend:before {
+	content: "\e937";
+	color: #555;
+}
+.icon-research_signals:before {
+	content: "\e938";
+	color: #555;
+}
+.icon-settings:before {
+	content: "\e922";
+	color: #555;
+}
+.icon-trading_history:before {
+	content: "\e923";
+	color: #555;
+}
+.icon-transaction_history:before {
+	content: "\e924";
+}
+.icon-VPS-Center:before {
+	content: "\e925";
+}
+.icon-warning:before {
+	content: "\e926";
+	color: #eb212e;
+}
+.icon-withdrawl:before {
+	content: "\e927";
+	color: #555;
+}
+.icon-e-wallet:before {
+	content: "\e956";
+	color: #555;
+}
+.icon-competition:before {
+	content: "\e957";
+	color: #555;
+}
+.icon-partners:before {
+	content: "\e958";
+	color: #555;
+}
+.icon-affiliates:before {
+	content: "\e944";
+	color: #555;
+}
+.icon-trading-central:before {
+	content: "\e949";
+	color: #555;
+}

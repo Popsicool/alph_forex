@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,25 +8,25 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Top Traders Competition</title>
-	<link rel="manifest" href="/lte/js/manifest.json">
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="/lte/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-select.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-datepicker.min.css" />
-	<link rel="stylesheet" href="/lte/css/lte.min.css" />
-	<link rel="stylesheet" href="/lte/css/flags.css" />
-			<link rel="stylesheet" href="/lte/css/icomoon.css" />
-		<link rel="stylesheet" href="/lte/css/style-providers-list.css" />
-	<link rel="stylesheet" href="/lte/css/common.css" />
-		<script type="text/javascript" src="/lte/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/lte/js/iframeResizer.min.js"></script>
-	<script type="text/javascript" src="/lte/js/lte.min.js"></script>
-	<script type="text/javascript" src="/lte/js/popper.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="/lte/js/widget-providers-list.js"></script>
-					<link rel="icon" type="image/png" href="/lte/img/favicon.png" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -98,7 +99,7 @@
 
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="/lte/js/pushwoosh-service-worker-init.js"></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -109,7 +110,7 @@
 				
 				<nav class="main-header navbar navbar-expand   ">
     
-                        <a href="#/en/client-portal/home" class="brand-link d-block d-lg-none">
+                        <a href="{% url 'alph:index' %}" class="brand-link d-block d-lg-none">
                 <div class="logo"></div>
             </a>
                 <ul class="navbar-nav left">
@@ -136,7 +137,7 @@
 						Deutsch
 					</a>
 											
-									<a href="#/en/client-portal/top-traders-league" class="dropdown-item">
+									<a href="{% url 'dashboard:top_trader_comp' %}" class="dropdown-item">
 						<span class="flag flag-en"></span>
 						English
 					</a>
@@ -214,12 +215,12 @@
             documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
     </script>
 
-                                <a href=" #/en/client-portal/myprofile/update " class="nav-link pl-1">
-                    <span>test user</span>
+                                <a href="#" class="nav-link pl-1">
+                    <span>{{user.first_name}} {{user.last_name}}</span>
                 </a>
             </li>
             <li class="nav-item user">
-                <a href=" #/en/client-portal/myprofile/update " class="nav-link">test@gmail.com</a>
+                <a href="#" class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
                 <a href="#/logout" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
@@ -227,7 +228,7 @@
             </ul>
 </nav>				
 <aside class="main-sidebar sidebar-no-expand">
-	<a href="/dashboard.html" class="brand-link logo-switch ">
+	<a href="{% url 'dashboard:dash' %}" class="brand-link logo-switch ">
 		<div class="logo-xs"></div>
 		<div class="logo-xl"></div>
 	</a>
@@ -235,14 +236,14 @@
 		<nav>
 			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
 															<li class="nav-item register">
-							<a href="/newaccount.html" data-action='new-account'
+							<a href="{% url 'authz:signup' %}" data-action='new-account'
 							   class="nav-link button-click-action">
 								<span class="nav-icon icon icon-open-new-account"></span>
 								<p>Open New Account</p>
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="/dashboard.html" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/verifyprofile.html" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="/documents.html" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="/changepassword.html" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/newaccount.html" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="/top-trader-comp.html" class="nav-link active" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/deposit/deposit.html" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="/withdraw/withdraw.html" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="/internaltransfer.html" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="/history.html" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/requestoverview.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="/bonus.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="/tradingreport.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="/ib-assignment.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="/premium-normal.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="/swapfree.html" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/partner" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="/tradingplatform.html" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link active" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:internal_transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:trading_report' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:ib_assignment' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/partner" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -272,7 +273,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="#/en/client-portal/top-traders-league" class="nav-link">
+					<a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link">
 						<span class="nav-icon flag flag-en"></span>
 						<p>
 							English
@@ -389,7 +390,7 @@
         <div class="modal-content">
             <div class="modal-body row justify-content-center text-center">
                 <div class="col-sm-8">
-                    <img src="/lte/img/approve.svg" class="approve">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
                 </div>
                 <div class="col-sm-8">
                     <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
@@ -659,7 +660,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="/lte/img/visa.svg" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -692,23 +693,23 @@
         guid: "5eee1c32-051b-4d32-ae12-b98266010a18",
     } );
 </script>
-<script type="text/javascript" src="/lte/js/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-form.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-widget.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-cookie.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/lte/js/common.js"></script>
-<script type="text/javascript" src="/lte/js/sso.js"></script>
-<script type="text/javascript" src="/lte/js/widget-login.js"></script>
-<script type="text/javascript" src="/lte/js/deposit-list.js"></script>
-<script type="text/javascript" src="/lte/js/jcarousel/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="/lte/js/referrer.js"></script>
-                <script type="text/javascript" src="/lte/js/jquery-form.js"></script>
-            <script type="text/javascript" src="/lte/js/jquery-widget.js"></script>
-            <script type="text/javascript" src="/lte/js/page-register.js"></script>
-            <script type="text/javascript" src="/lte/js/parsley/parsley.js"></script>
-            <script type="text/javascript" src="/lte/js/parsley/i18n/en.js"></script>
-            <script type="text/javascript" src="/lte/js/parsley/i18n/en.extra.js"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/page-register.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/parsley/parsley.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/parsley/i18n/en.js' %}"></script>
+            <script type="text/javascript" src="{% static 'lte/js/parsley/i18n/en.extra.js' %}"></script>
     			</div>
 		
 	</body>

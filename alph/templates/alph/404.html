@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,26 +9,26 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	
-	<link rel="manifest" href="/lte/js/manifest.json">
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="/lte/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-select.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-datepicker.min.css" />
-	<link rel="stylesheet" href="/lte/css/lte.min.css" />
-	<link rel="stylesheet" href="/lte/css/flags.css" />
-			<link rel="stylesheet" href="/lte/css/icomoon.css" />
-		<link rel="stylesheet" href="/lte/css/style-providers-list.css" />
-	<link rel="stylesheet" href="/lte/css/common.css" />
-		<script type="text/javascript" src="/lte/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/lte/js/iframeResizer.min.js"></script>
-	<script type="text/javascript" src="/lte/js/lte.min.js"></script>
-	<script type="text/javascript" src="/lte/js/popper.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="/lte/js/widget-providers-list.js"></script>
-								<link type="text/css" rel="stylesheet" href="/lte/css/page-forgot-password.css" />
-							<link rel="icon" type="image/png" href="/lte/img/favicon.png" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-forgot-password.css' %}" />
+							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -95,7 +97,7 @@
 
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="/lte/js/pushwoosh-service-worker-init.js"></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 </head>    <body class="sidebar-mini client-portal lang-en cont-ea">
     
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -105,13 +107,13 @@
             <nav class="main-header navbar navbar-expand   ">
     
         <ul class="navbar-nav left">
-                    <a href="#/en/client-portal/home" class="brand-link d-block">
+                    <a href="{% url 'alph:index' %}" class="brand-link d-block">
                 <div class="logo"></div>
             </a>
             </ul>
         <ul class=" navbar-nav right ml-auto">
                                                 <li class="nav-item">
-                    <a id="btn-navbar-register" href="#/en/register" target="_blank" class="nav-link btn btn-green">Register</a>
+                    <a id="btn-navbar-register" href="{% url 'authz:signup' %}" target="_blank" class="nav-link btn btn-green">Register</a>
                 </li>
                         
 	<li class="nav-item dropdown language">
@@ -193,42 +195,11 @@
 				<div class="row justify-content-md-center">
 					<div class="col-sm-12  col-md-6 col-lg-6 ">
 												<div class="card ">
-							<form method="post" action="" class="forgot-form">
-								<div class="card-body">
-									<h3 class="center"><b>Forgot Password?</b></h3>
-									<p class="center">You may choose a new password if you have forgotten it. Simply enter your email address below, and instructions on how to change your password will be sent to you.</p>
-									<input type="hidden" name="step1" value="1">
-									<div class="forgot-block-mining">
-										<div class="form-group">
-											
-																						<label for="email">Email</label>
-																						<input type="email" name="email" id="email" value="" class="form-control"
-												   required placeholder=""/>
-											
-										</div>
-										<div class="form-group">
-											
-																							<label for="password">Enter code</label>
-																						<div class="row ">
-												<div class=" col-sm-3  left">
-													<img src="#/human-test/?source=live&amp;random=23674" class="captcha">
-													<input type="hidden" value="" name="ironcookie" id="ironcookie">
-												</div>
-												<div class=" col-sm-9 right ">
-													<input type="text" class="form-control "
-													   value="" id="captcha" name="captcha" required placeholder="">
-													
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-footer">
-																				<div class="form-group center">
-												<button id="btn-forgot-password" type="submit" class="btn  btn-default btn-blue">Submit</button>
-											</div>
-																			</div>
-							</form>
+													<h3 class="center"><b>Error</b></h3>
+							             
+<p class="center">
+	Page not found!
+</p>
 						</div>
 					</div>
 				</div>
@@ -261,7 +232,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="/lte/img/visa.svg" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -294,18 +265,19 @@
         guid: "",
     } );
 </script>
-<script type="text/javascript" src="/lte/js/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-form.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-widget.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-cookie.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/lte/js/common.js"></script>
-<script type="text/javascript" src="/lte/js/sso.js"></script>
-<script type="text/javascript" src="/lte/js/widget-login.js"></script>
-<script type="text/javascript" src="/lte/js/deposit-list.js"></script>
-<script type="text/javascript" src="/lte/js/jcarousel/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="/lte/js/referrer.js"></script>
-                <script type="text/javascript" src="/lte/js/page-forgot.js"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/page-forgot.js' %}"></script>
             </div>
     </body>
 </html>
+

@@ -1,0 +1,691 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<meta name="language" content="en" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<title>Credit/Debit Cards</title>
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'deposit/lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'deposit/lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'deposit/lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'deposit/lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'deposit/lte/js/lte.min.js' %}"></script>
+
+	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-datepicker.min.js' %}"></script>
+	
+					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
+		  <script>
+    function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+      }
+
+      return vars;
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function isEmpty(obj) {
+      for(var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+
+      return JSON.stringify(obj) === JSON.stringify(new Object());
+    }
+
+    var vars = getUrlVars();
+    var cookieValues = new Object();
+
+    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
+    for(var entry in vars) {
+      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
+        cookieValues[entry] = vars[entry];
+      }
+    }
+
+    if (!isEmpty(cookieValues)) {
+      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
+    }
+
+
+  </script>
+
+	<!-- livechat preview: 0. -->
+	<script type="text/javascript">
+	  var __lc = { };
+	  __lc.license = 1486502;
+	  __lc.chat_between_groups = false;
+	  __lc.group = 127;
+	  var currentTime = '2022-08-19 21:01:45';
+	  	  __lc.params = [
+		 { name: 'Name', value: 'test' },
+		 { name: 'SalesCode', value: '4387' }
+	  ];
+	  	  (function() {
+		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	  })();
+	</script>
+
+	
+
+	
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
+
+
+	<!-- PushWoosh goes here -->
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+	<script src="https://js.paystack.co/v1/inline.js"></script> 
+</head>	<body class="sidebar-mini client-portal lang-en cont-ea">
+		
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+
+
+		
+			<div class="wrapper">
+				
+				<nav class="main-header navbar navbar-expand   ">
+    
+                        <a href="#" class="brand-link d-block d-lg-none">
+                <div class="logo"></div>
+            </a>
+                <ul class="navbar-nav left">
+                    <li class="nav-item hamburger">
+                <a href="#" class="nav-link" data-widget="pushmenu" role="button" ><span class="icon icon-hamburger"></span></a>
+            </li>
+            </ul>
+        <ul class=" navbar-nav right ml-auto">
+                    
+	<li class="nav-item dropdown language">
+																			<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+					en
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+			    </a>
+																																																				<div class="dropdown-menu dropdown-menu-right">
+							
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-ar"></span>
+						العربية
+					</a>
+											
+									<a href="#" class="dropdown-item">
+						<span class="flag flag-de"></span>
+						Deutsch
+					</a>
+											
+									<a href="{% url 'dashboard:deposit' %}" class="dropdown-item">
+						<span class="flag flag-en"></span>
+						English
+					</a>
+											
+									<a href="#/es/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-es"></span>
+						Español
+					</a>
+											
+									<a href="#/fr/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-fr"></span>
+						Français
+					</a>
+											
+									<a href="#/nl/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-nl"></span>
+						Dutch
+					</a>
+											
+									<a href="#/id/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-id"></span>
+						Bahasa Indonesia
+					</a>
+											
+									<a href="#/it/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-it"></span>
+						Italiano
+					</a>
+											
+									<a href="#/ms/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-ms"></span>
+						Bahasa Melayu
+					</a>
+											
+									<a href="#/pt/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-pt"></span>
+						Português
+					</a>
+											
+									<a href="#/vi/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-vi"></span>
+						Tiếng Việt
+					</a>
+											
+									<a href="#/zh/client-portal/transactions/deposits/deposits" class="dropdown-item">
+						<span class="flag flag-zh"></span>
+						中文
+					</a>
+									</div>
+	</li>
+
+            <li class="nav-item user d-flex">
+                                                
+    
+    
+
+                                                <a href="#"
+           class="popover_inline icon-center popover-username"
+           data-toggle="popover"
+           data-trigger="hover"
+           data-placement="bottom"
+           data-html="true"
+           data-content="Please proceed with step <span class='yellow'>2</span> and verify your identity"
+        >
+            <span class="icon icon-note kyc-status red"></span>
+        </a>
+        <script>
+        $(document).ready(function() {
+            $('.popover-username').popover().on("inserted.bs.popover", function(){
+                $(".popover").addClass('width-10');
+            })
+        });
+        var poi_not_uploaded = "Please proceed with step <span class='yellow'>2</span> and verify your identity",
+            poa_not_uploaded = "Your profile is almost verified, please upload your proof of address",
+            documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
+    </script>
+
+                                <a href=" # " class="nav-link pl-1">
+                    <span>{{ user.first_name }} {{user.last_name }}</span>
+                </a>
+            </li>
+            <li class="nav-item user">
+                <a href=" # " class="nav-link">{{ user.email }}</a>
+            </li>
+            <li class="nav-item logout">
+                <a href="#" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
+            </li>
+            </ul>
+</nav>				
+<aside class="main-sidebar sidebar-no-expand">
+	<a href="#" class="brand-link logo-switch ">
+		<div class="logo-xs"></div>
+		<div class="logo-xl"></div>
+	</a>
+	<div class="sidebar">
+		<nav>
+			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
+															<li class="nav-item register">
+							<a href="#" data-action='new-account'
+							   class="nav-link button-click-action">
+								<span class="nav-icon icon icon-open-new-account"></span>
+								<p>Open New Account</p>
+							</a>
+						</li>
+													
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link active" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:trading_report' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:ib_assignment' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+									<li class="nav-item has-treeview language d-block d-lg-none">
+												<a href="#" class="nav-link">
+				<span class="nav-icon flag flag-en"></span>
+				<p>
+					English
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+				</p>
+			</a>
+																															<ul class="nav nav-treeview">
+					
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-ar"></span>
+						<p>
+							العربية
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#" class="nav-link">
+						<span class="nav-icon flag flag-de"></span>
+						<p>
+							Deutsch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="{% url 'dashboard:deposit' %}" class="nav-link">
+						<span class="nav-icon flag flag-en"></span>
+						<p>
+							English
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/es/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-es"></span>
+						<p>
+							Español
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/fr/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-fr"></span>
+						<p>
+							Français
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/nl/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-nl"></span>
+						<p>
+							Dutch
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/id/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-id"></span>
+						<p>
+							Bahasa Indonesia
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/it/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-it"></span>
+						<p>
+							Italiano
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/ms/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-ms"></span>
+						<p>
+							Bahasa Melayu
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/pt/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-pt"></span>
+						<p>
+							Português
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/vi/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-vi"></span>
+						<p>
+							Tiếng Việt
+						</p>
+					</a>
+				</li>
+								
+							<li class="nav-item">
+					<a href="#/zh/client-portal/transactions/deposits/deposits" class="nav-link">
+						<span class="nav-icon flag flag-zh"></span>
+						<p>
+							中文
+						</p>
+					</a>
+				</li>
+						</ul>
+</li>
+													<li class="nav-item d-block d-lg-none">
+						<a href="#" class="nav-link">
+															<span class="nav-icon icon icon-logout"></span>
+														<p >Logout</p>
+						</a>
+					</li>
+											</ul>
+
+					</nav>
+	</div>
+</aside>
+				
+
+
+<div class="main-content content-wrapper" style="position: relative">
+	<div class="row main-row">
+		
+		
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="affiliatePopup" tabindex="-1" role="dialog" aria-labelledby="affiliatePopup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body row justify-content-center text-center">
+                <div class="col-sm-8">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
+                </div>
+                <div class="col-sm-8">
+                    <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
+                </div>
+                <div class="col-sm-8 success-block-margin">Thank you for registering with the affiliate program.<br>Your commissions account has been successfully created.</div>
+                <div class="col-sm-8 success-block-margin"><p>Please note, your affiliate account requires further approval. We will notify you by email as soon as it is approved.</p></div>
+                <div class="col-sm-8 success-block-margin">
+                    <button class="btn btn-primary" data-dismiss="modal">GET STARTED</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #affiliatePopup .modal-content {
+        border-radius: 0;
+        border: solid 1px #d0d4df;
+        width: 780px;
+        height: 760px;
+        flex-grow: 0;
+    }
+
+    .success-block-margin {
+        margin-top: 15px;
+    }
+    #affiliatePopup .btn-primary {
+        background-color: #0076fe;
+    }
+
+    #affiliatePopup .modal-body {
+        margin-top: 138px;
+        margin-bottom: 175px;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script type="application/javascript">
+    $(function (){
+        if (Cookies.get('showAffiliatePopup')) {
+            $('#affiliatePopup').modal('toggle');
+            Cookies.remove('showAffiliatePopup');
+        }
+    });
+</script>		
+
+
+		<div class="col-sm-12">
+			<div class="top-notifications">
+				
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-11 col-lg-8 main-content-container">
+			
+
+
+							<div class="content-header">
+										<h1 >Credit/Debit Cards</h1>
+				</div>
+						<section class="content">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12">
+												    
+
+
+
+
+
+
+    
+        
+
+
+    
+                    <div id="deposit_form_disclaimer" class="alert alert-warning " role="alert"><a class="close float-right" data-toggle="collapse" data-target="#notification" aria-expanded="true">
+                    <span class="icon icon-error"></span>
+                </a><div class="d-flex"><span class="icon icon-notification-alert float-left align-self-center"></span><b>Important Notification</b></div>
+                        <div id="notification" class="collapse">
+                            <p><ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>Ensure that all payments are made from an account registered in the same name as your AlphaForex account.</li>
+<li>We will credit your account within a few minutes and notify you via email so that you can start trading. If your funds are not credited accordingly, please check for emails from us. </li>
+<li>The company does not charge fees for deposits.</li>
+</ul></p>
+                        </div>
+                    </div>
+    
+
+    
+
+
+<form action="" id="paymentForm">
+	 <div class="card">
+		<div class="card-body">
+    {% csrf_token %}
+
+    <div class="form-group">
+		<label for="amount">Deposit amount (=N=):</label>
+		<input type="number" name="amount" required value="{{ payment.amount }}" disabled="disabled" /><br>
+	</div>
+	<div class="form-group">
+		<label for="amount">Email:</label>
+		<input type="email" id="email" disabled="disabled" value= "{{ user.email }}" required /><br>
+	</div>
+	<div class="card-footer">
+                
+                    <div class="form-group">
+					<button class="btn btn-default btn-blue" type="submit" onclick="payWithPaystack()"> Proceed to make payment </button>
+                    </div>
+                
+            </div>
+</div>
+
+	</div>
+    
+ 
+</form>
+
+
+
+	<script type="text/javascript">
+		var gtmDataLayer = {};
+	</script>
+
+											</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>				
+<footer class="main-footer  ">
+    <div class="row">
+                    <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
+                <div class="row">
+                                                                <div class="col-sm-12 col-md-3 col-md-3 ">
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
+                                                                                    
+                            
+                            
+                            
+                            
+                            
+                                                    </div>
+                                                                <div class="col-sm-12 col-md-9 ">
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+<p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
+<p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
+<p><strong>Risk Warning:</strong></p>
+<p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
+
+</p>
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</footer>
+    
+
+<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
+</script>
+<script>
+    Sentry.init({
+        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
+        release: ''
+    });
+</script>
+
+<script type="text/javascript">
+    
+    
+    
+    var Site = jQuery.extend( { } , {
+        language: "en",
+        ssl: true,
+        context: "ea",
+        domain: "#",
+        brand: "AlphaForex",
+        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
+        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
+        portalId: "2232054",
+        guid: "590417c5-0013-4f59-861f-93703dc1789c",
+    } );
+</script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+               
+            <script type="text/javascript" src="{% static 'lte/js/transaction_kyc_check.js' %}"></script>
+    			</div>
+		
+    
+
+
+
+        
+
+<div class="modal modal-info fade" id="kycModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span class="icon icon-close"></span>
+                </button>
+            </div>
+            <div class="modal-body center">
+                <span class="icon icon-notification-alert yellow"></span>
+                <p id="kycMessage">
+                                    </p>
+
+                                    <p id="upload_link_1">
+                        <a id='kyc_upload_link' class="btn btn-blue col-sm-8" href="#" target="_blank">Documents Upload</a>
+                    </p>
+                
+                <a id="modal_redirect_btn" class="btn btn-primary" href="#" role="button">Documents Upload</a>
+                <div id="modal_submit_group" class="input-group col-sm-8 offset-sm-2 ">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" id="btnGroupAddon">
+                            <input type="checkbox" id="agree_checkbox" aria-label="Agree and proceed">
+                        </div>
+                    </div>
+                    <button id="modal_agree_btn" class="form-control" type="button" disabled>Agree and proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    var kycPopupMessages = {
+        "kyc_popup_DepositLimitPOI": 'Please be notified that a Proof of Identity document (ID card or passport) is required to proceed with your deposit.',
+        "kyc_popup_WithdrawLimitPOI": 'Please note that in order to proceed you will need to first validate your account.\n\nTo validate your account please provide us with the necessary Identity Confirmation documents and Address Confirmation documents for larger withdrawals.',
+        "kyc_popup_WithdrawLimitPOIPOR": 'Please be notified that a Proof of Identity document (ID card or passport) along with a Proof of Residence document (recent bank statement or utility bill) are mandatory to proceed with your withdrawal.',
+        "kyc_popup_MissingDocuments": 'Please be notified that you need to upload additional documents. Please contact your Account Manager for more details.',
+        'upload_link': '#'
+    };
+
+</script>
+
+
+<script>
+	const paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener("submit", payWithPaystack, false);
+function payWithPaystack(e) {
+  e.preventDefault();
+
+  let handler = PaystackPop.setup({
+    key: "{{ paystack_public_key}}" ,// Replace with your public key
+    email: "{{ payment.email }}",
+    amount: "{{ payment.amount }}" * 100,
+    ref: "{{ payment.ref }}", // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+    // label: "Optional string that replaces customer email"
+    onClose: function(){
+      	alert('Window closed.');
+    },
+    callback: function(response){
+      	// let message = 'Payment complete! Reference: ' + response.reference;
+      	// alert(message);
+		window.location.href = "{% url 'dashboard:verify_payment' payment.ref %}";
+    }
+  });
+
+  handler.openIframe();
+}
+</script>
+
+	</body>
+</html>

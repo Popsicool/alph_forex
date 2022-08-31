@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,25 +8,25 @@
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Trading Report</title>
-	<link rel="manifest" href="/lte/js/manifest.json">
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="/lte/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-select.min.css" />
-	<link rel="stylesheet" href="/lte/css/bootstrap-datepicker.min.css" />
-	<link rel="stylesheet" href="/lte/css/lte.min.css" />
-	<link rel="stylesheet" href="/lte/css/flags.css" />
-			<link rel="stylesheet" href="/lte/css/icomoon.css" />
-		<link rel="stylesheet" href="/lte/css/style-providers-list.css" />
-	<link rel="stylesheet" href="/lte/css/common.css" />
-		<script type="text/javascript" src="/lte/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/lte/js/iframeResizer.min.js"></script>
-	<script type="text/javascript" src="/lte/js/lte.min.js"></script>
-	<script type="text/javascript" src="/lte/js/popper.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-select.min.js"></script>
-	<script type="text/javascript" src="/lte/js/bootstrap-datepicker.min.js"></script>
-	<script type="text/javascript" src="/lte/js/widget-providers-list.js"></script>
-					<link rel="icon" type="image/png" href="/lte/img/favicon.png" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
       var vars = [], hash;
@@ -98,7 +99,7 @@
 
 	<!-- PushWoosh goes here -->
 	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="/lte/js/pushwoosh-service-worker-init.js"></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -109,7 +110,7 @@
 				
 				<nav class="main-header navbar navbar-expand   ">
     
-                        <a href="https://www.AlphaForex.com/en/client-portal/home" class="brand-link d-block d-lg-none">
+                        <a href="#" class="brand-link d-block d-lg-none">
                 <div class="logo"></div>
             </a>
                 <ul class="navbar-nav left">
@@ -136,7 +137,7 @@
 						Deutsch
 					</a>
 											
-									<a href="https://www.AlphaForex.com/en/client-portal/trading-profile/trading-report" class="dropdown-item">
+									<a href="#" class="dropdown-item">
 						<span class="flag flag-en"></span>
 						English
 					</a>
@@ -214,12 +215,12 @@
             documents_uploaded = "Deposit unlimited funds, Withdraw unlimited funds";
     </script>
 
-                                <a href=" https://www.AlphaForex.com/en/client-portal/myprofile/update " class="nav-link pl-1">
-                    <span>test user</span>
+                                <a href="#" class="nav-link pl-1">
+                    <span>{{user.first_name}} {{user.last_name}}</span>
                 </a>
             </li>
             <li class="nav-item user">
-                <a href=" https://www.AlphaForex.com/en/client-portal/myprofile/update " class="nav-link">test@gmail.com</a>
+                <a href="#" class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
                 <a href="https://www.AlphaForex.com/logout" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
@@ -227,7 +228,7 @@
             </ul>
 </nav>				
 <aside class="main-sidebar sidebar-no-expand">
-	<a href="https://www.AlphaForex.com/en/client-portal/home" class="brand-link logo-switch ">
+	<a href="#" class="brand-link logo-switch ">
 		<div class="logo-xs"></div>
 		<div class="logo-xl"></div>
 	</a>
@@ -235,14 +236,14 @@
 		<nav>
 			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
 															<li class="nav-item register">
-							<a href="https://www.AlphaForex.com/en/client-portal/accounts/register" data-action='new-account'
+							<a href=""{% url 'authz:signup' %}"" data-action='new-account'
 							   class="nav-link button-click-action">
 								<span class="nav-icon icon icon-open-new-account"></span>
 								<p>Open New Account</p>
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/home" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/myprofile/legacy" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/myprofile/my-documents" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/myprofile/password" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/accounts/register" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/top-traders-league" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/transactions/deposits" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/transactions/withdraw" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/transactions/internal-transfers" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/transactions/history" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/my-requests" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/bonus" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/trading-report" class="nav-link active" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/ib-assignment" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/premium-normal" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-profile/swap-free" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/partners/register" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="https://www.AlphaForex.com/en/client-portal/trading-platforms" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="#" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href= "{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href= "{% url 'dashboard:deposit' %}"class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:internal_transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href= "{% url 'dashboard:history' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link active" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -272,7 +273,7 @@
 				</li>
 								
 							<li class="nav-item">
-					<a href="https://www.AlphaForex.com/en/client-portal/trading-profile/trading-report" class="nav-link">
+					<a href="#" class="nav-link">
 						<span class="nav-icon flag flag-en"></span>
 						<p>
 							English
@@ -389,7 +390,7 @@
         <div class="modal-content">
             <div class="modal-body row justify-content-center text-center">
                 <div class="col-sm-8">
-                    <img src="/lte/img/approve.svg" class="approve">
+                    <img src="{% static 'lte/img/approve.svg' %}" class="approve">
                 </div>
                 <div class="col-sm-8">
                     <h3 class="success-block-margin"><strong>Congratulations.</strong></h3>
@@ -496,12 +497,13 @@
 
 <div class="card">
 	<form method="post" id="tradingReportForm" action="" class="">		
+		{% csrf_token %}
 		<div class="card-body">	
 			<div class="form-group">
 				<label for="account">Account:</label>
 				<select class="custom-select" id="account" name="account" class="">
-					                        <option value="11174679" data-type="personal">
-                            11174679 | USC | 1:500
+					                        <option value="{{ user.id }}" data-type="personal">
+                            {{ user.id }} | USC | 1:500
 													</option>
 									</select>
 			</div>
@@ -622,7 +624,7 @@
 </p>
 <p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
 
-</p><ul class="list-inline"><li class="list-inline-item"><img src="/lte/img/providers/visa.svg" alt="Visa"></li><li class="list-inline-item"><img src="/lte/img/providers/mastercard.svg" alt="Mastercard"></li></ul>                        </div>
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
                     </div>
                 </div>
             </div>
@@ -655,18 +657,18 @@
         guid: "cbe7eeef-ee21-4f32-8b1a-96b27dada079",
     } );
 </script>
-<script type="text/javascript" src="/lte/js/jquery-migrate.min.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-form.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-widget.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-cookie.js"></script>
-<script type="text/javascript" src="/lte/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/lte/js/common.js"></script>
-<script type="text/javascript" src="/lte/js/sso.js"></script>
-<script type="text/javascript" src="/lte/js/widget-login.js"></script>
-<script type="text/javascript" src="/lte/js/deposit-list.js"></script>
-<script type="text/javascript" src="/lte/js/jcarousel/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="/lte/js/referrer.js"></script>
-                <script type="text/javascript" src="/lte/js/page-trading-report.js"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/page-trading-report.js' %}"></script>
     			</div>
 		
 	</body>
