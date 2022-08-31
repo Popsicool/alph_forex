@@ -686,7 +686,7 @@
                 <span class="icon icon-account "></span>
                 <p>
                     <b>Cent
-                                                                    </b> | {{ user.account_number }} |
+                                                                    </b> | {{ user.id }} |
                     Balance <b>{{user.balance}}</b>
                 </p>
                 <span class="margin-left-auto">
@@ -747,7 +747,7 @@
                             <tr>
                                 <td>MT4 Password</td>
                                 <td>
-                                                                            <a href="#" class="reset_mt4_password" data-toggle="modal" data-target="#modal_mt_reset_password" data-mt4_login="{{ user.account_number }}">
+                                                                            <a href="#" class="reset_mt4_password" data-toggle="modal" data-target="#modal_mt_reset_password" data-mt4_login="{{ user.id }}">
                                             Reset
                                         </a>
                                                                     </td>
@@ -824,7 +824,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-default btn-blue trading_report_submit" data-order="1" data-account="{{ user.account_number }}" type="submit">SUBMIT</button>
+                                <button class="btn btn-default btn-blue trading_report_submit" data-order="1" data-account="{{ user.id }}" type="submit">SUBMIT</button>
                                                                     <a href="#"
            class="popover_inline "
            data-toggle="popover"
@@ -892,9 +892,9 @@
 <script>
     var context = 'ea';
     var accounts = {
-    "{{ user.account_number }}": {
-        "id": "{{ user.account_number }}",
-        "login": "{{ user.account_number }}",
+    "{{ user.id }}": {
+        "id": "{{ user.id }}",
+        "login": "{{ user.id }}",
         "tableId": 3234628,
         "currencySymbol": "USC",
         "currency": "USC",
