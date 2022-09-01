@@ -224,7 +224,7 @@
                 <a href="#" class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
-                <a href="#/logout" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
+                <a href="{% url 'authz:logout' %}" id="logout" class="nav-link" ><span class="icon icon-logout"></span></a>
             </li>
             </ul>
 </nav>				
@@ -365,7 +365,7 @@
 						</ul>
 </li>
 													<li class="nav-item d-block d-lg-none">
-						<a href="#/logout" class="nav-link">
+						<a href="{% url 'authz:logout' %}" class="nav-link">
 															<span class="nav-icon icon icon-logout"></span>
 														<p >Logout</p>
 						</a>
