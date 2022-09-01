@@ -216,7 +216,7 @@ margin-top: -6px;
     </span>
 </div>						<div class="card ">
 							<div class="register-block-mining">
-								<form method="post" action="" class="login-form" id="headerLoginForm">
+								<form method="post" action="{% url 'authz:login' %}" class="login-form" id="headerLoginForm">
 									{% csrf_token %}
 									<div class="card-body">
 										<h3 class="center "><b>Portal Login</b></h3>
