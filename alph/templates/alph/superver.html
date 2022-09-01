@@ -1,42 +1,60 @@
-{% if user.is_superuser %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/lte/css/superboard.css">
+    <title>Superuser Board</title>
+</head>
 
-<p>You are viewing this because you are a superuser </p> 
-<ul>
-       <li> First name : {{ document.first_name }}</li>
-       <li> Last name : {{ document.last_name }}</li>
-       <li> E-mail: {{ document.email }}</li>
-       <li> Nationality : {{ document.nationality }}</li>
-       <li> Gender : {{ document.gender }}</li>
-       <li> Date of birth : {{ document.dob_dd }}</li>
-       <li> TIN : {{ document.tin }}</li>
-       <li> Country of Tax Residence: {{ document.tax_country }}</li>
-       <li> Address Line 1: {{ document.address1 }}</li>
-       <li> Address Line 2: {{ document.address2 }}</li>
-       <li> Town/City: {{ document.town }}</li>
-       <li> Post Code : {{ document.postcode }}</li>
-       <li> Country of residence: {{ document.country }}</li>
-       <li> Landline: {{ document.phone_landline }}</li>
-       <li> Mobile: {{ document.phone_mobile }}</li>
-       <li> Employment status : {{ document.employment_status }}</li>
-       <li> Business Nature : {{ document.business_nature }}</li>
-       <li> Source of Funds:{{ document.funds_source }}</li>
-       <li> Expected Deposit : {{ document.expected_deposit_id }}</li>
-       <li> Annual Income : {{ document.annual_income }}</li>
-       <li> Net worth : {{ document.annual_income }}</li>
-       <li> Traded Forex : {{ document.traded_forex }}</li>
-       <li> Traded Forex Frequency : {{ document.traded_forex_frequency }}</li>
-       <li> Traded Forex volumn : {{ document.traded_forex_volume }}</li>
-       <li> Traded Bond Frequency : {{ document.traded_bonds_frequency }}</li>
-       <li> Traded Bond volume : {{ document.traded_bonds_volume }}</li>
-       <li> Traded product frequency : {{ document.traded_products_frequency }}</li>
-       <li> Traded product Volume : {{ document.traded_products_volume }}</li>
-       <li> Seminar Experience : {{ document.seminar_experience }}</li>
-       <li> Seminar Course Experience : {{ document.seminar_course_experience }}</li>
-       <li> Work Experience : {{ document.work_experience }}</li>
-       <li> Work Qualification experience : {{ document.work_qualification_experience }}</li>
-</ul>
-<li><a href="{% url 'alph:appwit3' document.email %}">Approve</a></li>
-<li><a href="{% url 'alph:appwit4' document.email %}">Cancel</a></li>
-{% else %}
-<p>You are not allowed to view this page</p>
-{% endif %}
+<header>
+    <p><h2>ADMIN DASHBOARD</h2></p>
+</header>
+            <br>
+<body>
+       {% if user.is_superuser %}
+
+       <p>You are viewing this because you are a superuser </p> 
+       <ul>
+              <li> First name : {{ document.first_name }}</li>
+              <li> Last name : {{ document.last_name }}</li>
+              <li> E-mail: {{ document.email }}</li>
+              <li> Nationality : {{ document.nationality }}</li>
+              <li> Gender : {{ document.gender }}</li>
+              <li> Date of birth : {{ document.dob_dd }}</li>
+              <li> TIN : {{ document.tin }}</li>
+              <li> Country of Tax Residence: {{ document.tax_country }}</li>
+              <li> Address Line 1: {{ document.address1 }}</li>
+              <li> Address Line 2: {{ document.address2 }}</li>
+              <li> Town/City: {{ document.town }}</li>
+              <li> Post Code : {{ document.postcode }}</li>
+              <li> Country of residence: {{ document.country }}</li>
+              <li> Landline: {{ document.phone_landline }}</li>
+              <li> Mobile: {{ document.phone_mobile }}</li>
+              <li> Employment status : {{ document.employment_status }}</li>
+              <li> Business Nature : {{ document.business_nature }}</li>
+              <li> Source of Funds:{{ document.funds_source }}</li>
+              <li> Expected Deposit : {{ document.expected_deposit_id }}</li>
+              <li> Annual Income : {{ document.annual_income }}</li>
+              <li> Net worth : {{ document.annual_income }}</li>
+              <li> Traded Forex : {{ document.traded_forex }}</li>
+              <li> Traded Forex Frequency : {{ document.traded_forex_frequency }}</li>
+              <li> Traded Forex volumn : {{ document.traded_forex_volume }}</li>
+              <li> Traded Bond Frequency : {{ document.traded_bonds_frequency }}</li>
+              <li> Traded Bond volume : {{ document.traded_bonds_volume }}</li>
+              <li> Traded product frequency : {{ document.traded_products_frequency }}</li>
+              <li> Traded product Volume : {{ document.traded_products_volume }}</li>
+              <li> Seminar Experience : {{ document.seminar_experience }}</li>
+              <li> Seminar Course Experience : {{ document.seminar_course_experience }}</li>
+              <li> Work Experience : {{ document.work_experience }}</li>
+              <li> Work Qualification experience : {{ document.work_qualification_experience }}</li>
+       </ul>
+       <li><a href="{% url 'alph:appwit3' document.email %}">Approve</a></li>
+       <li><a href="{% url 'alph:appwit4' document.email %}">Cancel</a></li>
+       {% else %}
+       <p>You are not allowed to view this page</p>
+       {% endif %}
+       
+</body>
+</html>

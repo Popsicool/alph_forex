@@ -1,0 +1,40 @@
+* {
+    background-color: rgb(2, 2, 31);
+}
+
+header {
+    text-align: center;
+    color: white;
+    font: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-style: initial;
+}
+
+body {
+    text-align: justify;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    color: aqua;
+}
+
+p {
+    color: brown;
+    font-style: italic;
+}
+
+li {
+    text-align: center;
+    text-justify: auto;
+}
+
+ul {
+    list-style-position: inside;
+}
