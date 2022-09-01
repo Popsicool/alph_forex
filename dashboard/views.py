@@ -7,9 +7,9 @@ from django.http import HttpRequest, HttpResponse
 from .forms  import PaymentForm
 from django.conf import settings
 import secrets
-from .models import Payment, Withdraw
+from .models import Payment, Withdraw, Transfer
 import random
-from user_profile.models import Document
+from user_profile.models import Document, Account
 # Create your views here.
 
 def generateReferenceNumber():
@@ -17,14 +17,12 @@ def generateReferenceNumber():
 class dashboard(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
-        balance = int(user.balance)
-        context={'balance':balance}
+        accounts = Account.objects.filter(user=user)
+        context={"accounts":accounts}
         return render(request, "dashboard/dashboard.html",context)
     def post(self,request,response):
         user = request.user
         resp = response.reference
-        print(type(resp))
-        balance = int(user.balance)
         context={'balance':balance}
         return render(request, "dashboard/dashboard.html",context)
 
@@ -60,6 +58,7 @@ class withdraw(LoginRequiredMixin, View):
 class banktransferwitdrw(LoginRequiredMixin, View):
     def post(self, request):
         amount= request.POST['amount']
+        account= request.POST['acc']
         beneficiary_fullname= request.POST['beneficiary_fullname']
         beneficiary_address= request.POST['beneficiary_address']
         beneficiary_city= request.POST['beneficiary_city']
@@ -74,13 +73,14 @@ class banktransferwitdrw(LoginRequiredMixin, View):
         notes= request.POST['notes']
         user = request.user
         email = user.email
+        balance = Account.objects.get(account_number=account).balance
         context = {"user":user}
         try:
             amount = int(amount)
         except:
             messages.info(request, 'Enter Integer amount only')
             return render(request, "dashboard/banktransferwitdrw.html", context)
-        if (int(amount) > user.balance ):
+        if (int(amount) > int(balance) ):
             messages.info(request, 'Insufficient fund')
             return render(request, "dashboard/banktransferwitdrw.html", context)
         ref = 0
@@ -90,20 +90,22 @@ class banktransferwitdrw(LoginRequiredMixin, View):
             if not object_with_similar_ref:
                 ref = ref2
 
-        money= Withdraw.objects.create(amount=amount, ref=ref,email=email,beneficiary_fullname=beneficiary_fullname,
+        money= Withdraw.objects.create(amount=amount,account=account, ref=ref,email=email,beneficiary_fullname=beneficiary_fullname,
         beneficiary_address=beneficiary_address,beneficiary_city=beneficiary_city, beneficiary_zip=beneficiary_zip,
         beneficiary_country=beneficiary_country,bank_account=bank_account,bank_name=bank_name,branch_code=branch_code,
         bank_address=bank_address,beneficiary_swift=beneficiary_swift,bic=bic, notes=notes)
         money.save()
-        balance = user.balance - int(amount)
-        User.objects.filter(email=email).update(balance=balance)        
+        balance = Account.objects.get(account_number=account).balance
+        balance = int(balance) - int(amount)
+        Account.objects.filter(account_number=account).update(balance=balance)        
         messages.info(request, 'Withrawal request Submitted')
         return redirect("dashboard:dash")
         
         
     def get(self, request):
         user = request.user
-        context= {"user":user}
+        accounts = Account.objects.filter(user=user.id)
+        context = {"user":user, "accounts":accounts}
         return render(request, "dashboard/banktransferwitdrw.html", context)
 
 class banktransfer(LoginRequiredMixin, View):
@@ -158,7 +160,8 @@ class history(LoginRequiredMixin, View):
         email = user.email
         deposit = Payment.objects.filter(email=email, verified=True)
         withdraw = Withdraw.objects.filter(email=email)
-        context= {"user":user, "deposit":deposit, "withdraw":withdraw }
+        transfer = Transfer.objects.filter(user=user)
+        context= {"user":user, "deposit":deposit, "withdraw":withdraw, "transfer":transfer}
         return render(request, "dashboard/history.html", context)
 
 
@@ -223,13 +226,66 @@ class ib_assignment(LoginRequiredMixin, View):
 class internal_transfer(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
-        context= {"user":user}
+        accounts = Account.objects.filter(user=user.id)
+        context= {"user":user,"accounts":accounts}
         return render(request, "dashboard/internaltransfer.html", context)
-    def get(self, request):
+    def post(self, request):
         user = request.user
-        context= {"user":user}
-        return render(request, "dashboard/internaltransfer.html", context)
+        accounts = Account.objects.filter(user=user.id)
+        accountFrom = request.POST['accountFrom']
+        accountTo = request.POST['accountTo']
+        amount = request.POST['amount']
+        if (accountFrom == accountTo):
+            messages.info(request, "Can't transfer to same account")
+            return redirect("dashboard:internal_transfer")
+        try:
+            amount = int(amount)
+        except:
+            messages.info(request, 'Amount must be Number only')
+            return redirect("dashboard:internal_transfer")
+        if (amount <= 0):
+            messages.info(request, 'Amount must be greater than zero')
+            return redirect("dashboard:internal_transfer")
 
+        ref = 0
+        while (ref == 0):
+            ref2 = generateReferenceNumber()
+            object_with_similar_ref = Transfer.objects.filter(ref=ref2)
+            if not object_with_similar_ref:
+                ref = ref2
+
+        if (accountFrom == "Base Account"):
+            account1 = User.objects.get(email=user.email).balance
+        else:
+            account1= Account.objects.get(account_number=accountFrom).balance
+            print(account1)
+        if (accountTo == "Base Account"):
+            account2 = User.objects.get(email=user.email).balance
+        else:
+            account2= Account.objects.get(account_number=accountTo).balance
+            print(account2)
+
+        if (amount > int(account1)):
+            messages.info(request, 'Insufficient fund in the selected account')
+            return redirect("dashboard:internal_transfer")
+        else:
+            balance1 = account1 - amount
+            balance2 = account2 + amount
+
+        if (accountFrom == "Base Account"):
+            User.objects.filter(email=user.email).update(balance=balance1)
+        else:
+            Account.objects.filter(account_number=accountFrom).update(balance=balance1)
+
+        if (accountTo == "Base Account"):
+            User.objects.filter(email=user.email).update(balance=balance2)
+        else:
+            Account.objects.filter(account_number=accountTo).update(balance=balance2)
+            
+        transfer = Transfer.objects.create(user=user,amount=amount,sent_from=accountFrom,sent_to=accountTo, ref=ref)
+        transfer.save()
+        messages.info(request, 'Transfer Succcessful')
+        return redirect("dashboard:dash")
 class premium_normal(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
@@ -301,11 +357,8 @@ class test(LoginRequiredMixin, View):
 
 def initiate_payment(request:HttpRequest):
     if request.method == "POST":
-        # payment_form = PaymentForm(request.POST)
-        # if payment_form.is_valid():
-        #     payment = payment_form.save()
-        #     render(request, 'dashboard/make_payment.html', {"payment":payment})
         amount = request.POST['amount']
+        acc = request.POST['acc']
         try:
             amount = int(amount)
         except:
@@ -314,6 +367,7 @@ def initiate_payment(request:HttpRequest):
 
         user = request.user
         email= user.email
+        accounts = Account.objects.filter(user=user.id)
         ref = 0
         while (ref == 0):
             ref2 = generateReferenceNumber()
@@ -321,36 +375,46 @@ def initiate_payment(request:HttpRequest):
             if not object_with_similar_ref:
                 ref = ref2
 
-        money= Payment.objects.create(amount=amount,email=email,ref=ref)
+        money= Payment.objects.create(acc=acc,amount=amount,email=email,ref=ref)
         
         money.save()
         
-        payment = {"amount":amount, "email":email, "ref":ref}
-        context = {"payment":payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY}
+        payment = {"amount":amount, "email":email, "ref":ref, "acc":acc}
+        context = {"payment":payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY, "accounts":accounts}
         return render(request, 'dashboard/make_payment.html', context)
 
     # else:
     #     payment_form = PaymentForm
-    return render (request, 'dashboard/initiate_payment.html')
+    user = request.user
+    accounts = Account.objects.filter(user=user.id)
+    context= {"accounts":accounts, "user":user}
+    return render (request, 'dashboard/initiate_payment.html', context)
 
 def verify_payment(request:HttpRequest, ref:str) -> HttpResponse:
     user = request.user
     Payment.objects.filter(ref=ref).update(verified=True)
     email = user.email
     data = Payment.objects.get(ref=ref, email=email)
-    balance = int(user.balance)
-    balance = int(data.amount) + balance
-    User.objects.filter(email=user.email).update(balance=balance)
+    acc = data.acc
+    account = Account.objects.get(account_number= acc)
+    balance = int(account.balance) + data.amount
+    Account.objects.filter(account_number=acc).update(balance=balance)
     messages.info(request, 'Deposit succesfull')
     context = {"user":user}
     return redirect("dashboard:dash")
 
 def cancel_withrawal(request, pk):
     user = request.user
-    amount = Withdraw.objects.get(ref=pk).amount
-    balance = int(user.balance) + int(amount)
-    email = user.email
-    User.objects.filter(email=email).update(balance=balance)
+    person= Withdraw.objects.get(ref=pk)
+    amount = person.amount
+    balance = Account.objects.get(account_number=person.account).balance
+    balance = int(balance) + int(amount)
+    Account.objects.filter(account_number=person.account, user=user).update(balance=balance) 
     Withdraw.objects.filter(ref=pk).delete()
-    messages.info(request, 'Request Deleted')
+    messages.info(request, ' Withdrawal Request Cancelled')
     return redirect("dashboard:dash")
+
+
+
+
+    

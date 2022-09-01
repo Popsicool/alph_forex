@@ -1,48 +1,68 @@
-{% if user.is_superuser %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lte/css/superboard.css' %}">
+    <title>Super Admin Board</title>
+</head>
 
-<p>You are viewing this because you are a superuser </p> 
+<header>
+    <p><h2>ADMIN DASHBOARD</h2></p>
+</header>
+            <br>
+<body>
 
+    {% if user.is_superuser %}
+    
+    <p><h4>You are viewing this because you are a superuser</h4></p> 
+    
+    <main>
+    <h3>Pending Withdrawals</h3>
+    {% if withdraw %}
+    </main>
 
-<h3>Pending Withdrawals</h3>
-{% if withdraw %}
-<ul>
-    {% for i in withdraw %}
-<li>
-   <a href="{% url 'alph:superwit' i.ref %}">{{ i.ref }}</a> 
-</li>
+    <ul>
+        {% for i in withdraw %}
+    <li>
+    <a href="{% url 'alph:superwit' i.ref %}">{{ i.ref }}</a> 
+    </li>
+        {% endfor %}
+
+    </ul>
+
+    {% else %}
+    <p>No pending Withdrawal requests</p>
+
+    {% endif %}
+
+    <h3>Pending Verifications</h3>
+
+    {% if document %}
+    <ul>
+        {% for i in document %}
+    <li>
+        <a href="{% url 'alph:superver' i.email %}">{{ i.email }}</a> 
+    </li>
     {% endfor %}
 
 
-</ul>
-
-{% else %}
-<p>No pending Withdrawal requests</p>
-
-{% endif %}
-
-<h3>Pending Verifications</h3>
-
-{% if document %}
-<ul>
-    {% for i in document %}
-<li>
-    <a href="{% url 'alph:superver' i.email %}">{{ i.email }}</a> 
-</li>
-    {% endfor %}
+    </ul>
 
 
-</ul>
+    {% else %}
+    <p>No pending Document Verification</p>
 
+    {% endif %}
 
+            <br><br>
 
-{% else %}
-<p>No pending Document Verification</p>
+    {% else %}
+    You dont have access to view this page
 
-{% endif %}
+    {% endif %}
 
-
-
-{% else %}
-You dont have access to view this page
-
-{% endif %}
+</body>
+</html>

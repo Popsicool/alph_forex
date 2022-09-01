@@ -5,11 +5,12 @@ from django.views import View
 from authz.models import User
 from django.contrib.auth.models import  auth
 from django.contrib import messages
-from .models import Document, Change_document_request
+from .models import Document, Change_document_request, Account
+import random
 
 
-
-
+def generateAccountNumber():
+    return random.randrange(111111, 999999)
 class verify(LoginRequiredMixin, View):
     def post(self, request):
         user = request.user
@@ -142,15 +143,15 @@ class documents(LoginRequiredMixin, View):
         context= {"user":user}
         return render(request, "user_profile/documents.html", context)
 
-class newaccount(LoginRequiredMixin, View):
-    def post(self, request):
-        user = request.user
-        context= {"user":user}
-        return render(request, "user_profile/newaccount.html", context)
-    def get(self, request):
-        user = request.user
-        context= {"user":user}
-        return render(request, "user_profile/newaccount.html", context)
+# class newaccount(LoginRequiredMixin, View):
+#     def post(self, request):
+#         user = request.user
+#         context= {"user":user}
+#         return render(request, "user_profile/newaccount.html", context)
+#     def get(self, request):
+#         user = request.user
+#         context= {"user":user}
+#         return render(request, "user_profile/newaccount.html", context)
 class change_document_request(LoginRequiredMixin, View):
     def post(self, request):
         user = request.user
@@ -166,3 +167,31 @@ class change_document_request(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "user_profile/change_document_request.html", context)
+
+
+class new_account(LoginRequiredMixin, View):
+        def post(self, request):
+            user = request.user
+            account_number= 0
+            while (account_number == 0):
+                ref2 = generateAccountNumber()
+                object_with_similar_ref = Account.objects.filter(account_number=ref2)
+                if not object_with_similar_ref:
+                    account_number = ref2
+            account_type = request.POST['account_type']
+            currency_base = request.POST['currency_base']
+            try:
+                bonus_scheme = request.POST['bonus_scheme']
+            except:
+                bonus_scheme = "Not Applicable"
+            leverage = request.POST['new_leverage']
+            acc = Account.objects.create(user=user,account_number=account_number,account_type=account_type,currency_base=currency_base,
+            bonus_category=bonus_scheme,leverage=leverage)
+            acc.save()
+            messages.info(request, "Trading Account Created")            
+            context= {"user":user}
+            return redirect('dashboard:dash')
+        def get(self, request):
+            user = request.user
+            context= {"user":user}
+            return render(request, "user_profile/new_account.html", context)

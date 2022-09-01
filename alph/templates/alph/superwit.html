@@ -1,30 +1,50 @@
-{% if user.is_superuser %}
+{% load static %}
 
-<p>You are viewing this because you are a superuser </p> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lte/css/superboard.css' %}">
+    <title>Superwit</title>
+</head>
 
-<ul>
-    <li> Reference No : {{ withdraw.ref }}</li>
-    <li> Date : {{ withdraw.date }}</li>
-    <li> Amount : {{ withdraw.amount }}</li>
-    <li> Full name : {{ withdraw.beneficiary_fullname }}</li>
-    <li> Address : {{ withdraw.beneficiary_address }}</li>
-    <li> City : {{ withdraw.beneficiary_city }}</li>
-    <li> Zip : {{ withdraw.beneficiary_zip }}</li>
-    <li> Country : {{ withdraw.beneficiary_country }}</li>
-    <li> Bank account : {{ withdraw.bank_account }}</li>
-    <li> Bank name : {{ withdraw.bank_name }}</li>
-    <li> Branch Code : {{ withdraw.branch_code }}</li>
-    <li> Branch address : {{ withdraw.bank_address }}</li>
-    <li> Swift : {{ withdraw.beneficiary_swift }}</li>
-    <li> Bic : {{ withdraw.bic }}</li>
-    <li> Notes : {{ withdraw.notes }}</li>
-    
-    
-</ul>
+<header>
+    <p><h2>ADMIN DASHBOARD</h2></p>
+</header>
+            <br>
+<body>
+        {% if user.is_superuser %}
 
-<li><a href="{% url 'alph:appwit' withdraw.ref %}">Approve</a></li>
-<li><a href="{% url 'alph:appwit2' withdraw.ref %}">Cancel</a></li>
+    <p>You are viewing this because you are a superuser </p> 
 
-{% else %}
-<p>You re not allowed to view this page</p>
-{% endif %}
+    <ul>
+        <li> Reference No : {{ withdraw.ref }}</li>
+        <li> Date : {{ withdraw.date }}</li>
+        <li> Account Id : {{ withdraw.account }}</li>
+        <li> Amount : {{ withdraw.amount }}</li>
+        <li> Full name : {{ withdraw.beneficiary_fullname }}</li>
+        <li> Address : {{ withdraw.beneficiary_address }}</li>
+        <li> City : {{ withdraw.beneficiary_city }}</li>
+        <li> Zip : {{ withdraw.beneficiary_zip }}</li>
+        <li> Country : {{ withdraw.beneficiary_country }}</li>
+        <li> Bank account : {{ withdraw.bank_account }}</li>
+        <li> Bank name : {{ withdraw.bank_name }}</li>
+        <li> Branch Code : {{ withdraw.branch_code }}</li>
+        <li> Branch address : {{ withdraw.bank_address }}</li>
+        <li> Swift : {{ withdraw.beneficiary_swift }}</li>
+        <li> Bic : {{ withdraw.bic }}</li>
+        <li> Notes : {{ withdraw.notes }}</li>
+        
+        
+    </ul>
+
+    <li><a href="{% url 'alph:appwit' withdraw.ref %}">Approve</a></li>
+    <li><a href="{% url 'alph:appwit2' withdraw.ref %}">Cancel</a></li>
+
+    {% else %}
+    <p>You re not allowed to view this page</p>
+    {% endif %}
+</body>
+</html>

@@ -1,174 +1,351 @@
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Form</title>
-		<link href="css/style.css" type="text/css" rel="stylesheet" />
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-	</head>
-	<body>
-		
-		<style>
-			* {
-				padding: 0;
-				margin: 0;
-			}
-			body {
-				background-color: black;
-			}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" lang="en" content="To access your AlphaForex account and see all the features available to you, please use the client portal login page by adding your email and password." />	<meta name="language" content="en" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-home.css' %}" />
+							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
+		  <script>
+    function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+      }
 
-			.container {
-				background: #2d3e3f;
-				width: 350px;
-				height: 400px;
-				padding-bottom: 20px;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				margin: auto;
-				padding: 70px 50px 20px 50px;
-			}
+      return vars;
+    }
 
-			.fl {
-				float: left;
-				width: 110px;
-				line-height: 35px;
-			}
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 
-			.fontLabel {
-				color: white;
-			}
+    function isEmpty(obj) {
+      for(var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
 
-			.fr {
-				float: right;
-			}
+      return JSON.stringify(obj) === JSON.stringify(new Object());
+    }
 
-			.clr {
-				clear: both;
-			}
+    var vars = getUrlVars();
+    var cookieValues = new Object();
 
-			.box {
-				width: 360px;
-				height: 35px;
-				margin-top: 10px;
-				font-family: verdana;
-				font-size: 12px;
-			}
+    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
+    for(var entry in vars) {
+      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
+        cookieValues[entry] = vars[entry];
+      }
+    }
 
-			.textBox {
-				height: 35px;
-				width: 190px;
-				border: none;
-				padding-left: 20px;
-			}
+    if (!isEmpty(cookieValues)) {
+      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
+    }
 
-			.new {
-				float: left;
-			}
 
-			.iconBox {
-				height: 35px;
-				width: 40px;
-				line-height: 38px;
-				text-align: center;
-				background: #ff6600;
-			}
+  </script>
 
-			.radio {
-				color: white;
-				background: #2d3e3f;
-				line-height: 38px;
-			}
+	<!-- livechat preview: . -->
+	<script type="text/javascript">
+	  var __lc = { };
+	  __lc.license = 1486502;
+	  __lc.chat_between_groups = false;
+	  __lc.group = 127;
+	  var currentTime = '2022-08-21 22:58:33';
+	  	  (function() {
+		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	  })();
+	</script>
 
-			.terms {
-				line-height: 35px;
-				text-align: center;
-				background: #2d3e3f;
-				color: white;
-			}
+	
 
-			.submit {
-				float: right;
-				border: none;
-				color: white;
-				width: 110px;
-				height: 35px;
-				background: #ff6600;
-				text-transform: uppercase;
-				cursor: pointer;
-			}
+	
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
 
-			::-webkit-input-placeholder {
-				/* Chrome/Opera/Safari */
-			}
-		</style>
-		<!-- Body of Form starts -->
-		<div class="container">
-			{% for message in messages %}
-<p style='color:white';>  {{message}}</p>
-{% endfor %}
-			<form method="post" autocomplete="on" action="{% url 'authz:login' %}">
-				{% csrf_token %}
-				<!--First name-->
-		<!-- <div class="box">
-          <label for="firstName" class="fl fontLabel"> First Name: </label>
-    			<div class="new iconBox">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </div>
-    			<div class="fr">
-    					<input type="text" name="first_name" placeholder="First Name"
-              class="textBox" autofocus="on" required>
-    			</div>
-    			<div class="clr"></div>
-    		</div> -->
-				<!--First name-->
 
-				<!---Email ID---->
-				<div class="box">
-					<label for="email" class="fl fontLabel"> Email ID: </label>
-					<div class="fl iconBox">
-						<i class="fa fa-envelope" aria-hidden="true"></i>
+	<!-- PushWoosh goes here -->
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+	<style>
+		  .logo-image{
+width:100px;
+height: 46px;
+border-radius: 50%;
+overflow: hidden;
+margin-top: -6px;
+
+}
+	</style>
+</head>    <body class="sidebar-mini client-portal lang-en cont-ea">
+    
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+
+
+        <div class="wrapper">
+            <nav class="main-header navbar navbar-expand   clientPortalHome">
+    
+        <ul class="navbar-nav left">
+                    <a href="{% url 'alph:index' %}" class="brand-link d-block">
+               <div class="logo-image">
+                      <img src="{% static 'Home page/wp-content/uploads/2021/10/Alphforex logo.png'%}"  class="img-fluid">
+                </div>
+            </a>
+            </ul>
+        <ul class=" navbar-nav right ml-auto">
+                                                <li class="nav-item">
+                    <a id="btn-navbar-register" href="{% url 'authz:signup'%}" target="_blank" class="nav-link btn btn-green">Register</a>
+                </li>
+                        
+	<li class="nav-item dropdown language">
+																			<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+					en
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+			    </a>
+																																																				<div class="dropdown-menu dropdown-menu-right">
+							
+									<a href="#/ar/client-portal" class="dropdown-item">
+						<span class="flag flag-ar"></span>
+						العربية
+					</a>
+											
+									<a href="#/de/client-portal" class="dropdown-item">
+						<span class="flag flag-de"></span>
+						Deutsch
+					</a>
+											
+									<a href="#/en/client-portal" class="dropdown-item">
+						<span class="flag flag-en"></span>
+						English
+					</a>
+											
+									<a href="#/es/client-portal" class="dropdown-item">
+						<span class="flag flag-es"></span>
+						Español
+					</a>
+											
+									<a href="#/fr/client-portal" class="dropdown-item">
+						<span class="flag flag-fr"></span>
+						Français
+					</a>
+											
+									<a href="#/nl/client-portal" class="dropdown-item">
+						<span class="flag flag-nl"></span>
+						Dutch
+					</a>
+											
+									<a href="#/id/client-portal" class="dropdown-item">
+						<span class="flag flag-id"></span>
+						Bahasa Indonesia
+					</a>
+											
+									<a href="#/it/client-portal" class="dropdown-item">
+						<span class="flag flag-it"></span>
+						Italiano
+					</a>
+											
+									<a href="#/ms/client-portal" class="dropdown-item">
+						<span class="flag flag-ms"></span>
+						Bahasa Melayu
+					</a>
+											
+									<a href="#/pt/client-portal" class="dropdown-item">
+						<span class="flag flag-pt"></span>
+						Português
+					</a>
+											
+									<a href="#/vi/client-portal" class="dropdown-item">
+						<span class="flag flag-vi"></span>
+						Tiếng Việt
+					</a>
+											
+									<a href="#/zh/client-portal" class="dropdown-item">
+						<span class="flag flag-zh"></span>
+						中文
+					</a>
+									</div>
+	</li>
+
+            </ul>
+</nav>            
+            <div class="main-content content-wrapper">
+                
+	<div class="row  lte-public">
+		<div class="col-sm-12 col-lg-8 col-md-12 main-content-container ">
+			<section class="content">
+				<div class="row justify-content-md-center">
+					<div class="col-sm-12 col-md-6 col-lg-6">
+												<div
+    id="login-error-message"     class="alert alert-danger collapse login-error-message"
+    role="alert"
+>
+                    <span class="icon icon-notification-error"></span> <b></b>
+        <span id="notification" class="collapse show">
+        Login or password incorrect!
+        
+    </span>
+</div>						<div class="card ">
+							<div class="register-block-mining">
+								<form method="post" action="" class="login-form" id="headerLoginForm">
+									{% csrf_token %}
+									<div class="card-body">
+										<h3 class="center "><b>Portal Login</b></h3>
+										{% for message in messages %}
+										<p>{{ message }}</p>
+										{% endfor %}
+										<input type="hidden" name="security" value="13d14564676a08482b91ce9dfb7d4dd1" />
+										<input type="hidden" name="action" value="login" />
+										<input id="currentContext" type="hidden" name="currentContext" value="ea" />
+										<div class="form-group">
+											
+																							<label for="email">Email</label>
+																						<input type="email" name="email" id="inlineFieldLogin" value="" class="form-control portal-home-email" placeholder="" required />
+										</div>
+										<div class="form-group ">
+											
+																							<label for="login">Password</label>
+																						<a class="show-password"></a>
+											<input class="form-control portal-home-password" type="password" name="password" id="inlineFieldPassword" value="" required placeholder="/>
+
+											<div class="row ">
+												<div class="col-sm-6 left"></div>
+												<div class="col-sm-6 right">
+													<a href="{% url 'authz:password_reset'%}" class="forgot-passwor-link">Forgot Password?</a>
+												</div>
+											</div>​
+										</div>
+									</div>
+									<div class="card-footer">
+										<div class="form-group center">
+											<button type="submit" class="btn btn-default btn-red btn-login">Login</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="card qa-block-hide block-register">
+							<div class="card-body">
+								<h3 class="center"><b>Not Registered with AlphaForex?</b></h3>
+																								<div class="form-row2">
+																	<div class="form-group center">
+																					
+										
+										<a href="{% url 'authz:signup'%}" target="_blank" class="btn btn-default btn-green a-open-account">Open A Trading Account</a><span class="cp-home-cn-arrow"></span>
+									</div>
+								
+																	<div class="form-group center">
+										<a href="#/en/demo" target="_blank" class="btn btn-default btn-open-demo a-open-demo-account">Open Demo Account</a><span class="cp-home-cn-arrow"></span>
+									</div>
+								</div>																									<p class="risk-notice">
+										All trading involves risk. It is possible to lose all your capital.
+									</p>
+																							</div>
+						</div>
 					</div>
-					<div class="fr">
-						<input
-							type="email"
-							required
-							name="email"
-							placeholder="Email Id"
-							class="textBox"
-						/>
-					</div>
-					<div class="clr"></div>
 				</div>
-				<!--Email ID----->
-
-				<!---Password------>
-				<div class="box">
-					<label for="password" class="fl fontLabel"> Password </label>
-					<div class="fl iconBox">
-						<i class="fa fa-key" aria-hidden="true"></i>
-					</div>
-					<div class="fr">
-						<input
-							type="Password"
-							required
-							name="password"
-							placeholder="Password"
-							class="textBox"
-						/>
-					</div>
-					<div class="clr"></div>
-					<a class="fl fontLabel" href="{% url 'authz:password_reset' %}"> Forgot Password</a>
-				</div>
-				<!---Password---->
-
-				<!---Submit Button------>
-				<div class="box" style="background: #2d3e3f">
-					<input type="Submit" name="Submit" class="submit" value="SUBMIT" />
-				</div>
-				<!---Submit Button----->
-			</form>
+			</section>
 		</div>
-		<!--Body of Form ends--->
-	</body>
+	</div>
+
+            </div>
+            
+<footer class="main-footer  ">
+    <div class="row">
+                    <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
+                <div class="row">
+                                                                <div class="col-sm-12 col-md-3 col-md-3 ">
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
+                                                                                    
+                            
+                            
+                            
+                            
+                            
+                                                    </div>
+                                                                <div class="col-sm-12 col-md-9 ">
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+<p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
+<p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
+<p><strong>Risk Warning:</strong></p>
+<p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
+
+</p>
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</footer>
+    
+
+<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
+</script>
+<script>
+    Sentry.init({
+        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
+        release: ''
+    });
+</script>
+
+<script type="text/javascript">
+    
+    
+    
+    var Site = jQuery.extend( { } , {
+        language: "en",
+        ssl: true,
+        context: "ea",
+        domain: "#",
+        brand: "AlphaForex",
+        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
+        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
+        portalId: "",
+        guid: "",
+    } );
+</script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+        </div>
+    </body>
 </html>

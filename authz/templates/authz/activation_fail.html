@@ -1,9 +1,317 @@
-<h1>Token not valid!</h1>
-<h3>Its either you've used the token and your account has been verified or it has expired</h3>
-<form method="post" autocomplete="on" action="{% url 'authz:resend_email' %}">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<meta name="language" content="en" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/iframeResizer.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
+								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-forgot-password.css' %}" />
+							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
+		  <script>
+    function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+      }
+
+      return vars;
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function isEmpty(obj) {
+      for(var prop in obj) {
+        if(obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+
+      return JSON.stringify(obj) === JSON.stringify(new Object());
+    }
+
+    var vars = getUrlVars();
+    var cookieValues = new Object();
+
+    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
+    for(var entry in vars) {
+      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
+        cookieValues[entry] = vars[entry];
+      }
+    }
+
+    if (!isEmpty(cookieValues)) {
+      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
+    }
+
+
+  </script>
+
+	<!-- livechat preview: . -->
+	<script type="text/javascript">
+	  var __lc = { };
+	  __lc.license = 1486502;
+	  __lc.chat_between_groups = false;
+	  __lc.group = 127;
+	  var currentTime = '2022-08-24 00:07:43';
+	  	  (function() {
+		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+	  })();
+	</script>
+
+	
+
+	
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
+
+
+	<!-- PushWoosh goes here -->
+	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+</head>    <body class="sidebar-mini client-portal lang-en cont-ea">
+    
+<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
+
+
+        <div class="wrapper">
+            <nav class="main-header navbar navbar-expand   ">
+    
+        <ul class="navbar-nav left">
+                    <a href="{% url 'alph:index' %}" class="brand-link d-block">
+                <div class="logo"></div>
+            </a>
+            </ul>
+        <ul class=" navbar-nav right ml-auto">
+                                                <li class="nav-item">
+                    <a id="btn-navbar-register" href="{% url 'authz:signup' %}" target="_blank" class="nav-link btn btn-green">Register</a>
+                </li>
+                        
+	<li class="nav-item dropdown language">
+																			<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+					en
+					<span class="nav-icon icon icon-dropdown-close right"></span>
+			    </a>
+																																																				<div class="dropdown-menu dropdown-menu-right">
+							
+									<a href="#/ar/forgot" class="dropdown-item">
+						<span class="flag flag-ar"></span>
+						العربية
+					</a>
+											
+									<a href="#/de/forgot" class="dropdown-item">
+						<span class="flag flag-de"></span>
+						Deutsch
+					</a>
+											
+									<a href="#/en/forgot" class="dropdown-item">
+						<span class="flag flag-en"></span>
+						English
+					</a>
+											
+									<a href="#/es/forgot" class="dropdown-item">
+						<span class="flag flag-es"></span>
+						Español
+					</a>
+											
+									<a href="#/fr/forgot" class="dropdown-item">
+						<span class="flag flag-fr"></span>
+						Français
+					</a>
+											
+									<a href="#/nl/forgot" class="dropdown-item">
+						<span class="flag flag-nl"></span>
+						Dutch
+					</a>
+											
+									<a href="#/id/forgot" class="dropdown-item">
+						<span class="flag flag-id"></span>
+						Bahasa Indonesia
+					</a>
+											
+									<a href="#/it/forgot" class="dropdown-item">
+						<span class="flag flag-it"></span>
+						Italiano
+					</a>
+											
+									<a href="#/ms/forgot" class="dropdown-item">
+						<span class="flag flag-ms"></span>
+						Bahasa Melayu
+					</a>
+											
+									<a href="#/pt/forgot" class="dropdown-item">
+						<span class="flag flag-pt"></span>
+						Português
+					</a>
+											
+									<a href="#/vi/forgot" class="dropdown-item">
+						<span class="flag flag-vi"></span>
+						Tiếng Việt
+					</a>
+											
+									<a href="#/zh/forgot" class="dropdown-item">
+						<span class="flag flag-zh"></span>
+						中文
+					</a>
+									</div>
+	</li>
+
+            </ul>
+</nav>            
+            <div class="main-content content-wrapper">
+                
+	<div class="row  lte-public">
+		<div class="col-sm-12 col-md-11 col-lg-8 main-content-container container-center">
+			<section class="content">
+				<div class="row justify-content-md-center">
+					<div class="col-sm-12  col-md-6 col-lg-6 ">
+												<div class="card ">
+													<h3 class="center"><b>Token not valid!</b></h3>
+                                                
+									<p class="center">Its either you've used the token and your account has been verified or it has expired</p>
+							<form method="post" autocomplete="on" action="{% url 'authz:resend_email' %}" class="forgot-form">
+								<div class="card-body">
+	{% csrf_token %}
+    	{% csrf_token %}
+                <label for="email">Enter your Email:</label><br>
+                <input type="email" name="email"><br>
+                <input type="submit" value="Resend verification Email">
+										</div>
+										<!-- <div class="form-group">
+											
+																							<label for="password">Enter code</label>
+																						<div class="row ">
+												<div class=" col-sm-3  left">
+													<img src="#/human-test/?source=live&amp;random=23674" class="captcha">
+													<input type="hidden" value="" name="ironcookie" id="ironcookie">
+												</div>
+                                                <form method="post" autocomplete="on" action="{% url 'authz:resend_email' %}">
 				{% csrf_token %}
                 <label for="email">Enter your Email:</label><br>
                 <input type="email" name="email"><br>
                 <input type="submit" value="Resend verification Email">
             
             </form>
+												<div class=" col-sm-9 right ">
+													<input type="text" class="form-control "
+													   value="" id="captcha" name="captcha" required placeholder="">
+													
+												</div>
+											</div>
+										</div> -->
+									<!-- </div>
+								</div> -->
+								<!-- <div class="card-footer">
+																				<div class="form-group center">
+												<button id="btn-forgot-password" type="submit" class="btn  btn-default btn-blue">Submit</button>
+											</div>
+																			</div> -->
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+            </div>
+            
+<footer class="main-footer  ">
+    <div class="row">
+                    <div class="col-sm-12 col-md-11 main-footer-container col-lg-8">
+                <div class="row">
+                                                                <div class="col-sm-12 col-md-3 col-md-3 ">
+                            <p>&copy; 2022 AlphaForex.<br/>All Rights Reserved.</p>
+                                                                                    
+                            
+                            
+                            
+                            
+                            
+                                                    </div>
+                                                                <div class="col-sm-12 col-md-9 ">
+                                                        <p>AlphaForex, with registered address of F20, 1st Floor, Eden Plaza, Eden Island, Seychelles, is a trade name of Tradeco Limited.</p>
+<p>The Group includes Damadah Holding Limited with registration number HE 324249 and registered address at 365, Agiou Andreou, Efstathiou Court, 2nd Floor, Flat 201, 3035 Limassol, Cyprus.</p>
+<p>Tradeco limited is authorised and regulated by the Seychelles Financial Services Authority with licence number SD029.</p>
+<p><strong>Risk Warning:</strong></p>
+<p>Our products are traded on margin and carry a high level of risk and it is possible to lose all your capital. These products may not be suitable for everyone and you should ensure that you understand the risks involved.
+
+</p>
+<p>AlphaForex does not offer its services to residents of certain jurisdictions such as USA, Iran, Cuba, Sudan, Syria and North Korea.
+
+</p><ul class="list-inline"><li class="list-inline-item"><img src="{% static 'lte/img/visa.svg' %}" alt="Visa"></li><li class="list-inline-item"><img src="{% static 'lte/img/mastercard.svg' %}" alt="Mastercard"></li></ul>                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</footer>
+    
+
+<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
+</script>
+<script>
+    Sentry.init({
+        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
+        release: ''
+    });
+</script>
+
+<script type="text/javascript">
+    
+    
+    
+    var Site = jQuery.extend( { } , {
+        language: "en",
+        ssl: true,
+        context: "ea",
+        domain: "#",
+        brand: "AlphaForex",
+        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
+        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
+        portalId: "",
+        guid: "",
+    } );
+</script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/sso.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/widget-login.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/deposit-list.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/jcarousel/jquery.jcarousel.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lte/js/referrer.js' %}"></script>
+                <script type="text/javascript" src="{% static 'lte/js/page-forgot.js' %}"></script>
+            </div>
+    </body>
+</html>

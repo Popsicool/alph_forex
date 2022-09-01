@@ -236,14 +236,14 @@
 		<nav>
 			<ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-widget="treeview" data-accordion="true">
 															<li class="nav-item register">
-							<a href="{% url 'authz:signup' %}" data-action='new-account'
+							<a href="{% url 'user_profile:new_account' %}" data-action='new-account'
 							   class="nav-link button-click-action">
 								<span class="nav-icon icon icon-open-new-account"></span>
 								<p>Open New Account</p>
 							</a>
 						</li>
 													
-	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'authz:signup' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:internal_transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link active" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:trading_report' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:ib_assignment' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/partner" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
+	<li class="nav-item"><a href="{% url 'dashboard:dash' %}" class="nav-link" title="Dashboard"><span class="nav-icon icon icon-dashboard"></span><p>Dashboard</p></a></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Profile"><span class="nav-icon icon icon-my-profile"></span><p>My Profile <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:verify' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Verify Profile</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:documents' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Documents</p></a>																	</li><li class="nav-item"><a href="{% url 'user_profile:change_password' %}" class="nav-link" title="My Profile"><span class="nav-icon icon no-icon"></span><p>Change Password</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="My Accounts"><span class="nav-icon icon icon-my-accounts"></span><p>My Accounts <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'user_profile:new_account' %}" class="nav-link" title="My Accounts"><span class="nav-icon icon no-icon"></span><p>Open New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:top_trader_comp' %}" class="nav-link" title="Top Traders Competition"><span class="nav-icon icon icon-live-competition"></span><p>Top Traders Competition</p></a></li><li class="nav-item has-treeview menu-open">					<a href="#" class="nav-link active" title="Transactions"><span class="nav-icon icon icon-transactions"></span><p>Transactions <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:deposit' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Deposit</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:withdraw' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Withdraw</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:internal_transfer' %}" class="nav-link" title="Transactions"><span class="nav-icon icon no-icon"></span><p>Internal Transfers</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:history' %}" class="nav-link active" title="Transactions"><span class="nav-icon icon no-icon"></span><p>History</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Trading Requests"><span class="nav-icon icon icon-trading-requests"></span><p>Trading Requests <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="{% url 'dashboard:request_overview' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Requests Overview</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:bonus' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Bonus</p></a>																	</li><li class="nav-item"><a href="#/restore" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Restore Account</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:trading_report' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Trading Report</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:ib_assignment' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>IB Assignment</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:premium_normal' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>Premium/Normal</p></a>																	</li><li class="nav-item"><a href="{% url 'dashboard:swap_free' %}" class="nav-link" title="Trading Requests"><span class="nav-icon icon no-icon"></span><p>SWAP Free</p></a>																	</li></ul></li><li class="nav-item has-treeview">					<a href="#" class="nav-link" title="Partners"><span class="nav-icon icon icon-partners"></span><p>Partners <span class="nav-icon icon icon-dropdown-close right"></span></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="#/partner" class="nav-link" title="Partners"><span class="nav-icon icon no-icon"></span><p>New Account</p></a>																	</li></ul></li><li class="nav-item"><a href="{% url 'dashboard:trading_platform' %}" class="nav-link" title="Trading Platform"><span class="nav-icon icon icon-trading-platform"></span><p>Trading Platform</p></a></li>	
 									<li class="nav-item has-treeview language d-block d-lg-none">
 												<a href="#" class="nav-link">
 				<span class="nav-icon flag flag-en"></span>
@@ -577,12 +577,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% if deposit or withdraw %}
+					{% if deposit or withdraw or transfer %}
 				{% if deposit %}
 				{% for data in deposit %}
 				
 											<tr class="odd">
-							<td colspan="1">1</td>
+							<td colspan="1">{{data.acc}}</td>
 							<td colspan="1">{{ data.date_created }}</td>
 							<td colspan="1">{{ data.ref }}</td>
 							<td colspan="1"> Deposit </td>
@@ -610,10 +610,27 @@
 							<td colspan="1"> Successful</td>
 						</tr>
 						{% endif %}
+						{% endfor %}
+				{% endif %}
 
-				</tbody>
+				{% if transfer %}
+				{% for data in transfer %}
+				
+											<tr class="odd">
+							<td colspan="1"> Transfer from {{data.sent_from}} to {{data.sent_to}}</td>
+							<td colspan="1">{{ data.date }}</td>
+							<td colspan="1">{{ data.ref }}</td>
+							<td colspan="1"> Transfer </td>
+							<td colspan="1">{{ data.amount }}</td>							
+							<td colspan="1"> Naira</td>
+							<td colspan="1"> Successful</td>
+						</tr>
+									
 				{% endfor %}
 				{% endif %}
+				
+				</tbody>
+
 				{% else %}
 				<tbody>
 											<tr class="odd">

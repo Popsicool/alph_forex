@@ -6,6 +6,7 @@ import secrets
 class Payment(models.Model):
     amount = models.PositiveIntegerField()
     ref = models.CharField(max_length=200)
+    acc = models.PositiveIntegerField()
     email = models.EmailField()
     verified = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -18,6 +19,7 @@ class Payment(models.Model):
 
 class Withdraw(models.Model):
     email = models.EmailField()
+    account = models.PositiveIntegerField()
     ref = models.CharField(max_length=200 , default="007")
     amount = models.CharField(max_length=30)
     beneficiary_fullname = models.CharField(max_length=200)
@@ -36,3 +38,15 @@ class Withdraw(models.Model):
     status = models.BooleanField(default=False)
     def __str__(self) -> str:
         return f"Withraw: {self.email}"
+
+
+class Transfer(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField()
+    ref = models.PositiveIntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+    date2 = models.DateTimeField(auto_now_add=True)
+    sent_from = models.CharField(max_length=20)
+    sent_to = models.CharField(max_length=20)
+    def __str__(self) -> str:
+        return f"transfer: {self.ref}"

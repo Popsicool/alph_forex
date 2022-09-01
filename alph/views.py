@@ -4,6 +4,7 @@ from django.views import View
 from user_profile.models import Document
 from dashboard.models import Withdraw
 from authz.models import User
+from user_profile.models import Account
 
 # Create your views here.
 def index(request):
@@ -13,6 +14,8 @@ def index(request):
 class superman(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
+        if (user.is_superuser == False):
+            return render(request, "alph/404.html")
         email = user.email
         withdraw = Withdraw.objects.filter(status=False)
         document = Document.objects.filter(status=False)
@@ -22,6 +25,9 @@ class superman(LoginRequiredMixin, View):
 
 class superver(LoginRequiredMixin, View):
     def get(self, request, pk):
+        user = request.user
+        if (user.is_superuser == False):
+            return render(request, "alph/404.html")
         cust= User.objects.get(email=pk)
         email = cust.email
         document = Document.objects.get(email=email)
@@ -54,10 +60,10 @@ def appwit2(request,pk):
     if (user.is_superuser == False):
         return render(request, "alph/404.html")
     withdraw = Withdraw.objects.get(ref=pk)
-    email= withdraw.email
-    user= User.objects.get(email=email)
+    acc= withdraw.account
+    user = Account.objects.get(account_number=withdraw.account)
     balance = int(user.balance) + int(withdraw.amount)
-    User.objects.filter(email=email).update(balance=balance)
+    Account.objects.filter(account_number=withdraw.account).update(balance=balance)
     Withdraw.objects.filter(ref=pk).delete()
     return redirect('alph:superman')
 def appwit3(request,pk):

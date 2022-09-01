@@ -3,7 +3,7 @@ from authz.models import User
 
 # Create your models here.
 class Document(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
@@ -43,9 +43,23 @@ class Document(models.Model):
         return f"{self.user.email}'s Document"
     
 class Change_document_request(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     message = models.TextField()
 
     def __str__(self):
         # show how we want it to be displayed
         return f"{self.user.email}'s Request"
+
+
+class Account(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    account_number = models.IntegerField()
+    account_type = models.CharField(max_length=15)
+    currency_base = models.CharField(max_length=5)
+    bonus_category = models.CharField(max_length=50)
+    leverage = models.CharField(max_length=50)
+    balance = models.IntegerField(default=0)
+
+    def __str__(self):
+        # show how we want it to be displayed
+        return f"{self.account_number}"

@@ -15,8 +15,12 @@ from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
 import random
+from user_profile.models import Account
 def generateReferenceNumber():
     return random.randrange(1000000000, 9999999999)
+
+def generateAccountNumber():
+    return random.randrange(111111, 999999)
 
 # Create your views here.
 
@@ -49,7 +53,7 @@ def login(request):
 
 
                 auth.login(request, user)
-                return redirect('alph:index')
+                return redirect('dashboard:dash')
             else:
                 messages.info(request, 'Invalid credentials')
                 return redirect('authz:login')
@@ -76,9 +80,17 @@ def signup(request):
     if request.method == 'POST':
         first_name = request.POST['firstName']
         last_name = request.POST['secondName']
+        country = request.POST['nationality']
         phone_num = request.POST['phoneNo']
         email = request.POST['email']
         gender= request.POST['Gender']
+        account_type = request.POST['account_type']
+        currency_base = request.POST['currency_base']
+        try:
+            bonus_scheme = request.POST['bonus_scheme']
+        except:
+            bonus_scheme = "Not Applicable"
+        leverage = request.POST['new_leverage']
         password = request.POST['password']
         pass2 = request.POST['password2']
         email = email.lower()
@@ -88,19 +100,26 @@ def signup(request):
                 return redirect('authz:signup')
             else:
 
-                user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender)
+                user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender, country)
                 user.save()
-
-                messages.info(request, "Account created, check your email for activation link")
-
-
-                send_activation_email(user,request)
-
-                return redirect('authz:login')
+                send_activation_email(user,request)   
         else:
             messages.info(request, "Password didnt match")
             return redirect('authz:signup')
+           
+        account_number= 0
+        while (account_number == 0):
+            ref2 = generateAccountNumber()
+            object_with_similar_ref = Account.objects.filter(account_number=ref2)
+            if not object_with_similar_ref:
+                account_number = ref2
+        acc = Account.objects.create(user=user,account_number=account_number,account_type=account_type,currency_base=currency_base,
+        bonus_category=bonus_scheme,leverage=leverage)
+        acc.save()
 
+        messages.info(request, "Account created, check your email for activation link")
+        return redirect('authz:login')
+        
     return render(request, "authz/signup.html")
 
 def activate_user(request,uidb64,token):
