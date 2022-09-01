@@ -534,9 +534,9 @@
 		<!-- Modal -->
 <div class="modal fade" id="pmamPromoCodeModal" tabindex="-1" role="dialog" aria-labelledby="pmamPromoCodeModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form id="pmam-promo-code" method="post" action="{% url 'user_profile:new_account' %}">
+        <form id="" method="post" action="">
             {% csrf_token %}
-            <div class="modal-content">
+            <!-- <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -548,9 +548,9 @@
                     <div id="invalid-promo-code" style="display:none;">Incorrect promo code.</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button  class="btn btn-primary">Submit</button>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
 </div>
@@ -727,7 +727,7 @@
                 <script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
             <script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
             <script type="text/javascript" src="{% static 'lte/js/page-register.js' %}"></script>
-            <script type="text/javascript" src="{% static 'lte/js/pmam-promo-code.js' %}"></script>
+  
     			</div>
 		
 	</body>

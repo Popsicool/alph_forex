@@ -8,6 +8,8 @@ from user_profile.models import Account
 
 # Create your views here.
 def index(request):
+    if request.user.is_authenticated:
+        return redirect('dashboard:dash')
     context = {}
     return render(request, "alph/index.html", context)
 
