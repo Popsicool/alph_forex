@@ -27,76 +27,8 @@
 	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
 								<link type="text/css" rel="stylesheet" href="{% static 'lte/css/page-home.css' %}" />
-							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
-		  <script>
-    function getUrlVars() {
-      var vars = [], hash;
-      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-      for(var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars[hash[0]] = hash[1];
-      }
-
-      return vars;
-    }
-
-    function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays*24*60*60*1000));
-      var expires = "expires="+ d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function isEmpty(obj) {
-      for(var prop in obj) {
-        if(obj.hasOwnProperty(prop)) {
-          return false;
-        }
-      }
-
-      return JSON.stringify(obj) === JSON.stringify(new Object());
-    }
-
-    var vars = getUrlVars();
-    var cookieValues = new Object();
-
-    var non_utm_params = ['gclid', 'fbclid', 'msclkid'];
-    for(var entry in vars) {
-      if(entry.startsWith("utm_") || non_utm_params.includes(entry)){
-        cookieValues[entry] = vars[entry];
-      }
-    }
-
-    if (!isEmpty(cookieValues)) {
-      setCookie('UrlOriginalQueryParameters', JSON.stringify(cookieValues), 30);
-    }
-
-
-  </script>
-
-	<!-- livechat preview: . -->
-	<script type="text/javascript">
-	  var __lc = { };
-	  __lc.license = 1486502;
-	  __lc.chat_between_groups = false;
-	  __lc.group = 127;
-	  var currentTime = '2022-08-21 22:58:33';
-	  	  (function() {
-		var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-		lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-	  })();
-	</script>
-
-	
-
-	
-    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
-
-
-	<!-- PushWoosh goes here -->
-	<script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
-	<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
+							<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" /
+<script type="text/javascript" src="{% static 'lte/js/pushwoosh-service-worker-init.js' %}"></script>
 	<style>
 		  .logo-image{
 width:100px;
@@ -108,8 +40,6 @@ margin-top: -6px;
 }
 	</style>
 </head>    <body class="sidebar-mini client-portal lang-en cont-ea">
-    
-<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
 
 
         <div class="wrapper">
@@ -216,7 +146,7 @@ margin-top: -6px;
     </span>
 </div>						<div class="card ">
 							<div class="register-block-mining">
-								<form method="post" action="{% url 'authz:login' %}" class="login-form" id="headerLoginForm">
+								<form method="post" action="{% url 'authz:login' %}" class="login-form" >
 									{% csrf_token %}
 									<div class="card-body">
 										<h3 class="center "><b>Portal Login</b></h3>
@@ -309,32 +239,6 @@ margin-top: -6px;
             </div>
 </footer>
     
-
-<script src="https://browser.sentry-cdn.com/5.6.3/bundle.min.js" integrity="sha384-/Cqa/8kaWn7emdqIBLk3AkFMAHBk0LObErtMhO+hr52CntkaurEnihPmqYj3uJho" crossorigin="anonymous">
-</script>
-<script>
-    Sentry.init({
-        dsn: 'https://e2e81990b3724730ab503e62b77d44f1@sentry.io/134335',
-        release: ''
-    });
-</script>
-
-<script type="text/javascript">
-    
-    
-    
-    var Site = jQuery.extend( { } , {
-        language: "en",
-        ssl: true,
-        context: "ea",
-        domain: "#",
-        brand: "AlphaForex",
-        soliticsPopupToken: "JJhD3J2KCVkNMkB3uesXUxu2",
-        soliticsBrand: "BqTgCkN4KzyPu2dqcVnqwKWE",
-        portalId: "",
-        guid: "",
-    } );
-</script>
 <script type="text/javascript" src="{% static 'lte/js/jquery-migrate.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'lte/js/jquery-form.js' %}"></script>
 <script type="text/javascript" src="{% static 'lte/js/jquery-widget.js' %}"></script>
