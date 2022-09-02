@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'trading.urls'
@@ -71,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -146,10 +148,20 @@ django_heroku.settings(locals())
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "{% url 'authz:login %}"
+# LOGOUT_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'authz:login'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 PAYSTACK_PUBLIC_KEY = config('PAYSTACK_PUBLIC_KEY')
+
+from datetime import timedelta
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=30),
+    'SESSION_TIME': timedelta(minutes=1440),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}
 
 # LOGGING = {
 #     'version': 1,
