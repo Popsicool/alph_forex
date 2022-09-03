@@ -2,9 +2,8 @@
   font-family: "icomoon";
   src: url("../fonts/icomoon.eot?805sb");
   src: url("../fonts/icomoon.eot?805sb#iefix") format("embedded-opentype"),
-    url("../fonts/icomoon.woff2?805sb") format("truetype"),
     url("../fonts/icomoon.ttf?805sb") format("truetype"),
-    url("../fonts/icomoon.woff?805sb") format("woff"),
+    url("../fonts/icomoon.woff?805sb") format("woff"),;
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -328,4 +327,78 @@
 .icon-crown:before {
   content: "\e96c";
   margin-left: -4px;
+}
+
+
+
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?jox605');
+  src:  url('../fonts/icomoon.eot?jox605#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?jox605') format('truetype'),
+    url('../fonts/icomoon.woff?jox605') format('woff'),
+    url('../fonts/icomoon.svg?jox605#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-thumb-up:before {
+  content: "\e900";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-users:before {
+  content: "\e972";
+}
+.icon-spinner9:before {
+  content: "\e982";
+}
+.icon-stats-bars2:before {
+  content: "\e99d";
+}
+.icon-briefcase:before {
+  content: "\e9ae";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-info:before {
+  content: "\ea0c";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-exit:before {
+  content: "\ea14";
+}
+.icon-arrow-down:before {
+  content: "\ea36";
+}
+.icon-arrow-left:before {
+  content: "\ea38";
+}
+.icon-paragraph-left:before {
+  content: "\ea77";
 }
