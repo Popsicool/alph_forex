@@ -8,26 +8,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
-	<title>Credit/Debit Cards</title>
-	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<title>Bank Transfer</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-select.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-datepicker.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/lte.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/flags.css' %}" />
-			<link rel="stylesheet" href="{% static 'deposit/lte/css/icomoon.css' %}" />
-		<link rel="stylesheet" href="{% static 'deposit/lte/css/style-providers-list.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/common.css' %}" />
-		<script type="text/javascript" src="{% static 'deposit/lte/js/jquery.min.js' %}"></script>
-
-	<script type="text/javascript" src="{% static 'deposit/lte/js/lte.min.js' %}"></script>
-
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-select.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-datepicker.min.js' %}"></script>
-					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
-		  <script>
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script><script>
     function getUrlVars() {
       var vars = [], hash;
       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -463,7 +460,7 @@ margin-top: -6px;
 
 
 							<div class="content-header">
-										<h1 >Credit/Debit Cards</h1>
+										<h1 >Bank Transfer</h1>
 				</div>
 						<section class="content">
 				<div class="row">
@@ -548,7 +545,7 @@ margin-top: -6px;
         
     </div>
     <div class="form-group">
-		<label for="amount">Deposit amount(=N=):</label>
+		<label for="amount">Deposit amount(USD):</label>
 		<input type="number" name="amount" required /><br>
 	</div>
 	<div class="form-group">
@@ -699,34 +696,5 @@ margin-top: -6px;
     };
 
 </script>
-
-
-<script>
-	const paymentForm = document.getElementById('paymentForm');
-paymentForm.addEventListener("submit", payWithPaystack, false);
-function payWithPaystack(e) {
-  e.preventDefault();
-
-  let handler = PaystackPop.setup({
-    key: 'pk_test_55c5062aab46e116b0d38175f3d30f57f888c0e8', // Replace with your public key
-    email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount22").value * 100,
-    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
-    onClose: function(){
-      	alert('Window closed.');
-    },
-    callback: function(response){
-      	// let message = 'Payment complete! Reference: ' + response.reference;
-      	// alert(message);
-		let c = response
-		window.location = "{% url 'dashboard:dash' %}";
-    }
-  });
-
-  handler.openIframe();
-}
-</script>
-
 	</body>
 </html>

@@ -8,24 +8,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 			<meta name="language" content="en" />
 	<meta http-equiv="imagetoolbar" content="no" />
-	<title>Credit/Debit Cards</title>
-	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<title>Bank Transfer</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-select.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/bootstrap-datepicker.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/lte.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/flags.css' %}" />
-			<link rel="stylesheet" href="{% static 'deposit/lte/css/icomoon.css' %}" />
-		<link rel="stylesheet" href="{% static 'deposit/lte/css/style-providers-list.css' %}" />
-	<link rel="stylesheet" href="{% static 'deposit/lte/css/common.css' %}" />
-		<script type="text/javascript" src="{% static 'deposit/lte/js/jquery.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/lte.min.js' %}"></script>
-
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-select.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'deposit/lte/js/bootstrap-datepicker.min.js' %}"></script>
-	
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+		<script type="text/javascript" src="{% static 'lte/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/lte.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/popper.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-select.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lte/js/widget-providers-list.js' %}"></script>
 					<link rel="icon" type="image/png" href="{% static 'lte/img/favicon.png' %}" />
 		  <script>
     function getUrlVars() {
@@ -463,7 +462,7 @@ margin-top: -6px;
 
 
 							<div class="content-header">
-										<h1 >Credit/Debit Cards</h1>
+										<h1 >Bank Transfer</h1>
 				</div>
 						<section class="content">
 				<div class="row">
@@ -521,7 +520,7 @@ margin-top: -6px;
 	</div>
 
     <div class="form-group">
-		<label for="amount">Deposit amount (=N=):</label>
+		<label for="amount">Deposit amount (USD):</label>
 		<input type="number" name="amount" required value="{{ payment.amount }}" disabled="disabled" /><br>
 	</div>
 	<div class="form-group">
@@ -683,22 +682,41 @@ margin-top: -6px;
 paymentForm.addEventListener("submit", payWithPaystack, false);
 function payWithPaystack(e) {
   e.preventDefault();
+  let currency = "USD";
+  let plan = "";
+  let ref = "{{ payment.ref }}";
+  let obj = {
+	key: "{{ paystack_public_key}}",
+	email: "{{ payment.email }}",
+	amount: "{{ payment.amount }}" * 100,
+	ref:ref,
+	callback:function(response){
+		windows.location.href = "{% url 'dashboard:verify_payment' payment.ref %}"
+	}
 
-  let handler = PaystackPop.setup({
-    key: "{{ paystack_public_key}}" ,// Replace with your public key
-    email: "{{ payment.email }}",
-    amount: "{{ payment.amount }}" * 100,
-    ref: "{{ payment.ref }}", // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
-    onClose: function(){
-      	alert('Window closed.');
-    },
-    callback: function(response){
-      	// let message = 'Payment complete! Reference: ' + response.reference;
-      	// alert(message);
-		window.location.href = "{% url 'dashboard:verify_payment' payment.ref %}";
-    }
-  });
+
+  }
+  if (Boolean(currency)){
+	obj.currency = currency.toUpperCase()
+  }
+  var handler = PaystackPop.setup(obj);
+
+
+//   let handler = PaystackPop.setup({
+//     key: "{{ paystack_public_key}}" ,// Replace with your public key
+//     email: "{{ payment.email }}",
+//     amount: "{{ payment.amount }}" * 100,
+//     ref: "{{ payment.ref }}", // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+//     // label: "Optional string that replaces customer email"
+//     onClose: function(){
+//       	alert('Window closed.');
+//     },
+//     callback: function(response){
+//       	// let message = 'Payment complete! Reference: ' + response.reference;
+//       	// alert(message);
+// 		window.location.href = "{% url 'dashboard:verify_payment' payment.ref %}";
+//     }
+//   });
 
   handler.openIframe();
 }

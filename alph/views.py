@@ -5,6 +5,7 @@ from user_profile.models import Document
 from dashboard.models import Withdraw
 from authz.models import User
 from user_profile.models import Account
+from .models import Contact
 
 # Create your views here.
 def index(request):
@@ -88,6 +89,25 @@ def about(request):
 def why(request):
     return render(request, "alph/why.html")
 def contact(request):
+    if request.method == "POST":
+        full_name=request.POST['input_1']
+        email=request.POST['input_3']
+        language=request.POST['input_8']
+        existing = request.POST['input_4']
+        try:
+            phone_num = request.POST['input_7']
+        except:
+            phone_num = None
+
+        try:
+            account_number = request.POST['input_6']
+        except:
+            account_number = None
+        enquiry_type = request.POST['input_7']
+        message=request.POST['message']
+        contact = Contact(
+            full_name=full_name, email=email,language=language,existing=existing,phone_num=phone_num,account_number=account_number,enquiry_type=enquiry_type, message=message)
+        contact.save()
     return render(request, "alph/contact.html")
 def legal(request):
     return render(request, "alph/legal.html")

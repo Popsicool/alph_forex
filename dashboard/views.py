@@ -317,15 +317,21 @@ class top_trader_comp(LoginRequiredMixin, View):
         user = request.user
         context= {"user":user}
         return render(request, "dashboard/top-trader-comp.html", context)
+    def post(self, request):
+        user = request.user
+        context= {"user":user}
+        return render(request, "dashboard/top-trader-comp.html", context)
 
 class trading_report(LoginRequiredMixin, View):
     def post(self, request):
         user = request.user
-        context= {"user":user}
+        accounts = Account.objects.filter(user=user.id)
+        context= {"user":user, "accounts":accounts}
         return render(request, "dashboard/tradingreport.html", context)
     def get(self, request):
         user = request.user
-        context= {"user":user}
+        accounts = Account.objects.filter(user=user.id)
+        context= {"user":user, "accounts":accounts}
         return render(request, "dashboard/tradingreport.html", context)
     
 class trading_platform(LoginRequiredMixin, View):

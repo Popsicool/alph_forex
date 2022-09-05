@@ -540,7 +540,8 @@ margin-top: -6px;
 		<div class="card-header">
 			<h5>Trading Account Settings</h5>
 		</div>
-		<form method="post" action="" class="leverage-form">
+		<form method="post" action="{% url 'dashboard:top_trader_comp' %}" class="leverage-form">
+			{% csrf_token %}
 			<div class="card-body">
 				<input type="hidden" name="security" value="28f9f884a80883fa5ba96559dca4385b">
 				<input type="hidden" name="bonus_scheme" value="031617">
