@@ -177,7 +177,6 @@ input::-webkit-inner-spin-button {
 	width: 220px;
 }
 .coins_icon {
-	background-image: url("../v1/img/coins.png");
 	background-repeat: no-repeat;
 	width: 3em;
 	height: 3em;
