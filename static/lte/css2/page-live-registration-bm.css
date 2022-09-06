@@ -41,7 +41,7 @@
 }
 .hideShowPassword-toggle {
 	background-color: transparent;
-	background-image: url("../v1/img/live-registration/wink.png");
+	background-image: url("../v1/img/live-registration/wink.svg");
 	background-image: url("../v1/img/live-registration/wink.svg"), none;
 	background-position: 0 center;
 	background-repeat: no-repeat;
