@@ -83,9 +83,9 @@ def signup(request):
         email = request.POST['email']
         country = request.POST['country']
         phone_num= request.POST['phone_mobile_prefix'] + request.POST['phone_mobile']
-        print(phone_num)
+      
         date_of_birth = request.POST['dob3'] + "/" + request.POST['dob2'] + "/" + request.POST['dob1']
-        print(date_of_birth)
+   
         account_type = request.POST['account_type']
         currency_base = request.POST['currency_base']
         try:
