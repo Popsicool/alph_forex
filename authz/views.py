@@ -78,21 +78,23 @@ def logout(request):
 
 def signup(request):
     if request.method == 'POST':
-        first_name = request.POST['firstName']
-        last_name = request.POST['secondName']
-        country = request.POST['nationality']
-        phone_num = request.POST['phoneNo']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         email = request.POST['email']
-        gender= request.POST['Gender']
+        country = request.POST['country']
+        phone_num= request.POST['phone_mobile_prefix'] + request.POST['phone_mobile']
+        print(phone_num)
+        date_of_birth = request.POST['dob3'] + "/" + request.POST['dob2'] + "/" + request.POST['dob1']
+        print(date_of_birth)
         account_type = request.POST['account_type']
         currency_base = request.POST['currency_base']
         try:
             bonus_scheme = request.POST['bonus_scheme']
         except:
             bonus_scheme = "Not Applicable"
-        leverage = request.POST['new_leverage']
+        leverage = request.POST['leverage']
         password = request.POST['password']
-        pass2 = request.POST['password2']
+        pass2 = request.POST['confirm_password']
         email = email.lower()
         if password == pass2:
             if User.objects.filter(email=email).exists():
@@ -100,7 +102,7 @@ def signup(request):
                 return redirect('authz:signup')
             else:
 
-                user = User.objects._create_user(email, password, first_name, last_name, phone_num, gender, country)
+                user = User.objects._create_user(email, password, first_name, last_name, phone_num, date_of_birth, country)
                 user.save()
                 send_activation_email(user,request)   
         else:

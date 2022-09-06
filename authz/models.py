@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 class CustomUserManager(BaseUserManager):
-    def _create_user(self,email,password, first_name, last_name, phone_num, gender,country, **extra_fields):
+    def _create_user(self,email,password, first_name, last_name, phone_num, date_of_birth,country, **extra_fields):
         if not email:
             raise valueerror("Email must be provided")
         if not password:
@@ -13,7 +13,7 @@ class CustomUserManager(BaseUserManager):
             first_name = first_name,
             last_name = last_name,
             phone_num = phone_num,
-            gender = gender,
+            date_of_birth = date_of_birth,
             country = country,
             **extra_fields
         )
@@ -21,14 +21,14 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, email, password, first_name, last_name,phone_num, gender,country, **extra_fields):
+    def create_user(self, email, password, first_name, last_name,phone_num, date_of_birth,country, **extra_fields):
         extra_fields.setdefault('is_staff',False)
         extra_fields.setdefault('is_active',True)
         extra_fields.setdefault('is_superuser',False)
         extra_fields.setdefault('is_email_verified',False)
         extra_fields.setdefault('is_document_submitted',False)
         extra_fields.setdefault('is_document_verified',False)
-        return self._create_user(email, password,first_name, last_name, phone_num, gender, country)
+        return self._create_user(email, password,first_name, last_name, phone_num, date_of_birth, country)
 
     def create_superuser(self, email, password,**extra_fields):
         extra_fields.setdefault('is_staff',True)
@@ -37,7 +37,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_email_verified',True)
         extra_fields.setdefault('is_document_submitted',True)
         extra_fields.setdefault('is_document_verified',True)
-        return self._create_user(email, password,first_name=None, last_name=None, phone_num=None, gender=None, country=None, **extra_fields)
+        return self._create_user(email, password,first_name=None, last_name=None, phone_num=None, date_of_birth=None, country=None, **extra_fields)
 
 
 class User(AbstractBaseUser,PermissionsMixin):
@@ -45,7 +45,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     first_name = models.CharField(max_length=240, null=True)
     last_name = models.CharField(max_length=240, null=True)
     phone_num = models.CharField(max_length=50, null=True)
-    gender = models.CharField(max_length=10, null=True)
+    date_of_birth = models.CharField(max_length=50, null=True)
     country = models.CharField(max_length=50, null=True)
     is_staff = models.BooleanField(default=True)
     is_active =  models.BooleanField(default=True)
