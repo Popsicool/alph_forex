@@ -104,7 +104,6 @@ input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
 .success-block {
-	background-image: url("../v1/img/registration/congratulations-check-mark-yes.svg");
 	background-position: center 0;
 	background-repeat: no-repeat;
 }
@@ -119,8 +118,6 @@ input::-webkit-inner-spin-button {
 }
 .trueFalse-toggle {
 	background-color: transparent;
-	background-image: url("../v1/img/registration/pin/pin.png");
-	background-image: url("../v1/img/registration/pin/pin.png"), none;
 	background-position: 0 center;
 	background-repeat: no-repeat;
 	border: 0px solid transparent;
