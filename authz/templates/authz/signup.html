@@ -82,7 +82,28 @@
     <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-M4FCQ59');</script> <!-- End Google Tag Manager -->
 
 
-    </head>
+    
+	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-datepicker.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/lte.min.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/flags.css' %}" />
+			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
+	<style>
+		  .logo-image{
+width:100px;
+height: 46px;
+border-radius: 50%;
+overflow: hidden;
+margin-top: -6px;
+
+}
+	</style>    
+</head>
     <body class="client-portal lang-en cont-ea">
     
 <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4FCQ59" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
@@ -92,6 +113,11 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-lg top-navbar">
                         <section class="navbar-nav mt-2 mt-md-0">
+                            <a href="{% url 'alph:index' %}" class="brand-link d-block">
+               <div class="logo-image">
+                      <img src="{% static 'Home page/wp-content/uploads/2021/10/Alphforex logo.png'%}"  class="img-fluid">
+                </div>
+            </a>
                             <a href="#/en" class="navbar-brand ifx-logo">
                                 <div class="ifx-logo-image"></div>
                             </a>
@@ -166,6 +192,7 @@
 								<a href="javascript:void(0)">English <span class="arrow"></span></a>
 																																																																																																																																																			<ul class="wsmenu-submenu"><li><a href="#/ar/register"><span class="flag ar">العربية</span></a></li><li><a href="#/de/register"><span class="flag de">Deutsch</span></a></li><li><a href="#/en/register"><span class="flag en">English</span></a></li><li><a href="#/es/register"><span class="flag es">Español</span></a></li><li><a href="#/fr/register"><span class="flag fr">Français</span></a></li><li><a href="#/nl/register"><span class="flag nl">Dutch</span></a></li><li><a href="#/id/register"><span class="flag id">Bahasa Indonesia</span></a></li><li><a href="#/it/register"><span class="flag it">Italiano</span></a></li><li><a href="#/ms/register"><span class="flag ms">Bahasa Melayu</span></a></li><li><a href="#/pt/register"><span class="flag pt">Português</span></a></li><li><a href="#/vi/register"><span class="flag vi">Tiếng Việt</span></a></li><li><a href="#/zh/register"><span class="flag zh">中文</span></a></li>						</ul>
 					</li>
+                    
 				</ul>
 			</nav>
 		</div>
