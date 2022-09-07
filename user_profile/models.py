@@ -54,9 +54,9 @@ class Change_document_request(models.Model):
 class Account(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     account_number = models.IntegerField()
-    account_type = models.CharField(max_length=15)
+    account_type = models.CharField(max_length=70)
     currency_base = models.CharField(max_length=5)
-    bonus_category = models.CharField(max_length=50)
+    bonus_category = models.CharField(max_length=70)
     leverage = models.CharField(max_length=50)
     balance = models.IntegerField(default=0)
 

@@ -47,7 +47,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     phone_num = models.CharField(max_length=50, null=True)
     date_of_birth = models.CharField(max_length=50, null=True)
     country = models.CharField(max_length=50, null=True)
-    is_staff = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     is_active =  models.BooleanField(default=True)
     is_superuser =  models.BooleanField(default=False)
     is_document_submitted = models.BooleanField(default=False)
