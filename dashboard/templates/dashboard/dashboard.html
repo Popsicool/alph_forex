@@ -704,9 +704,18 @@ margin-top: -6px;
             <h5>
                 <span class="icon icon-account "></span>
                 <p>
-                    <b>{{account.currency_base}}
+                    <b>
+                       {% if account.account_type == "2" %}
+                        Live Floating Spread Account
+                        {% elif account.account_type == "5" %}
+                        Live Fixed Spread Account
+                        {% elif account.account_type == "57" %}
+                        Cent Account
+                        {% else %}
+                        {{account.account_type}}
+                        {% endif %}
                                                                     </b> | {{ account.account_number }} |
-                    Balance <b>{{account.balance}}</b>
+                    Balance <b>$ {{account.balance}}</b>
                 </p>
                 <span class="margin-left-auto">
                                 </span>
@@ -739,10 +748,10 @@ margin-top: -6px;
             </a>
         </div>
                             <p>Equity:</p>
-                        <h3><b>{{account.balance}}</b></h3>
-                        <p>Balance: <b>{{account.balance}}</b></p>
-                        <p>Credit: <b>{{account.balance}}</b></p>
-                        <p>Free Margin: <b>{{account.balance}}</b></p>
+                        <h3><b>$ {{account.balance}}</b></h3>
+                        <p>Balance: <b>$ {{account.balance}}</b></p>
+                        <p>Credit: <b>$ {{account.balance}}</b></p>
+                        <p>Free Margin: <b>$ {{account.balance}}</b></p>
                                                     <a href="{% url 'dashboard:deposit' %}" data-action='deposit' class="btn btn-default btn-green btn-open-account button-click-action">Deposit</a>
                                             </div>
                 </div>
