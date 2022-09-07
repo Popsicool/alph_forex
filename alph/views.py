@@ -127,3 +127,6 @@ def metatrader(request):
 
 def error_404(request,exception):
     return render(request, "alph/404.html")
+
+def error_500(request):
+    return render(request, "alph/500.html")
