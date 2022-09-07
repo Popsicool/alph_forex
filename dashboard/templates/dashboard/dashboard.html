@@ -715,7 +715,17 @@ margin-top: -6px;
                         {{account.account_type}}
                         {% endif %}
                                                                     </b> | {{ account.account_number }} |
-                    Balance <b>$ {{account.balance}}</b>
+                    Balance <b> {% if account.currency_base == 'USD' %}
+                            ${{account.balance}} 
+                            {% elif account.currency_base == 'EUR' %}
+                            €{{account.balance}}
+                            {% elif account.currency_base == 'GBP' %}
+                            £{{account.balance}}
+                            {% else %}
+                            ¢{{account.balance}}
+
+                            {% endif %}
+</b>
                 </p>
                 <span class="margin-left-auto">
                                 </span>
@@ -748,10 +758,54 @@ margin-top: -6px;
             </a>
         </div>
                             <p>Equity:</p>
-                        <h3><b>$ {{account.balance}}</b></h3>
-                        <p>Balance: <b>$ {{account.balance}}</b></p>
-                        <p>Credit: <b>$ {{account.balance}}</b></p>
-                        <p>Free Margin: <b>$ {{account.balance}}</b></p>
+                        <h3><b> {% if account.currency_base == 'USD' %}
+                            ${{account.balance}} 
+                            {% elif account.currency_base == 'EUR' %}
+                            €{{account.balance}}
+                            {% elif account.currency_base == 'GBP' %}
+                            £{{account.balance}}
+                            {% else %}
+                            ¢{{account.balance}}
+
+                            {% endif %}
+</b></h3>
+
+
+                        <p>Balance: <b> {% if account.currency_base == 'USD' %}
+                            ${{account.balance}} 
+                            {% elif account.currency_base == 'EUR' %}
+                            €{{account.balance}}
+                            {% elif account.currency_base == 'GBP' %}
+                            £{{account.balance}}
+                            {% else %}
+                            ¢{{account.balance}}
+
+                            {% endif %}
+
+                        
+                        </b></p>
+                        <p>Credit: <b> {% if account.currency_base == 'USD' %}
+                            ${{account.balance}} 
+                            {% elif account.currency_base == 'EUR' %}
+                            €{{account.balance}}
+                            {% elif account.currency_base == 'GBP' %}
+                            £{{account.balance}}
+                            {% else %}
+                            ¢{{account.balance}}
+
+                            {% endif %}
+</b></p>
+                        <p>Free Margin: <b> {% if account.currency_base == 'USD' %}
+                            ${{account.balance}} 
+                            {% elif account.currency_base == 'EUR' %}
+                            €{{account.balance}}
+                            {% elif account.currency_base == 'GBP' %}
+                            £{{account.balance}}
+                            {% else %}
+                            ¢{{account.balance}}
+
+                            {% endif %}
+</b></p>
                                                     <a href="{% url 'dashboard:deposit' %}" data-action='deposit' class="btn btn-default btn-green btn-open-account button-click-action">Deposit</a>
                                             </div>
                 </div>
