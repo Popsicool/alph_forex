@@ -10,6 +10,7 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 	<title>Bank Transfer</title>
 	<link rel="manifest" href="{% static 'lte/js/manifest.json' %}">
+	<link rel="stylesheet" href="{% static 'lte/css/pop.css' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800">
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap.min.css=' %}" />
 	<link rel="stylesheet" href="{% static 'lte/css/bootstrap-select.min.css' %}" />
@@ -546,14 +547,19 @@ Kindly also be advised:<br />
 	id="account"
 	name="account"
 	class="custom-select"
-		 required>
-            <option value="{{ user.id }}"
-													class="portal-dropdown-black"
+		 required> 
+        
+													
 						>
-            {{ user.id }} | USC
+            <!-- {{ user.id }} | USC
 							| 1:500
-						| Not Applicable
-																													</option>
+						| Not Applicable -->
+						{% for account in accounts %}
+			<option value="{{ account.account_number }}" class="portal-dropdown-black">
+            {{ account.account_number }} | {{ account.currency_base}} | 1:{{account.leverage}} </option>
+			{% endfor %} 
+						
+																													
 	</select>
 	</div>
 	<div class="form-group">
@@ -571,13 +577,14 @@ Kindly also be advised:<br />
 	</div>
 	<div class="form-group">
 		<label for="bank">Preferred Bank:</label>
-		<select id="bank" name="bank" class="custom-select" disabled required>
+		<select id="bank" name="bank" class="custom-select"  required>
 			<option value="">Please select currency and amount first</option>
+			<option value="Absa Bank (Seychelles) Limited">Absa Bank (Seychelles) Limited</option>
 		</select>
 	</div>
 	<div class="form-group">
 		<label for="bank_name">Your Bank's Name:</label>
-		<input type="text" class="form-control" name="bank_name" id="bank_name" value="" required>
+		<input type="text" class="form-control" name="bank_name" id="bank_name"  required>
 	</div>
 
             </div>

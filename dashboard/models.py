@@ -8,6 +8,9 @@ class Payment(models.Model):
     ref = models.CharField(max_length=200)
     acc = models.PositiveIntegerField()
     email = models.EmailField()
+    currency = models.CharField(max_length=5,default="USD")
+    preferred_bank = models.CharField(max_length=200, default="Absa Bank")
+    bank_name = models.CharField(max_length=200, default="GT Bank")
     verified = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
 

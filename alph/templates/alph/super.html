@@ -20,6 +20,25 @@
     <p><h4>You are viewing this because you are a superuser</h4></p> 
     
     <main>
+        <h3>Pending Deposits</h3>
+    {% if deposit %}
+    </main>
+
+    <ul>
+        {% for i in deposit %}
+    <li>
+    <a href="{% url 'alph:superwit' i.ref %}">{{ i.ref }}</a> 
+    </li>
+        {% endfor %}
+
+    </ul>
+
+    {% else %}
+    <p>No pending Deposit requests</p>
+
+    {% endif %}
+
+
     <h3>Pending Withdrawals</h3>
     {% if withdraw %}
     </main>

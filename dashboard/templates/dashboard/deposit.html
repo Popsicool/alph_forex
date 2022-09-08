@@ -506,14 +506,16 @@ margin-top: -6px;
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12">
 															
-	<div class="row">
+	< class="row">
 					<div class="col-sm-12 col-md-3 col-lg-3">
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
 		                <div class="text-center">
+							<!-- <img style="width: 10%; height: 50%;"  src="{% static 'lte/images/m6.jpg' %}" alt=""> -->
 		                    <a href="{% url 'dashboard:initiate_payment' %}" class="icon-link-btn"><div class="image nav-generic_creditcard"></div></a>
+						
 							<input type="hidden" class="deposit-method" value="creditcards" />
-		                    <h3 class="profile-username">Bank Transfer</h3>
+		                    <h3 class="profile-username">Card Payment</h3>
 		                </div>
 		        	</div>
 					<div class="card-footer">
@@ -524,10 +526,11 @@ margin-top: -6px;
 					</div>
 				</div>
 			</div>
-
-	    			<!-- <div class="col-sm-12 col-md-3 col-lg-3">
+ <!-- Bank Transfer  -->
+	    			<div class="col-sm-12 col-md-3 col-lg-3">
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
+						<!-- <img style="width: 10%; height: 50%;"  src="{% static 'lte/images/m7.jpg' %}" alt=""> -->
 		                <div class="text-center">
 		                    <a href="{% url 'dashboard:banktransfer' %}" class="icon-link-btn"><div class="image nav-BankWire"></div></a>
 							<input type="hidden" class="deposit-method" value="banktransfer" />
@@ -541,7 +544,8 @@ margin-top: -6px;
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
+			<!-- End of bank transfer-->
 	    	</div>
 
 											</div>

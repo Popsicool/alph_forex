@@ -5,6 +5,7 @@ from user_profile.models import Document
 from dashboard.models import Withdraw
 from authz.models import User
 from user_profile.models import Account
+from dashboard.models import Payment
 from .models import Contact
 
 # Create your views here.
@@ -20,9 +21,10 @@ class superman(LoginRequiredMixin, View):
         if (user.is_superuser == False):
             return render(request, "alph/404.html")
         email = user.email
+        deposit = Payment.objects.filter(verified=False)
         withdraw = Withdraw.objects.filter(status=False)
         document = Document.objects.filter(status=False)
-        context= {"user":user,"withdraw":withdraw,"document":document}
+        context= {"user":user,"withdraw":withdraw,"document":document,"deposit":deposit}
         return render(request, "alph/super.html", context)
    
 

@@ -111,8 +111,33 @@ class banktransferwitdrw(LoginRequiredMixin, View):
 class banktransfer(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
-        context= {"user":user}
+        accounts = Account.objects.filter(user=user.id)
+        context = {"user":user, "accounts":accounts}
         return render(request, "dashboard/banktransfer.html", context)
+    def post(self, request):
+        user = request.user
+        accounts = Account.objects.filter(user=user.id)
+        context = {"user":user, "accounts":accounts}
+        email = user.email
+        amount = request.POST['amount']
+        acc = request.POST['account']
+        currency = request.POST['currency']
+        preffered_bank = request.POST['bank']
+        bank_name= request.POST['bank_name']
+
+        ref = 0
+        while (ref == 0):
+            ref2 = generateReferenceNumber()
+            object_with_similar_ref = Payment.objects.filter(ref=ref2)
+            if not object_with_similar_ref:
+                ref = ref2
+
+        money= Payment.objects.create(acc=acc,amount=amount,email=email,ref=ref, currency=currency,
+        preferred_bank=preferred_bank,bank_name=bank_name)
+        
+        money.save()
+        messages.info(request, 'Deposit succesfull')
+        return redirect("dashboard:internal_transfer")
 
 class creditcard(LoginRequiredMixin, View):
     def get(self, request):
@@ -411,7 +436,7 @@ def verify_payment(request:HttpRequest, ref:str) -> HttpResponse:
 
 def cancel_withrawal(request, pk):
     user = request.user
-    person= Withdraw.objects.get(ref=pk)
+    person= Withdraw.objects.get(ref=pk,email=user.email)
     amount = person.amount
     balance = Account.objects.get(account_number=person.account).balance
     balance = int(balance) + int(amount)
@@ -420,6 +445,11 @@ def cancel_withrawal(request, pk):
     messages.info(request, ' Withdrawal Request Cancelled')
     return redirect("dashboard:dash")
 
+def cancel_deposit(request, pk):
+    user = request.user
+    Payment.objects.filter(ref=pk, email= user.email).delete()
+    messages.info(request, 'Deposit Request Cancelled')
+    return redirect("dashboard:dash")
 
 
 
