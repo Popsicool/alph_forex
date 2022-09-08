@@ -593,7 +593,14 @@ Kindly also be advised:<br />
                     <div class="form-group">
                         <button 
                                 class="btn btn-default btn-blue"
-                                type="submit">Submit</button>
+                                type="submit" onclick="openPopup()">Submit</button>
+								<div class="popup" id="popup">
+									<img src="{% static 'lte/images/m8.png' %}">
+									<h4>Please Ensure adding correct REFERENCE details during all bank wire transfers</h4>
+									<button 
+                                class="btn btn-default btn-blue"
+                                type="submit" onclick="closePopup()">Proceed</button>
+								</div>
                     </div>
                 
             </div>
@@ -760,6 +767,16 @@ Kindly also be advised:<br />
         'upload_link': '#'
     };
 
+</script>
+<script>
+	let popup= document.getElementById("popup");
+
+	function openPopup(){
+		popup.classList.add("open-popup")
+	}
+	function closePopup(){
+		popup.classList.remove("open-popup")
+	}
 </script>
 
 	</body>
