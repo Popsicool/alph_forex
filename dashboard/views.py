@@ -152,6 +152,10 @@ class banktransfer(LoginRequiredMixin, View):
         
         money.save()
         messages.info(request,'Success')
+
+
+
+
         return redirect("dashboard:downloadfile", ref)
 
 class creditcard(LoginRequiredMixin, View):
@@ -472,6 +476,45 @@ def downloadfile(request, pk):
     accounts = Account.objects.filter(user=user.id)
     pk = pk
     context= {"accounts":accounts, "user":user, "pk":pk}
+
+    template_src = "dashboard/teller.html"
+    try:
+        dep = Payment.objects.get(ref=pk, email = request.user.email)
+    except:
+        return HttpResponse("505 Not Found")
+    data = {
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email':user.email,
+        'bank': dep.bank_name,
+        'ref': dep.ref,
+        'amount': dep.amount,
+        'currency': dep.currency,
+        }
+
+    template= get_template(template_src)
+    html = template.render(data)
+    result = BytesIO()
+    # pdf = pisa.pisaDocument(BytesIO(urlsafe_base64_encode(force_bytes(html))), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+
+        email_subject = 'Bank Transfer Instruction'
+        first_name = user.first_name
+        last_name= user.last_name
+        email_body = render_to_string('dashboard/teller_email.html', {
+            'first_name': first_name,
+            'last_name': last_name,
+            })
+        rece = user.email
+        filename = 'Bank_Transfer_Request.pdf'
+        some=result.getvalue()
+        email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
+        email.attach(filename, some,'application/pdf')
+        email.send(fail_silently=False)
+
+
+
     return render (request, 'dashboard/downloadfile.html', context)
 
 def down(request, pk):
@@ -492,19 +535,19 @@ def render_to_pdf(template_src, context_dic={}):
     pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
     if not pdf.err:
 
-        email_subject = 'Bank Transfer Instruction'
-        first_name = context_dic['first_name']
-        last_name= context_dic['last_name']
-        email_body = render_to_string('dashboard/teller_email.html', {
-            'first_name': first_name,
-            'last_name': last_name,
-            })
-        rece = context_dic['email']
-        filename = 'Bank_Transfer_Request.pdf'
-        some=result.getvalue()
-        email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
-        email.attach(filename, some,'application/pdf')
-        email.send(fail_silently=False)
+        # email_subject = 'Bank Transfer Instruction'
+        # first_name = context_dic['first_name']
+        # last_name= context_dic['last_name']
+        # email_body = render_to_string('dashboard/teller_email.html', {
+        #     'first_name': first_name,
+        #     'last_name': last_name,
+        #     })
+        # rece = context_dic['email']
+        # filename = 'Bank_Transfer_Request.pdf'
+        # some=result.getvalue()
+        # email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
+        # email.attach(filename, some,'application/pdf')
+        # email.send(fail_silently=False)
         return  HttpResponse(result.getvalue(), content_type='application/pdf')
     return None
 class GenerateTeller(View):
