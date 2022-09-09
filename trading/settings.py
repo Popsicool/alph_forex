@@ -127,7 +127,7 @@ USE_TZ = True
 
 #email config
 
-EMAIL_FROM_USER='Popsicool'
+EMAIL_FROM_USER='Alphforex'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
@@ -142,6 +142,8 @@ EMAIL_USE_TLS = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 django_heroku.settings(locals())
 
 # Default primary key field type

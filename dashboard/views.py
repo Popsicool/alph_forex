@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from authz.models import User
@@ -9,6 +10,20 @@ from django.conf import settings
 import secrets
 from .models import Payment, Withdraw, Transfer
 import random
+import os
+
+from io import BytesIO
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str, force_str,DjangoUnicodeDecodeError
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
+# from django.http import StreamingHttpResponse
+# from WSGIREF.UTIL import FileWrapper
+# import mimetypes
 from user_profile.models import Document, Account
 # Create your views here.
 
@@ -136,8 +151,8 @@ class banktransfer(LoginRequiredMixin, View):
         preferred_bank=preferred_bank,bank_name=bank_name)
         
         money.save()
-        messages.info(request, 'Deposit succesfull')
-        return redirect("dashboard:dash")
+        messages.info(request,'Success')
+        return redirect("dashboard:downloadfile", ref)
 
 class creditcard(LoginRequiredMixin, View):
     def get(self, request):
@@ -452,5 +467,99 @@ def cancel_deposit(request, pk):
     return redirect("dashboard:dash")
 
 
+def downloadfile(request, pk):
+    user = request.user
+    accounts = Account.objects.filter(user=user.id)
+    pk = pk
+    context= {"accounts":accounts, "user":user, "pk":pk}
+    return render (request, 'dashboard/downloadfile.html', context)
 
-    
+def down(request, pk):
+    with open(str(os.path.join(settings.BASE_DIR)+"/media/Bank_Transfer_Request.pdf"), 'rb') as f:
+        data= f.read()
+    response = HttpResponse(data, content_type='text/pdf')
+    response['Content-Disposition'] = 'attachment; filename="Bank_Transfer_Request.pdf"'
+    return response
+
+
+
+
+def render_to_pdf(template_src, context_dic={}):
+    template= get_template(template_src)
+    html = template.render(context_dic)
+    result = BytesIO()
+    # pdf = pisa.pisaDocument(BytesIO(urlsafe_base64_encode(force_bytes(html))), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+
+        email_subject = 'Bank Transfer Instruction'
+        first_name = context_dic['first_name']
+        last_name= context_dic['last_name']
+        email_body = render_to_string('dashboard/teller_email.html', {
+            'first_name': first_name,
+            'last_name': last_name,
+            })
+        rece = context_dic['email']
+        filename = 'Bank_Transfer_Request.pdf'
+        some=result.getvalue()
+        email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
+        email.attach(filename, some,'application/pdf')
+        email.send(fail_silently=False)
+        return  HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
+class GenerateTeller(View):
+    def get (self, request, pk):
+        try:
+            dep = Payment.objects.get(ref=pk, email = request.user.email)
+        except:
+            return HttpResponse("505 Not Found")
+        user = request.user
+        data = {
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email':user.email,
+            'bank': dep.bank_name,
+            'ref': dep.ref,
+            'amount': dep.amount,
+            'currency': dep.currency,
+        }
+        pdf = render_to_pdf("dashboard/teller.html", data)
+
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = 'Bank_Transfer_Request.pdf'
+            content = "inline; filename='%s'" %(filename)
+            content = "attachment; filename = %s" %(filename)
+            response['content-Disposition'] = content
+
+
+
+
+            # email_subject = 'Bank Transfer Instruction'
+            # email_body = render_to_string('dashboard/teller_email.html', {
+            #     'first_name': user.first_name,
+            #     'last_name': user.last_name,
+            #     })
+            
+            # filename = 'Bank_Transfer_Request.pdf'
+            # email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[user.email])
+            # email.attach(filename, content,'application/pdf')
+            # email.send()
+       
+        
+            return response
+        return HttpResponse("Not found")
+
+
+def send_teller_email(request,data):
+    email_subject = 'Bank Transfer Instruction'
+    email_body = render_to_string('dashboard/teller_email.html', {
+        'user':user,
+        'domain': current_site,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': generate_token.make_token(user)
+    })
+
+    email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[user.email])
+    email.attach(filename, pdf,'application/pdf')
+    email.send()

@@ -21,6 +21,8 @@ urlpatterns = [
      path('premium_normal', views.premium_normal.as_view(), name='premium_normal'),
      path('request_overview', views.request_overview.as_view(), name='request_overview'),
      path('swap_free', views.swap_free.as_view(), name='swap_free'),
+     path('downloadfile<str:pk>', views.downloadfile, name='downloadfile'),
+     path('down', views.down, name='down'),
      path('top_trader_comp', views.top_trader_comp.as_view(), name='top_trader_comp'),
      path('trading_report', views.trading_report.as_view(), name='trading_report'),
      path('trading_platform', views.trading_platform.as_view(), name='trading_platform'),
@@ -29,4 +31,5 @@ urlpatterns = [
      path('cancel_withrawal/<str:pk>', views.cancel_withrawal, name='cancel_withrawal'),
      path('cancel_deposit/<str:pk>', views.cancel_deposit, name='cancel_deposit'),
      path('<str:ref>', views.verify_payment, name='verify_payment'),
+     path('generate_teller/<str:pk>', views.GenerateTeller.as_view(), name='generate_teller'),
          ]
