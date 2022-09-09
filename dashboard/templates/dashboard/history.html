@@ -603,7 +603,7 @@ margin-top: -6px;
 							<td colspan="1"> Deposit </td>
 							<td colspan="1">{{ data.amount }}</td>							
 							<td colspan="1"> USD</td>
-							{% if not data.status %}
+							{% if not data.verified %}
 							<td colspan="1"> Pending </td>
 							<td colspan="1"><a href="{% url 'dashboard:cancel_deposit' data.ref %}">cancel</a></td>
 							{% else %}
@@ -617,7 +617,7 @@ margin-top: -6px;
 				{% if withdraw %}
 				{% for data in withdraw %}
 				<tr class="odd">
-							<td colspan="1">1</td>
+							<td colspan="1">{{data.account}}</td>
 							<td colspan="1">{{ data.date }}</td>
 							<td colspan="1">{{ data.ref }}</td>
 							<td colspan="1"> Withraw </td>

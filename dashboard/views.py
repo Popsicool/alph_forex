@@ -122,7 +122,7 @@ class banktransfer(LoginRequiredMixin, View):
         amount = request.POST['amount']
         acc = request.POST['account']
         currency = request.POST['currency']
-        preffered_bank = request.POST['bank']
+        preferred_bank = request.POST['bank']
         bank_name= request.POST['bank_name']
 
         ref = 0
@@ -137,7 +137,7 @@ class banktransfer(LoginRequiredMixin, View):
         
         money.save()
         messages.info(request, 'Deposit succesfull')
-        return redirect("dashboard:internal_transfer")
+        return redirect("dashboard:dash")
 
 class creditcard(LoginRequiredMixin, View):
     def get(self, request):
@@ -183,7 +183,7 @@ class history(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
         email = user.email
-        deposit = Payment.objects.filter(email=email, verified=True)
+        deposit = Payment.objects.filter(email=email)
         withdraw = Withdraw.objects.filter(email=email)
         transfer = Transfer.objects.filter(user=user)
         context= {"user":user, "deposit":deposit, "withdraw":withdraw, "transfer":transfer}

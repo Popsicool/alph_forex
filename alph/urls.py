@@ -22,6 +22,9 @@ urlpatterns = [
     path("appwit2/<str:pk>", views.appwit2, name="appwit2"),
     path("appwit3/<str:pk>", views.appwit3, name="appwit3"),
     path("appwit4/<str:pk>", views.appwit4, name="appwit4"),
+    path("superdep/<str:pk>", views.superdep.as_view(), name="superdep"),
+    path("appdep/<str:pk>", views.appdep, name="appdep"),
+    path("appdep2/<str:pk>", views.appdep2, name="appdep2"),
     path("metatrader", views.metatrader, name="metatrader"),
     
          ]

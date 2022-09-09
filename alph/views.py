@@ -50,6 +50,15 @@ class superwit(LoginRequiredMixin, View):
         context= {"user":user, "withdraw":withdraw}
         return render(request, "alph/superwit.html", context)
 
+class superdep(LoginRequiredMixin, View):
+    def get(self, request, pk):
+        user = request.user
+        if user.is_superuser == False:
+            return render(request, "alph/404.html")
+        payment = Payment.objects.get(ref=pk)
+        context= {"user":user, "payment":payment}
+        return render(request, "alph/superdep.html", context)
+
 
 def alph4(request):
     return render(request, "alph/alph4.html")
@@ -60,6 +69,26 @@ def appwit(request,pk):
         return render(request, "alph/404.html")
     Withdraw.objects.filter(ref=pk).update(status=True)
     return redirect('alph:superman')
+
+def appdep(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
+    payment = Payment.objects.get(ref=pk)
+    amount = payment.amount
+    user = Account.objects.get(account_number=payment.acc)
+    balance = int(user.balance) + int(amount)
+    Account.objects.filter(account_number=payment.acc).update(balance=balance)
+    Payment.objects.filter(ref=pk).update(verified=True)
+    return redirect('alph:superman')
+
+def appdep2(request,pk):
+    user = request.user
+    if (user.is_superuser == False):
+        return render(request, "alph/404.html")
+    Payment.objects.filter(ref=pk).delete()
+    return redirect('alph:superman')
+
 def appwit2(request,pk):
     user = request.user
     if (user.is_superuser == False):

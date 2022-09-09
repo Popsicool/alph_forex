@@ -588,14 +588,15 @@ Kindly also be advised:<br />
 	</div>
 
             </div>
+			
             <div class="card-footer">
                 
                     <div class="form-group">
-                        <button 
-                                class="btn btn-default btn-blue"
-                                type="submit" onclick="openPopup()">Submit</button>
+                       
+
 								<div class="popup" id="popup">
 									<img src="{% static 'lte/images/m8.png' %}">
+									<span onclick="closePopup()" style="color: red;" class="icon-cross"></span>
 									<h4>Please Ensure adding correct REFERENCE details during all bank wire transfers</h4>
 									<button 
                                 class="btn btn-default btn-blue"
@@ -604,8 +605,12 @@ Kindly also be advised:<br />
                     </div>
                 
             </div>
+			<input  type="button" value="submit" class="inp btn btn-default btn-blue"  onclick="openPopup()">
         </div>
-    </form>
+		
+		</form>
+		 
+    
 
 
 	<div class="modal fade" id="onSubmitModalConfirmation" tabindex="-1" role="dialog" aria-labelledby="onSubmitModalLabel" aria-hidden="true">

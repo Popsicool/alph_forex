@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'lte/css/superboard.css' %}">
+    <title>Superdep</title>
+</head>
+
+<header>
+    <p><h2>ADMIN DASHBOARD</h2></p>
+</header>
+            <br>
+<body>
+        {% if user.is_superuser %}
+
+    <p>You are viewing this because you are a superuser </p> 
+
+    <ul>
+        <li> Reference No : {{ payment.ref }}</li>
+        <li> Date : {{ payment.date_created }}</li>
+        <li> Account Id : {{ payment.acc }}</li>
+        <li> Amount : {{ payment.amount }}</li>
+        <li> Currency : {{ payment.currency }}</li>
+        <li> Preferred Payment Bank: {{ payment.preferred_bank }}</li>
+        <li> Deposit Bank Name : {{ payment.bank_name }}</li>
+        <li> Zip : {{ withdraw.beneficiary_zip }}</li>
+        <li> Country : {{ withdraw.beneficiary_country }}</li>
+        <li> Bank account : {{ withdraw.bank_account }}</li>
+        <li> Bank name : {{ withdraw.bank_name }}</li>
+        <li> Branch Code : {{ withdraw.branch_code }}</li>
+        <li> Branch address : {{ withdraw.bank_address }}</li>
+        <li> Swift : {{ withdraw.beneficiary_swift }}</li>
+        <li> Bic : {{ withdraw.bic }}</li>
+        <li> Notes : {{ withdraw.notes }}</li>
+        
+        
+    </ul>
+
+    <li><a href="{% url 'alph:appdep' payment.ref %}">Approve</a></li>
+    <li><a href="{% url 'alph:appdep2' payment.ref %}">Cancel</a></li>
+
+    {% else %}
+    <p>You re not allowed to view this page</p>
+    {% endif %}
+</body>
+</html>
