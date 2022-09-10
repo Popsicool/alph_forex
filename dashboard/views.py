@@ -151,7 +151,6 @@ class banktransfer(LoginRequiredMixin, View):
         preferred_bank=preferred_bank,bank_name=bank_name)
         
         money.save()
-        messages.info(request,'Success')
 
 
 
@@ -511,7 +510,7 @@ def downloadfile(request, pk):
         some=result.getvalue()
         email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
         email.attach(filename, some,'application/pdf')
-        email.send(fail_silently=False)
+        # email.send(fail_silently=False)
 
 
 

@@ -236,7 +236,7 @@ margin-top: -6px;
                 <a href=" # " class="nav-link">{{  user.email }}</a>
             </li>
             <li class="nav-item logout">
-                <a href="#" id="logout" class="nav-link" ><span class="icon icon-exit"></span></a>
+                <a href="{% url 'authz:logout' %}" id="logout" class="nav-link" ><span class="icon icon-exit"></span></a>
             </li>
             </ul>
 </nav>				
@@ -503,10 +503,11 @@ margin-top: -6px;
 
 							<div class="content-header">
 										<h1 >Deposit Funds - Bank Transfer</h1>
-										{% for message in messages %}
-									<p style="color: white;" >{{ message }}</p>
-									{% endfor %}	
-									<a href="{% url 'dashboard:generate_teller' pk %}"><h1>download<h1/></a>	
+										
+									<div class="suc" style="background-color: #fff; padding: 2%; margin-top:5%; border-radius:2%;">
+								<p style="color: green;">	<img style="width: 10%;" src="{% static 'lte/images/m12.webp' %}" alt=""> Success </p>
+							<a href="{% url 'dashboard:generate_teller' pk %}">	<button class="btn btn-default btn-blue" style="margin-left:10%;">Download</button></a>
+									</div>	
 				</div>
 						
 
