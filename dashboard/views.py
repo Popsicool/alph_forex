@@ -510,7 +510,7 @@ def downloadfile(request, pk):
         some=result.getvalue()
         email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
         email.attach(filename, some,'application/pdf')
-        email.send(fail_silently=True)
+        email.send(fail_silently=False)
 
 
 
