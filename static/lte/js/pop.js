@@ -1,5 +1,5 @@
-function changeSign(){
-    let box = document.getElementById("arr1");
+function changeSign(a){
+    let box = document.getElementById(a);
     let arr = String(box.textContent);
     if (arr.length == 2){
         box.innerHTML = "v";  
@@ -9,4 +9,3 @@ function changeSign(){
     }
   
 }
-    
