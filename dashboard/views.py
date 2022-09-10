@@ -480,7 +480,7 @@ def downloadfile(request, pk):
     try:
         dep = Payment.objects.get(ref=pk, email = request.user.email)
     except:
-        return HttpResponse("505 Not Found")
+        return render(request, "alph/404.html")
     data = {
         'first_name': user.first_name,
         'last_name': user.last_name,
@@ -510,7 +510,7 @@ def downloadfile(request, pk):
         some=result.getvalue()
         email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
         email.attach(filename, some,'application/pdf')
-        # email.send(fail_silently=False)
+        email.send(fail_silently=False)
 
 
 
@@ -554,7 +554,7 @@ class GenerateTeller(View):
         try:
             dep = Payment.objects.get(ref=pk, email = request.user.email)
         except:
-            return HttpResponse("505 Not Found")
+            return render(request, "alph/404.html")
         user = request.user
         data = {
             'first_name': user.first_name,
@@ -593,15 +593,3 @@ class GenerateTeller(View):
         return HttpResponse("Not found")
 
 
-def send_teller_email(request,data):
-    email_subject = 'Bank Transfer Instruction'
-    email_body = render_to_string('dashboard/teller_email.html', {
-        'user':user,
-        'domain': current_site,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': generate_token.make_token(user)
-    })
-
-    email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[user.email])
-    email.attach(filename, pdf,'application/pdf')
-    email.send()
