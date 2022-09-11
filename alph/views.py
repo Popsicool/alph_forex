@@ -70,7 +70,26 @@ def appwit(request,pk):
     Withdraw.objects.filter(ref=pk).update(status=True)
     return redirect('alph:superman')
 
-def appdep(request,pk):
+def appdep(request):
+    if request.method == "POST":
+        user = request.user
+        if (user.is_superuser == False):
+            return render(request, "alph/404.html")
+
+        ref = request.POST['ref']
+        payment = Payment.objects.get(ref=ref)
+        amount = request.POST['amount']
+        user = Account.objects.get(account_number=payment.acc)
+        balance = int(user.balance) + int(amount)
+        Account.objects.filter(account_number=payment.acc).update(balance=balance)
+        Payment.objects.filter(ref=ref).update(verified=True)
+        return redirect('alph:superman')
+
+
+
+
+
+
     user = request.user
     if (user.is_superuser == False):
         return render(request, "alph/404.html")
@@ -81,6 +100,7 @@ def appdep(request,pk):
     Account.objects.filter(account_number=payment.acc).update(balance=balance)
     Payment.objects.filter(ref=pk).update(verified=True)
     return redirect('alph:superman')
+    
 
 def appdep2(request,pk):
     user = request.user

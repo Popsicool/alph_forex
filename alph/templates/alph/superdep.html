@@ -7,14 +7,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'lte/css/superboard.css' %}">
+    			<link rel="stylesheet" href="{% static 'lte/css/icomoon.css' %}" />
+		<link rel="stylesheet" href="{% static 'lte/css/style-providers-list.css' %}" />
+	<link rel="stylesheet" href="{% static 'lte/css/common.css' %}" />
     <title>Superdep</title>
+
+    <style>
+    .popup {
+	width: 400px;
+	background: #fff;
+	border-radius: 6px;
+	position: absolute;
+	top: 10;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.001);
+	text-align: center;
+	padding: 0 30px 30px;
+	color: #333;
+	visibility: hidden;
+	transition: transform 0.4s, top 0.4s;
+}
+.open-popup {
+	visibility: visible;
+	top: 80%;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.inp {
+	width: 20%;
+}
+
+.popup img {
+	width: 100px;
+	margin-top: -50px;
+	border-radius: 50%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* .popup h4{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+
+} */
+/* @media screen and (max-width: 1000px) {
+	.open-popup {
+		width: 40%;
+		margin-left: 30%;
+		margin-right: 30%;
+		
+	}
+} */
+
+.popup2 {
+	width: 400px;
+	background: #fff;
+	border-radius: 6px;
+	position: absolute;
+	top: 10;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.001);
+	text-align: center;
+	padding: 0 30px 30px;
+	color: #333;
+	visibility: hidden;
+	transition: transform 0.4s, top 0.4s;
+}
+.open-popup2 {
+	visibility: visible;
+	top: 80%;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.inp {
+	width: 20%;
+}
+
+.popup2 img {
+	width: 100px;
+	margin-top: -50px;
+	border-radius: 50%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+</style>
 </head>
 
 <header>
     <p><h2>ADMIN DASHBOARD</h2></p>
 </header>
             <br>
-<body>
+<body style="color: yellow;">
         {% if user.is_superuser %}
 
     <p>You are viewing this because you are a superuser </p> 
@@ -27,24 +108,63 @@
         <li> Currency : {{ payment.currency }}</li>
         <li> Preferred Payment Bank: {{ payment.preferred_bank }}</li>
         <li> Deposit Bank Name : {{ payment.bank_name }}</li>
-        <li> Zip : {{ withdraw.beneficiary_zip }}</li>
-        <li> Country : {{ withdraw.beneficiary_country }}</li>
-        <li> Bank account : {{ withdraw.bank_account }}</li>
-        <li> Bank name : {{ withdraw.bank_name }}</li>
-        <li> Branch Code : {{ withdraw.branch_code }}</li>
-        <li> Branch address : {{ withdraw.bank_address }}</li>
-        <li> Swift : {{ withdraw.beneficiary_swift }}</li>
-        <li> Bic : {{ withdraw.bic }}</li>
-        <li> Notes : {{ withdraw.notes }}</li>
+       
         
         
     </ul>
 
-    <li><a href="{% url 'alph:appdep' payment.ref %}">Approve</a></li>
-    <li><a href="{% url 'alph:appdep2' payment.ref %}">Cancel</a></li>
+    <div style="text-align: center; justify-content: center; color: yellow;">
+<form action="{% url 'alph:appdep'%}" method="post">
+    {% csrf_token %}
+<p>(please confirm the amount and currency before submiting)</p>
+<label for="amount">Enter Amount to approve:</label><br>
+<input type="number" name="amount" style="background-color:#fff;" required><br>
+<!-- <input type="submit" value="Approve" style="background-color: #fff; color:black"><br> -->
+<input type="hidden" value="{{ payment.ref }}" name="ref">
+
+<div class="card-footer">
+
+                    <div class="form-group">
+                       
+
+								<div class="popup" id="popup">
+									<img src="{% static 'lte/images/m8.png' %}">
+									<span style="background-color: white;" onclick="closePopup()" class="icon-cross"></span>
+									<h4 style="background-color: white; color: red;">Please make sure youve checked the actual amount deposited</h4>
+									<button 
+                                class="btn btn-default btn-blue"
+                                type="submit" onclick="closePopup()">Proceed</button>
+								</div>
+                    </div>
+
+            </div>
+			<input style="background-color: #fff; color:black;"  type="button" value="Approve" class="inp btn btn-default btn-blue"  onclick="openPopup()">
+           </div>
+
+
+</form>
+</div>
+ <div style="text-align: center;">
+    <p>Once you click on Delete transaction, the transaction reference will be deleted from the database and it cannot be reversed!!!
+    </p>
+           <a href="{% url 'alph:appdep2' payment.ref %}"><input style="background-color: #fff; color:black;"  type="button" value="Delete transaction" class="inp btn btn-default btn-blue" onclick="Delete()"></a>
+        </div>
 
     {% else %}
     <p>You re not allowed to view this page</p>
     {% endif %}
+
+
+    <script>
+	let popup= document.getElementById("popup");
+
+	function openPopup(){
+		popup.classList.add("open-popup")
+	}
+	function closePopup(){
+		popup.classList.remove("open-popup")
+	}
+</script>
+
 </body>
 </html>
