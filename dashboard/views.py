@@ -25,6 +25,7 @@ from django.template.loader import render_to_string
 # from WSGIREF.UTIL import FileWrapper
 # import mimetypes
 from user_profile.models import Document, Account
+from django.utils.html import strip_tags
 # Create your views here.
 
 def generateReferenceNumber():
@@ -505,10 +506,12 @@ def downloadfile(request, pk):
             'first_name': first_name,
             'last_name': last_name,
             })
+        # text_content = strip_tags(email_body)
         rece = user.email
         filename = 'Bank_Transfer_Request.pdf'
         some=result.getvalue()
-        email= EmailMessage(subject=email_subject,body=email_body, from_email= settings.EMAIL_FROM_USER,to=[rece])
+        email= EmailMultiAlternatives(subject=email_subject, from_email= settings.EMAIL_FROM_USER,to=[rece])
+        email.attach_alternative(email_body, "text/html")
         email.attach(filename, some,'application/pdf')
         email.send(fail_silently=False)
 
