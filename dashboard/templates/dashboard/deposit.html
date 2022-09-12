@@ -92,6 +92,21 @@ overflow: hidden;
 margin-top: -6px;
 
 }
+#bankIcon{
+	width: 80%;
+		height: 50%;
+		margin-left:
+		10%;
+}
+
+	@media screen and (max-width: 600px) {
+		#bankIcon{
+		width: 20%;
+		height: 30%;
+		margin-left:40%;
+		margin-right:30%;
+		}
+	}
 	</style>
 </head>	<body class="sidebar-mini client-portal lang-en cont-ea">
 		
@@ -218,7 +233,7 @@ margin-top: -6px;
                 <a href=" # " class="nav-link">{{ user.email }}</a>
             </li>
             <li class="nav-item logout">
-                <a href="#" id="logout" class="nav-link" ><span class="icon icon-exit"></span></a>
+                <a href="{% url 'authz:logout' %}" id="logout" class="nav-link" ><span class="icon icon-exit"></span></a>
             </li>
             </ul>
 </nav>				
@@ -514,7 +529,7 @@ margin-top: -6px;
 	    			<div class="col-sm-12 col-md-3 col-lg-3">
 		        <div class="card card-outline card-small-card">
 		        	<div class="card-body box-profile">
-						<img style="width: 50%; height: 30%; margin-left: 25%;"  src="{% static 'lte/images/m7.jpg' %}" />
+						<img id="bankIcon" src="{% static 'lte/images/m7.jpg' %}" />
 						<h3 class="profile-username text-center">Bank Transfer</h3>
 		                <!-- <div class="text-center">
 		                    <a href="{% url 'dashboard:banktransfer' %}" class="icon-link-btn"><div class="image nav-BankWire"></div></a>
