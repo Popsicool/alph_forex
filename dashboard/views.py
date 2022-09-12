@@ -301,12 +301,12 @@ class internal_transfer(LoginRequiredMixin, View):
             account1 = User.objects.get(email=user.email).balance
         else:
             account1= Account.objects.get(account_number=accountFrom).balance
-            print(account1)
+            
         if (accountTo == "Base Account"):
             account2 = User.objects.get(email=user.email).balance
         else:
             account2= Account.objects.get(account_number=accountTo).balance
-            print(account2)
+        
 
         if (amount > int(account1)):
             messages.info(request, 'Insufficient fund in the selected account')
@@ -389,15 +389,11 @@ class test(LoginRequiredMixin, View):
         balance = int(user.balance)
         context={'balance':balance}
         resp = pk
-        print('a')
-        print(type(resp))
-        print(pk)
-        print('b')
         return render(request, "dashboard/test.html",context)
     def post(self,request,response):
         user = request.user
         resp = response.reference
-        print(type(resp))
+       
         balance = int(user.balance)
         context={'balance':balance}
         return render(request, "dashboard/test.html",context)
@@ -481,16 +477,20 @@ def downloadfile(request, pk):
         dep = Payment.objects.get(ref=pk, email = request.user.email)
     except:
         return render(request, "alph/404.html")
+    date =  str(dep.date_created)[:10]
+    bank= dep.bank_name
     data = {
         'first_name': user.first_name,
         'last_name': user.last_name,
         'email':user.email,
-        'bank': dep.bank_name,
+        'bank': bank,
+        'pref': str(dep.preferred_bank),
         'ref': dep.ref,
         'amount': dep.amount,
+        'date': date,
         'currency': dep.currency,
         }
-
+   
     template= get_template(template_src)
     html = template.render(data)
     result = BytesIO()
